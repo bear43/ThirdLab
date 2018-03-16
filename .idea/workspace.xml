@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc61fd6b-0e97-4c16-a09e-e05f91e9b62a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/humanResources/BusinessTravel.java" afterPath="$PROJECT_DIR$/src/humanResources/BusinessTravel.java" />
-      <change beforePath="$PROJECT_DIR$/src/humanResources/Department.java" afterPath="$PROJECT_DIR$/src/humanResources/Department.java" />
-      <change beforePath="$PROJECT_DIR$/src/humanResources/Employee.java" afterPath="$PROJECT_DIR$/src/humanResources/Employee.java" />
-      <change beforePath="$PROJECT_DIR$/src/humanResources/PartTimeEmployee.java" afterPath="$PROJECT_DIR$/src/humanResources/PartTimeEmployee.java" />
-      <change beforePath="$PROJECT_DIR$/src/humanResources/Project.java" afterPath="$PROJECT_DIR$/src/humanResources/Project.java" />
-      <change beforePath="$PROJECT_DIR$/src/humanResources/ProjectsManager.java" afterPath="$PROJECT_DIR$/src/humanResources/ProjectsManager.java" />
-      <change beforePath="$PROJECT_DIR$/src/humanResources/StaffEmployee.java" afterPath="$PROJECT_DIR$/src/humanResources/StaffEmployee.java" />
-      <change beforePath="$PROJECT_DIR$/src/util/ArrayList.java" afterPath="$PROJECT_DIR$/src/util/ArrayList.java" />
-      <change beforePath="$PROJECT_DIR$/src/util/DoubleLinkedList.java" afterPath="$PROJECT_DIR$/src/util/DoubleLinkedList.java" />
-      <change beforePath="$PROJECT_DIR$/src/util/LinkedList.java" afterPath="$PROJECT_DIR$/src/util/LinkedList.java" />
-      <change beforePath="$PROJECT_DIR$/src/util/List.java" afterPath="$PROJECT_DIR$/src/util/List.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -493,12 +481,20 @@
       <workItem from="1520968553864" duration="5016000" />
       <workItem from="1521006441918" duration="546000" />
       <workItem from="1521050546529" duration="483000" />
-      <workItem from="1521168813572" duration="4980000" />
+      <workItem from="1521168813572" duration="5266000" />
     </task>
+    <task id="LOCAL-00001" summary="EAT BANANAS AND WRITE CODE, YOU MONKEY!!!!!!!">
+      <created>1521181076268</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1521181076268</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="175468000" />
+    <option name="totallyTimeSpent" value="175754000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -609,6 +605,8 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/../../../../../ВУЗ/Java/third" />
     </ignored-roots>
+    <MESSAGE value="EAT BANANAS AND WRITE CODE, YOU MONKEY!!!!!!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="EAT BANANAS AND WRITE CODE, YOU MONKEY!!!!!!!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -29,20 +29,20 @@ public class ProjectsManager implements GroupsManager
     @Override
     public int groupsQuantity()
     {
-        return groups.length();
+        return groups.size();
     }
 
     @Override
     public void add(EmployeeGroup groupable)
     {
-        groups.push(groupable);
+        groups.add(groupable);
     }
 
     @Override
     public EmployeeGroup getEmployeeGroup(String name)
     {
         EmployeeGroup[] groupArray = groups.toArray(EmployeeGroup[].class);
-        for(int i = 0; i < groups.length(); i++) //todo iterator
+        for(int i = 0; i < groups.size(); i++) //todo iterator
             if(groupArray[i].getName().equals(name))
                 return groupArray[i];
         return null;
@@ -75,8 +75,8 @@ public class ProjectsManager implements GroupsManager
     @Override
     public Employee mostValuableEmployee()
     {
-        if(groups == null || groups.length() == 0) return null;
-        Employee best = groups.pop_at(0).mostValuableEmployee();
+        if(groups == null || groups.size() == 0) return null;
+        Employee best = groups.at(0).mostValuableEmployee();
         Employee current;
         for(EmployeeGroup currentGroup : groups.toArray(EmployeeGroup[].class)) //todo iterator
         {
@@ -91,7 +91,7 @@ public class ProjectsManager implements GroupsManager
     public boolean remove(String groupName)
     {
         EmployeeGroup[] groupsArray = groups.toArray(EmployeeGroup[].class);
-        for(int i = 0; i < groups.length(); i++) //todo iterator
+        for(int i = 0; i < groups.size(); i++) //todo iterator
         {
             if(groupsArray[i].getName().equals(groupName))
                 return groups.remove(i);
@@ -102,8 +102,29 @@ public class ProjectsManager implements GroupsManager
     @Override
     public int remove(EmployeeGroup group)
     {
-        return groups.removeAll(group); //todo
+        //return groups.removeAll(group); //todo
+        return 0;
     }
 
     //todo toString() equals() hashCode()
+
+    @Override
+    public String toString()
+    {
+        StringBuilder sb = new StringBuilder();
+        for(EmployeeGroup eg : groups)
+            sb.append(eg.toString()).append("\n");
+        return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
 }

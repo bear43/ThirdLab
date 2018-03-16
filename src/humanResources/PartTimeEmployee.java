@@ -3,13 +3,13 @@ package humanResources;
 public class PartTimeEmployee extends Employee
 {
     @Override
-    public Integer getBonus() {
+    public int getBonus() {
         return 0;
     }
 
     @Override
-    public void setBonus(Integer bonus) {
-
+    public void setBonus(int bonus)
+    {
     }
 
     public PartTimeEmployee(String firstName, String lastName, JobTitlesEnum jobTitle, Integer salary)
@@ -26,14 +26,21 @@ public class PartTimeEmployee extends Employee
     public String toString()
     {
         StringBuilder sb = getString();
-        //todo
+        sb.insert(sb.lastIndexOf(", "), "(Внешний совместитель)");
+        //todo CHECK
         return sb.toString();
     }
 
     @Override
     public boolean equals(Object obj)
     {
-        return super.equals(obj) && obj instanceof PartTimeEmployee;
+        if(obj instanceof PartTimeEmployee)
+        {
+            Employee employee = (Employee) obj;
+            return super.equals(employee);
+        }
+        else
+            return false;
     }
 
     @Override

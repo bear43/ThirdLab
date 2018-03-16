@@ -1,8 +1,10 @@
 package util;
 
 import java.lang.reflect.Array;
-
-import static util.Util.*;
+import java.util.Iterator;
+import java.util.ListIterator;
+import java.util.NoSuchElementException;
+import java.util.function.Consumer;
 
 class Node <T>
 {
@@ -43,7 +45,8 @@ public class LinkedList<T> implements List<T>
 {
     /* Ссылка на голову */
     private Node<T> head;
-    //todo чтоб не писать херню с добавлением, добавь работу со следущим полем
+    //todo чтоб не писать херню с добавлением, добавь работу со следущим полем ADDED
+    /* Ссылка на хвост в виде последнего элемента(конца)*/
     private Node<T> tail;
     /* Количество элементов в списке */
     private int size;
@@ -52,41 +55,44 @@ public class LinkedList<T> implements List<T>
         if (array != null)
         {
             for (T element : array)
-                    push(element);
+                    add(element);
         }
     }
 
     public LinkedList() {
     }
 
-    public int length() {
+    public int size() {
         return size;
     }
 
     /* Добавляет новый элемент в конец */
-    //todo tail
-    public void push(T obj) {
-        if (head == null) {
-            head = new Node(obj, null);
-            size++;
-            return;
+    //todo tail TAILED
+    public void add(T obj)
+    {
+        if(tail == null)
+        {
+            head = new Node<T>(obj, null);
+            tail = head;
         }
-        Node<T> current = head;
-        while (current != null) {
-            if (current.getNext() == null)//Если следующий элемент несуществует
-            {
-                current.setNext(new Node(obj, null));//Делаем ссылку на новый элемент
-                size++;
-                return;
-            }
-            current = current.getNext();//Переходим к следующему элементу
+        else
+        {
+            tail.setNext(new Node<T>(obj, null));
+            tail = tail.getNext();
         }
+        size++;
     }
 
     /* Возвращает узел с данным индексом*/
+
+    /**
+     *
+     * @param index
+     * @exception ArrayIndexOutOfBoundsException
+     */
     private Node<T> popNode_at(int index)
     {
-        if (index >= size || head == null) return null; //todo throw
+        if (index >= size || index < 0) throw new ArrayIndexOutOfBoundsException(); //todo throw THROWED
         Node<T> obj = head;
         for (int i = 0; i < index; i++)
             obj = obj.getNext();
@@ -94,18 +100,15 @@ public class LinkedList<T> implements List<T>
     }
 
     /* Обращение к определенному индексу в массиве */
-    public T pop_at(int index) {
+    public T at(int index) {
         return popNode_at(index).getData();
     }
 
     /* возвращает последний элемент */
-    //todo tail
-    public T pop_back() {
-        if (head == null) return null;
-        Node<T> obj = head;
-        while (obj.getNext() != null)
-            obj = head.getNext();
-        return obj.getData();
+    //todo tail TAILED
+    public T pop_back()
+    {
+        return tail.getData();
     }
 
     /* Возвращает первый элемент*/
@@ -120,33 +123,44 @@ public class LinkedList<T> implements List<T>
     /* Удаление элемента по индексу */
     public boolean remove(int index) {
         if (head == null) return false;
+        if(index < 0 || index >= size) throw new ArrayIndexOutOfBoundsException();
         if(index == 0)//Удаляем голову
         {
             head = head.getNext();
             size--;
             return true;
         }
-        Node<T> victim = popNode_at(index -1); //todo переделай в соответсвии с логикой index-1 (без цикла)
-        Node<T> current = head;
-        while (current != null)
-        {
-            if (current.getNext() == victim) {
-                current.setNext(current.getNext().getNext());
-                size--;
-                return true;
-            }
-            current = current.getNext();
-        }
-        return false;
+        Node<T> prev = popNode_at(index - 1 );
+        prev.setNext(prev.getNext().getNext());
+        size--;
+        return true;
     }
 
     /* Удаляет элемент по ссылке на него*/
-    //todo no indexes
+    //todo no indexes DONE?
     public boolean remove(T obj)
     {
-        int removeIndex = indexOf(obj); //
-        if(removeIndex == -1) return false;
-        return remove(removeIndex);
+        Node<T> current = head;
+        if(obj.equals(head))
+        {
+            head = head.getNext();
+            size--;
+            return true;
+        }
+        else
+        {
+            for (int i = 0; i < size-1; i++)
+            {
+                if (current.getNext().getData().equals(obj))
+                {
+                    current.setNext(current.getNext().getNext());
+                    size--;
+                    return true;
+                }
+                current = current.getNext();
+            }
+        }
+        return false;
     }
 
     /* Добавление элемента в начало списка */
@@ -155,26 +169,53 @@ public class LinkedList<T> implements List<T>
     }
 
     /* Добавляет элемент в определенную позицию */
-    //todo жесть капец сделай вставку
-    public void push_at(int index, T obj) {
-
-    }
-
-    public T[] toArray(Class<T[]> type)
+    //todo жесть капец сделай вставку ВРОДЕ СДЕЛАЛ, НУ,ТАК СЕБЕ, КОСЯЧНО
+    /**
+     *
+     * @param index Element index to modify/create
+     * @exception ArrayIndexOutOfBoundsException if index < 0
+     */
+    public void push_at(int index, T obj)
     {
-        //todo
+        if(index < 0) throw new ArrayIndexOutOfBoundsException();
+        if(index >= size)
+        {
+            for(int i = size; i < index; i++)
+            {
+                tail.setNext(new Node<T>(null, null));
+                tail = tail.getNext();
+            }
+            tail.setNext(new Node<T>(obj, null));
+            size += index-size+1;
+        }
+        else
+        {
+            Node<T> current = head;
+            for(int i = 0; i <= index-1; i++)
+                head = head.getNext();
+            current.setData(obj);
+            size++;
+        }
     }
 
     /* Возвращает массив элементов */
-    private T[] listToArray(Node<T> current, Class<T[]> type)
+    public T[] toArray(Class<T[]> type)
     {
-        //todo
+        T[] array = (T[]) Array.newInstance(type.getComponentType(), size);
+        int index = 0;
+        for(T o : this)
+        {
+            array[index] = o;
+            index++;
+        }
+        return array;
+        //todo TODODED
     }
 
     /* Ищет элемент в списке. */
     public boolean contains(T obj)
     {
-        if(head == null) return false;
+        if(head == null) throw new NullPointerException();
         Node<T> current = head;
         while(current != null)
         {
@@ -188,12 +229,105 @@ public class LinkedList<T> implements List<T>
     public int indexOf(T obj)
     {
         if(head == null) return -1;
-        Node<T> current = head;
-        for(int i = 0; i < size; i++)
-            if(pop_at(i).equals(obj)) //todo иди по ссылкам без дибилизма с pop_at
-                return i;
+        int counter = -1;
+        for(T o : this)
+        {
+            counter++;
+            if(o.equals(obj))
+                return counter;
+        }
         return -1;
     }
 
+    //class Iterator implements Iterable
     //todo equals() toString() hashcode()
+
+    private class Iter<E> implements ListIterator<T>
+    {
+        private Node<T> last = head;
+        private Node<T> next;
+        private boolean hasNext;
+        private int nextIndex;
+
+        public Iter(int index)
+        {
+            if(index >= size || index < 0) throw new NoSuchElementException();
+            for(int i = 0; i < index; i++)
+                last = last.getNext();
+            next = last;
+            hasNext = next != null;
+            nextIndex = index++;
+        }
+
+        @Override
+        public boolean hasNext()
+        {
+            return this.hasNext;
+        }
+
+        @Override
+        public T next()
+        {
+            if(hasNext)
+            {
+                this.last = this.next;
+                this.next = this.next.getNext();
+                nextIndex++;
+                hasNext = this.next != null;
+                return last.getData();
+            }
+            else throw new NoSuchElementException();
+        }
+
+        @Override
+        public boolean hasPrevious()
+        {
+            return false;
+        }
+
+        @Override
+        public T previous()
+        {
+            throw new NoSuchElementException();
+        }
+
+        @Override
+        public int nextIndex() {
+            return nextIndex;
+        }
+
+        @Override
+        public int previousIndex() {
+            return nextIndex-1;
+        }
+
+        @Override
+        public void remove() {
+
+        }
+
+        @Override
+        public void forEachRemaining(Consumer<? super T> action)
+        {
+            while (nextIndex != size)
+            {
+                action.accept(next());
+            }
+        }
+
+        @Override
+        public void set(T e) {
+
+        }
+
+        @Override
+        public void add(T e) {
+
+        }
+    }
+
+    public Iterator<T> iterator()
+    {
+        return new Iter<T>(0);
+    }
 }

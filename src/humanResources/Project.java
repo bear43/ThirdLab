@@ -12,7 +12,7 @@ public class Project implements EmployeeGroup
     public Project(String name, Employee[] employees)
     {
         this.name = name;
-        this.employees = new LinkedList<Employee>(employees, Employee[].class);
+        this.employees = new LinkedList<Employee>(employees);
     }
 
     public Project(String name)
@@ -23,14 +23,14 @@ public class Project implements EmployeeGroup
     @Override
     public void add(Employee employee)
     {
-        employees.push(employee);
+        employees.add(employee);
     }
 
     @Override
     public Employee[] sortedEmployees()
     {
-        Employee[] sorted = Department.mergeSort(employees.toArray(Employee[].class), 0, employees.length());
-        fullReverse(sorted, employees.length());
+        Employee[] sorted = Department.mergeSort(employees.toArray(Employee[].class), 0, employees.size());
+        fullReverse(sorted, employees.size());
         return sorted;
     }
 
@@ -41,13 +41,13 @@ public class Project implements EmployeeGroup
 
     @Override
     public int employeeQuantity() {
-        return employees.length();
+        return employees.size();
     }
 
     @Override
     public boolean remove(String firstName, String lastName) {
-        for(int i = 0; i < employees.length(); i++)
-            if (employees.pop_at(i).compareByName(firstName, lastName)) //todo iterator
+        for(int i = 0; i < employees.size(); i++)
+            if (employees.at(i).compareByName(firstName, lastName)) //todo iterator
                 return employees.remove(i);
         return false;
     }
@@ -61,9 +61,9 @@ public class Project implements EmployeeGroup
     public Employee getEmployee(String firstName, String lastName)
     {
         Employee employee;
-        for(int i = 0; i < employees.length(); i++)
+        for(int i = 0; i < employees.size(); i++)
         {
-            employee = employees.pop_at(i); //todo iterator
+            employee = employees.at(i); //todo iterator
             if (employee.compareByName(firstName, lastName)) return employee;
         }
         return null;
@@ -83,9 +83,9 @@ public class Project implements EmployeeGroup
     public Employee mostValuableEmployee() {
         Employee current;
         Employee best = employees.pop_begin();
-        for(int i = 1; i < employees.length(); i++) //todo iterator
+        for(int i = 1; i < employees.size(); i++) //todo iterator
         {
-            current = employees.pop_at(i);
+            current = employees.at(i);
             if(current.getSalary() > best.getSalary()) best = current;
         }
         return best;
@@ -107,7 +107,7 @@ public class Project implements EmployeeGroup
         sb.append("Project ");
         if(name != null) sb.append(name);
         sb.append(" : ");
-        if(employees.length() != 0) sb.append(employees.length());
+        if(employees.size() != 0) sb.append(employees.size());
         sb.append("\n");
         sb.append(employees.toString());
         return sb.toString();
@@ -116,14 +116,10 @@ public class Project implements EmployeeGroup
     @Override
     public boolean equals(Object obj)
     {
-        //todo через && и с вызовом equals() на списке
-        if(!(obj instanceof Project)) return false;
-        Project comparing = (Project)obj;
-        if(!this.name.equals(comparing.name)) return false;
-        if(this.employees.length() != comparing.employees.length()) return false;
-        for(int i = 0; i < employees.length(); i++)
-            if(!employees.contains(comparing.employees.pop_at(i))) return false;
-        return true;
+        //todo через && и с вызовом equals() на списке CHECK
+        return (obj instanceof Project) &&
+                this.name.equals(((Project) obj).name) &&
+                this.employees.equals(((Project) obj).employees);
     }
 
     @Override

@@ -1,13 +1,13 @@
 package util;
 
-public interface List<T>
+public interface List<T> extends Iterable<T>
 {
     int DEFAULT_CAPACITY = 8;
-    int length();
-    void push(T obj);
+    int size();
+    void add(T obj);
     boolean remove(int index);
     boolean remove(T obj);
-    T pop_at(int index);
+    T at(int index);
     T pop_back();
     boolean contains(T obj);
     int indexOf(T obj);

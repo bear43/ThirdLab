@@ -27,7 +27,7 @@ public class StaffEmployee extends Employee implements BusinessTraveller
     @Override
     public void addTravel(BusinessTravel travel)
     {
-        travels.push(travel);
+        travels.add(travel);
     }
 
     @Override
@@ -37,13 +37,13 @@ public class StaffEmployee extends Employee implements BusinessTraveller
     }
 
     @Override
-    public Integer getBonus()
+    public int getBonus()
     {
         return bonus;
     }
 
     @Override
-    public void setBonus(Integer bonus)
+    public void setBonus(int bonus)
     {
         this.bonus = bonus;
     }
@@ -52,9 +52,9 @@ public class StaffEmployee extends Employee implements BusinessTraveller
     public String toString()
     {
         StringBuilder sb = getString();
-
-        //todo
-
+        //todo DONE
+        if(bonus != 0)
+            sb.append(", ").append(bonus).append("р.");
         sb.append(travels.toString());
         return sb.toString();
     }
@@ -62,22 +62,15 @@ public class StaffEmployee extends Employee implements BusinessTraveller
     @Override
     public boolean equals(Object obj)
     {
-        //todo refactor this
-        if(obj instanceof StaffEmployee)
-        {
-            StaffEmployee employee = (StaffEmployee)obj;
-            if(this.bonus != employee.bonus) return false;
-            if(this.travels.length() != employee.travels.length()) return false;
-            return true;
-        }
-        return false;
+        //todo refactor this DONE
+        return (obj instanceof StaffEmployee) && (this.bonus == ((StaffEmployee)obj).bonus) && (this.travels.equals(((StaffEmployee)obj).travels));
     }
 
     @Override
     public int hashCode()
     {
-        //todo refactor this
-        int hash = new Integer(bonus).hashCode();
+        //todo refactor this DONE
+        int hash = bonus;
         hash ^= travels.hashCode();
         return hash;
     }

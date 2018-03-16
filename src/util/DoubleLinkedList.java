@@ -1,24 +1,23 @@
 package util;
 
 import java.lang.reflect.Array;
+import java.util.Iterator;
 
-import static util.Util.*;
-
-//TODO СДЕЛАТЬ БЛЯТЬ ВЕЗДЕ ДЖЕНЕРИКИ!
+//TODO СДЕЛАТЬ БЛЯТЬ ВЕЗДЕ ДЖЕНЕРИКИ! Задженерекил
 class DuoNode<T>
 {
-    private DuoNode previous;
+    private DuoNode<T> previous;
     private T value;
-    private DuoNode next;
+    private DuoNode<T> next;
 
-    public DuoNode(DuoNode previous, T value, DuoNode next)
+    public DuoNode(DuoNode<T> previous, T value, DuoNode<T> next)
     {
         this.previous = previous;
         this.value = value;
         this.next = next;
     }
 
-    public DuoNode(DuoNode previous, T value)
+    public DuoNode(DuoNode<T> previous, T value)
     {
         this(previous, value, null);
     }
@@ -28,11 +27,11 @@ class DuoNode<T>
 
     }
 
-    public DuoNode getPrevious() {
+    public DuoNode<T> getPrevious() {
         return previous;
     }
 
-    public void setPrevious(DuoNode previous) {
+    public void setPrevious(DuoNode<T> previous) {
         this.previous = previous;
     }
 
@@ -48,7 +47,7 @@ class DuoNode<T>
         return next;
     }
 
-    public void setNext(DuoNode next) {
+    public void setNext(DuoNode<T> next) {
         this.next = next;
     }
 }
@@ -62,7 +61,7 @@ public class DoubleLinkedList<T> implements List<T>
 
     public DoubleLinkedList(T[] array, Class<T[]> type)
     {
-        for (T anArray : array) push(anArray);
+        for (T anArray : array) add(anArray);
     }
 
     public DoubleLinkedList()
@@ -71,7 +70,7 @@ public class DoubleLinkedList<T> implements List<T>
     }
 
     @Override
-    public int length() {
+    public int size() {
         return length;
     }
 
@@ -81,7 +80,7 @@ public class DoubleLinkedList<T> implements List<T>
      * @exception NullPointerException if obj == null
      */
     @Override
-    public void push(T obj)
+    public void add(T obj)
     {
         if(obj == null) throw new NullPointerException();
         if(head == null)
@@ -100,49 +99,30 @@ public class DoubleLinkedList<T> implements List<T>
     }
 
     //ToDO подправь логику работы с prev
+
+    /**
+     *
+     * @param index
+     * @exception ArrayIndexOutOfBoundsException if index >= length || index < 0
+     */
     @Override
     public boolean remove(int index)
     {
         if(index >= length || index < 0) throw new ArrayIndexOutOfBoundsException();
         int half = length/2;
-        length--;
-        if(length == 0)
-        {
-            head = null;
-            end = null;
-            return true;
-        }
-        //todo следующие 2 условия подходят под 3-е условие, и потому в топку их.
-        if(index == 0)
-        {
-            head = head.getNext();
-            head.setPrevious(end);
-            end.setNext(head);
-            return true;
-        }
-        if(index == length)
-        {
-            end = end.getPrevious();
-            end.setNext(head);
-            head.setPrevious(end);
-            return true;
-        }
-        DuoNode<T> current;
+        //todo следующие 2 условия подходят под 3-е условие, и потому в топку их. EDITED
+        DuoNode<T> current = end;
         if(index < half)
-        {
-            current = head;
-            for (int i = 0; i < index - 1; i++)
+            for (int i = 0; i < index; i++)
                 current = current.getNext();
-        }
         else
-        {
-            current = end;
             for(int i = length; i >= index; i--)
                 current = current.getPrevious();
-        }
         DuoNode<T> prev = current;
         current.setNext(current.getNext().getNext());
-        current.setPrevious(prev);
+        current.getNext().setPrevious(prev);
+        if(index == 0) head = current.getNext();
+        if(index == length-1) end = current.getNext();
         return true;
     }
 
@@ -156,25 +136,24 @@ public class DoubleLinkedList<T> implements List<T>
     }
 
     @Override
-    public T pop_at(int index)
+    public T at(int index)
     {
         return pop_node_at(index).getValue();
     }
-    //todo broken method
+    //todo broken method REPAIRED
     private DuoNode<T> pop_node_at(int index)
     {
-        if(index >= length || index < 0) //todo throw ;
-        DuoNode<T> current;
+        if(index >= length || index < 0) throw new ArrayIndexOutOfBoundsException();//todo THROWED
+        DuoNode<T> current = head;
         if(index < length/2)
         {
-            current = head;
-            for(int i = 0; i <= index; i++)
+            for(int i = 0; i < index; i++)
                 current = current.getNext();
         }
         else
         {
             current = end;
-            for(int i = length-1; i >= index; i--)
+            for(int i = length-1; i > index; i--)
                 current = current.getPrevious();
         }
         return current;
@@ -214,6 +193,11 @@ public class DoubleLinkedList<T> implements List<T>
             current = current.getNext();
         }
         return array;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return null;
     }
 
     //todo equals() hashCode() toString()

@@ -121,6 +121,36 @@ public class DepartmentsManager extends Sizeable implements GroupsManager
         return null;//Ничего не нашли
     }
 
+    private boolean isEqual(EmployeeGroup[] groups)
+    {
+        EmployeeGroup[] copiedGroups = new EmployeeGroup[groups.length];
+        System.arraycopy(groups, 0, copiedGroups, 0, groups.length);
+        int realSize = shiftNulls(copiedGroups);
+        if(size != realSize) return false;
+        else
+            for (int i = 0; i < realSize; i++)
+                if (!departments[i].equals(copiedGroups[i])) return false;
+        return true;
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        return (obj instanceof DepartmentsManager)
+                && (this.name.equals(((DepartmentsManager)obj).name)
+                && (isEqual(((DepartmentsManager)obj).departments)));
+    }
+
+    @Override
+    public int hashCode()
+    {
+        int depHash = departments[0].hashCode();
+        for(int i = 1; i < size; i++)
+            depHash ^= departments[i].hashCode();
+        return name.hashCode() ^ depHash;
+    }
+
+
     @Override
     public int groupsQuantity()
     {

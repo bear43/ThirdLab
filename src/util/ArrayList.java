@@ -1,6 +1,8 @@
 package util;
 
 import java.lang.reflect.Array;
+import java.util.Iterator;
+
 import static util.Util.*;
 
 public class ArrayList<T> implements List<T>
@@ -33,12 +35,12 @@ public class ArrayList<T> implements List<T>
         this((T[])new Object[DEFAULT_CAPACITY], DEFAULT_CAPACITY);
     }
     @Override
-    public int length() {
+    public int size() {
         return this.length;
     }
 
     @Override
-    public void push(T obj)
+    public void add(T obj)
     {
         if(obj == null) return;
         if(length >= array.length) array = expand(this.array, Object[].class);
@@ -63,7 +65,7 @@ public class ArrayList<T> implements List<T>
     }
 
     @Override
-    public T pop_at(int index) {
+    public T at(int index) {
         if(index >= length || index < 0) return null;
         return (T)array[index];
     }
@@ -98,8 +100,13 @@ public class ArrayList<T> implements List<T>
     {
         StringBuilder sb = new StringBuilder();
         sb.append("Arraylist of ").append(array.getClass().getCanonicalName()).append(".\n")
-                .append("length: ").append(length).append("\n")
+                .append("size: ").append(length).append("\n")
                 .append("capacity: ").append(array.length).append("\n");
         return sb.toString();
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return null;
     }
 }

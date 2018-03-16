@@ -71,9 +71,9 @@ public abstract class Employee
         return false;
     }
 
-    public abstract Integer getBonus();
+    public abstract int getBonus();
 
-    public abstract void setBonus(Integer bonus);
+    public abstract void setBonus(int bonus);
 
     protected StringBuilder getString() {
         StringBuilder sb = new StringBuilder();
@@ -88,26 +88,24 @@ public abstract class Employee
             sb.append(this.salary).append("р.");
         return sb;
     }
+
     @Override
     public String toString()
     {
-        /* Формат
-         * <secondName> <firstName>, <jobTitle>, <salary>р.
-         * */
         return getString().toString();
     }
 
-    //TODO сделать во всех остальных equals() так же
+    //TODO сделать во всех остальных equals() так же CHECK
     @Override
     public boolean equals(Object obj)
     {
         if(obj instanceof Employee)//Если на вход пришел экземпляр класса Employee
         {
             Employee employee = (Employee)obj;
-            return employee.firstName.equals(this.firstName) &&
-                   employee.lastName.equals(this.lastName) &&
-                   employee.jobTitle.equals(this.jobTitle) &&
-                   employee.salary == this.salary;
+            return  employee.firstName.equals(this.firstName) &&
+                    employee.lastName.equals(this.lastName) &&
+                    employee.jobTitle.equals(this.jobTitle) &&
+                    employee.salary == this.salary;
         }
         else
             return false;

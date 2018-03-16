@@ -4,8 +4,8 @@ public final class BusinessTravel
 {
     private final String destination;
     private final String description;
-    private final Integer compensation;
-    private final Integer daysCount;
+    private final int compensation;
+    private final int daysCount;
 
     public BusinessTravel(String destination, int daysCount, int compensation, String description)
     {
@@ -46,38 +46,32 @@ public final class BusinessTravel
         StringBuilder sb = new StringBuilder();
         if(this.destination != null && !this.destination.isEmpty())
             sb.append(this.destination).append(" ");
-        if(this.daysCount != null && !this.daysCount.equals(0))
+        if(this.daysCount != 0)
             sb.append(this.daysCount).append(" ");
-        if(this.compensation != null && !this.compensation.equals(0))
+        if(this.compensation != 0)
             sb.append("(").append(this.compensation).append("). ");
         if(this.description != null && !this.description.isEmpty())
             sb.append(this.description);
         return sb.toString();
     }
 
-    //todo
+    //todo CHECK
     @Override
     public boolean equals(Object obj)
     {
-        if(obj instanceof BusinessTravel)
-        {
-            BusinessTravel bt = (BusinessTravel)obj;
-            if(!this.description.equals(bt.description)) return false;
-            if(!this.compensation.equals(bt.compensation)) return false;
-            if(!this.daysCount.equals(bt.daysCount)) return false;
-            if(!this.destination.equals(bt.destination)) return false;
-        }
-        else
-            return false;
-        return true;
+        return (obj instanceof  BusinessTravel)
+                && (this.description.equals(((BusinessTravel)obj).description))
+                && (this.compensation == ((BusinessTravel)obj).compensation)
+                && (this.daysCount == ((BusinessTravel)obj).daysCount)
+                && (this.destination.equals(((BusinessTravel)obj).destination));
     }
 
     @Override
     public int hashCode()
     {
         int res = this.description.hashCode();
-        res ^= this.compensation.hashCode();
-        res ^= this.daysCount.hashCode();
+        res ^= this.compensation;
+        res ^= this.daysCount;
         res ^= this.destination.hashCode();
         return res;
     }

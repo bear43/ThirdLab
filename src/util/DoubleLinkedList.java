@@ -4,22 +4,23 @@ import java.lang.reflect.Array;
 
 import static util.Util.*;
 
+//TODO СДЕЛАТЬ БЛЯТЬ ВЕЗДЕ ДЖЕНЕРИКИ!
 class DuoNode<T>
 {
-    private DuoNode previously;
+    private DuoNode previous;
     private T value;
     private DuoNode next;
 
-    public DuoNode(DuoNode previously, T value, DuoNode next)
+    public DuoNode(DuoNode previous, T value, DuoNode next)
     {
-        this.previously = previously;
+        this.previous = previous;
         this.value = value;
         this.next = next;
     }
 
-    public DuoNode(DuoNode previously, T value)
+    public DuoNode(DuoNode previous, T value)
     {
-        this(previously, value, null);
+        this(previous, value, null);
     }
 
     public DuoNode()
@@ -27,12 +28,12 @@ class DuoNode<T>
 
     }
 
-    public DuoNode getPreviously() {
-        return previously;
+    public DuoNode getPrevious() {
+        return previous;
     }
 
-    public void setPreviously(DuoNode previously) {
-        this.previously = previously;
+    public void setPrevious(DuoNode previous) {
+        this.previous = previous;
     }
 
     public T getValue() {
@@ -43,7 +44,7 @@ class DuoNode<T>
         this.value = value;
     }
 
-    public DuoNode getNext() {
+    public DuoNode<T> getNext() {
         return next;
     }
 
@@ -61,11 +62,7 @@ public class DoubleLinkedList<T> implements List<T>
 
     public DoubleLinkedList(T[] array, Class<T[]> type)
     {
-        if(array == null) return;
-        T[] copy = (T[])Array.newInstance(type.getComponentType(), shiftNulls(array));
-        System.arraycopy(array, 0, copy, 0, copy.length);
-        for(int i = 0; i < copy.length; i++)
-            push(copy[i]);
+        for (T anArray : array) push(anArray);
     }
 
     public DoubleLinkedList()
@@ -78,29 +75,35 @@ public class DoubleLinkedList<T> implements List<T>
         return length;
     }
 
+    /**
+     *
+     * @param obj
+     * @exception NullPointerException if obj == null
+     */
     @Override
     public void push(T obj)
     {
-        if(obj == null) return;
+        if(obj == null) throw new NullPointerException();
         if(head == null)
         {
-            head = new DuoNode(null, obj, null);
+            head = new DuoNode<T>(null, obj, null);
             head.setNext(head);
             end = head;
-            head.setPreviously(end);
+            head.setPrevious(end);
             length++;
-            return;
+        } else {
+            end.setNext(new DuoNode<T>(end, obj, head));
+            end = end.getNext();
+            head.setPrevious(end);
+            length++;
         }
-        end.setNext(new DuoNode(end, obj, head));
-        end = end.getNext();
-        head.setPreviously(end);
-        length++;
     }
 
+    //ToDO подправь логику работы с prev
     @Override
     public boolean remove(int index)
     {
-        if(index >= length || index < 0) return false;
+        if(index >= length || index < 0) throw new ArrayIndexOutOfBoundsException();
         int half = length/2;
         length--;
         if(length == 0)
@@ -109,36 +112,37 @@ public class DoubleLinkedList<T> implements List<T>
             end = null;
             return true;
         }
+        //todo следующие 2 условия подходят под 3-е условие, и потому в топку их.
         if(index == 0)
         {
             head = head.getNext();
-            head.setPreviously(end);
+            head.setPrevious(end);
             end.setNext(head);
             return true;
         }
         if(index == length)
         {
-            end = end.getPreviously();
+            end = end.getPrevious();
             end.setNext(head);
-            head.setPreviously(end);
+            head.setPrevious(end);
             return true;
         }
         DuoNode<T> current;
         if(index < half)
         {
             current = head;
-            for (int i = 0; i < index-1; i++)
+            for (int i = 0; i < index - 1; i++)
                 current = current.getNext();
         }
         else
         {
             current = end;
             for(int i = length; i >= index; i--)
-                current = current.getPreviously();
+                current = current.getPrevious();
         }
         DuoNode<T> prev = current;
         current.setNext(current.getNext().getNext());
-        current.setPreviously(prev);
+        current.setPrevious(prev);
         return true;
     }
 
@@ -156,10 +160,10 @@ public class DoubleLinkedList<T> implements List<T>
     {
         return pop_node_at(index).getValue();
     }
-
-    public DuoNode<T> pop_node_at(int index)
+    //todo broken method
+    private DuoNode<T> pop_node_at(int index)
     {
-        if(index >= length || index < 0) return null;
+        if(index >= length || index < 0) //todo throw ;
         DuoNode<T> current;
         if(index < length/2)
         {
@@ -171,7 +175,7 @@ public class DoubleLinkedList<T> implements List<T>
         {
             current = end;
             for(int i = length-1; i >= index; i--)
-                current = current.getPreviously();
+                current = current.getPrevious();
         }
         return current;
     }
@@ -182,7 +186,7 @@ public class DoubleLinkedList<T> implements List<T>
     }
 
     @Override
-    public boolean find(T obj) {
+    public boolean contains(T obj) {
         return indexOf(obj) != -1;
     }
 
@@ -211,4 +215,6 @@ public class DoubleLinkedList<T> implements List<T>
         }
         return array;
     }
+
+    //todo equals() hashCode() toString()
 }

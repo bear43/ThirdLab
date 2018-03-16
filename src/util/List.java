@@ -9,7 +9,7 @@ public interface List<T>
     boolean remove(T obj);
     T pop_at(int index);
     T pop_back();
-    boolean find(T obj);
+    boolean contains(T obj);
     int indexOf(T obj);
     T[] toArray(Class<T[]> type);
 }

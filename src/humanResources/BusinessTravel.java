@@ -55,6 +55,7 @@ public final class BusinessTravel
         return sb.toString();
     }
 
+    //todo
     @Override
     public boolean equals(Object obj)
     {

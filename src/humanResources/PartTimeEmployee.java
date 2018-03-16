@@ -25,28 +25,15 @@ public class PartTimeEmployee extends Employee
     @Override
     public String toString()
     {
-        StringBuilder sb = new StringBuilder();
-        if(this.lastName != null && !this.lastName.isEmpty())
-            sb.append(this.lastName).append(" ");
-        if(this.firstName != null && !this.firstName.isEmpty())
-            sb.append(this.firstName).append(", ");
-        if(this.jobTitle != null && this.jobTitle != JobTitlesEnum.NONE)
-            sb.append(this.jobTitle).append(" (Внешний совместитель), ");
-        if(this.salary != null && this.salary != 0)
-            sb.append(this.salary).append("р.");
+        StringBuilder sb = getString();
+        //todo
         return sb.toString();
     }
 
     @Override
     public boolean equals(Object obj)
     {
-        if(obj instanceof PartTimeEmployee)
-        {
-            Employee e = (Employee) obj;
-            return super.equals(obj);
-        }
-        else
-            return false;
+        return super.equals(obj) && obj instanceof PartTimeEmployee;
     }
 
     @Override

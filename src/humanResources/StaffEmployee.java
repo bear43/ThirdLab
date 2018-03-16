@@ -51,29 +51,18 @@ public class StaffEmployee extends Employee implements BusinessTraveller
     @Override
     public String toString()
     {
-        StringBuilder sb = new StringBuilder();
-        if(this.lastName != null && !this.lastName.isEmpty())
-            sb.append(this.lastName).append(" ");
-        if(this.firstName != null && !this.firstName.isEmpty())
-            sb.append(this.firstName).append(", ");
-        if(this.jobTitle != JobTitlesEnum.NONE)
-            sb.append(this.jobTitle).append(", ");
-        if((this.salary != null && this.salary != 0) || this.bonus != 0)
-            sb.append(this.salary).append("р.,");
-        if(this.bonus != 0)
-            sb.append(this.bonus).append("р.");
-        if(this.travels.length() != 0)
-        {
-            sb.append("\nКомандировки:");
-            for (BusinessTravel travel : this.travels.toArray(BusinessTravel[].class))
-                sb.append("\n").append(travel.toString());
-        }
+        StringBuilder sb = getString();
+
+        //todo
+
+        sb.append(travels.toString());
         return sb.toString();
     }
 
     @Override
     public boolean equals(Object obj)
     {
+        //todo refactor this
         if(obj instanceof StaffEmployee)
         {
             StaffEmployee employee = (StaffEmployee)obj;
@@ -87,6 +76,7 @@ public class StaffEmployee extends Employee implements BusinessTraveller
     @Override
     public int hashCode()
     {
+        //todo refactor this
         int hash = new Integer(bonus).hashCode();
         hash ^= travels.hashCode();
         return hash;

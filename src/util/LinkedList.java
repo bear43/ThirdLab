@@ -43,16 +43,15 @@ public class LinkedList<T> implements List<T>
 {
     /* Ссылка на голову */
     private Node<T> head;
+    //todo чтоб не писать херню с добавлением, добавь работу со следущим полем
+    private Node<T> tail;
     /* Количество элементов в списке */
     private int size;
     /* Инициализирует список из входного массива */
-    public LinkedList(T[] array, Class<T[]> type) {
+    public LinkedList(T[] array) {
         if (array != null)
         {
-            T[] copied = (T[])Array.newInstance(type.getComponentType(), array.length);
-            System.arraycopy(array, 0, copied, 0, array.length);
-            for (T element : copied)
-                if (element != null)
+            for (T element : array)
                     push(element);
         }
     }
@@ -65,6 +64,7 @@ public class LinkedList<T> implements List<T>
     }
 
     /* Добавляет новый элемент в конец */
+    //todo tail
     public void push(T obj) {
         if (head == null) {
             head = new Node(obj, null);
@@ -86,7 +86,7 @@ public class LinkedList<T> implements List<T>
     /* Возвращает узел с данным индексом*/
     private Node<T> popNode_at(int index)
     {
-        if (index >= size || head == null) return null;
+        if (index >= size || head == null) return null; //todo throw
         Node<T> obj = head;
         for (int i = 0; i < index; i++)
             obj = obj.getNext();
@@ -99,6 +99,7 @@ public class LinkedList<T> implements List<T>
     }
 
     /* возвращает последний элемент */
+    //todo tail
     public T pop_back() {
         if (head == null) return null;
         Node<T> obj = head;
@@ -112,7 +113,7 @@ public class LinkedList<T> implements List<T>
         return head.getData();
     }
 
-    public Node<T> getHead() {
+    private Node<T> getHead() {
         return head;
     }
 
@@ -125,7 +126,7 @@ public class LinkedList<T> implements List<T>
             size--;
             return true;
         }
-        Node<T> victim = popNode_at(index);
+        Node<T> victim = popNode_at(index -1); //todo переделай в соответсвии с логикой index-1 (без цикла)
         Node<T> current = head;
         while (current != null)
         {
@@ -140,51 +141,38 @@ public class LinkedList<T> implements List<T>
     }
 
     /* Удаляет элемент по ссылке на него*/
+    //todo no indexes
     public boolean remove(T obj)
     {
-        int removeIndex = indexOf(obj);
+        int removeIndex = indexOf(obj); //
         if(removeIndex == -1) return false;
         return remove(removeIndex);
     }
 
     /* Добавление элемента в начало списка */
     public void push_begin(T obj) {
-        head = new Node<T>(obj, head);
-        size++;
+        push_at(0, obj);
     }
 
     /* Добавляет элемент в определенную позицию */
+    //todo жесть капец сделай вставку
     public void push_at(int index, T obj) {
-        if (index > size) return;//индекс больше, чем количество элементов
-        Node<T> replaceNode = popNode_at(index);
-        if (replaceNode == null) {
-            push(obj);
-            return;
-        }
-        replaceNode.setData(obj);
+
     }
 
     public T[] toArray(Class<T[]> type)
     {
-        if(head == null) return null;
-        T[] New = listToArray(head, type);
-        fullReverse(New, size);
-        return New;
+        //todo
     }
 
     /* Возвращает массив элементов */
     private T[] listToArray(Node<T> current, Class<T[]> type)
     {
-        if (current.getNext() == null) {
-            T[] lastElement = (T[]) Array.newInstance(type.getComponentType(), 1);
-            lastElement[0] = current.getData();
-            return lastElement;
-        }
-        return add(listToArray(current.getNext(), type), current.getData(), type);
+        //todo
     }
 
     /* Ищет элемент в списке. */
-    public boolean find(T obj)
+    public boolean contains(T obj)
     {
         if(head == null) return false;
         Node<T> current = head;
@@ -202,8 +190,10 @@ public class LinkedList<T> implements List<T>
         if(head == null) return -1;
         Node<T> current = head;
         for(int i = 0; i < size; i++)
-            if(pop_at(i).equals(obj))
+            if(pop_at(i).equals(obj)) //todo иди по ссылкам без дибилизма с pop_at
                 return i;
         return -1;
     }
+
+    //todo equals() toString() hashcode()
 }

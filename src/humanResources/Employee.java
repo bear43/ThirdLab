@@ -1,14 +1,15 @@
 package humanResources;
 
 
+import java.util.Formatter;
 
 public abstract class Employee
 {
     protected String firstName;
     protected String lastName;
     protected JobTitlesEnum jobTitle;
-    protected Integer salary;
-    protected static final Integer DEFAULT_SALARY = 0;
+    protected int salary;
+    protected static final int DEFAULT_SALARY = 0;
 
     protected Employee(String firstName, String lastName, JobTitlesEnum jobTitle, Integer salary)
     {
@@ -74,47 +75,52 @@ public abstract class Employee
 
     public abstract void setBonus(Integer bonus);
 
-    @Override
-    public String toString()
-    {
-        /* Формат
-         * <secondName> <firstName>, <jobTitle>, <salary>р.
-         * */
+    protected StringBuilder getString() {
         StringBuilder sb = new StringBuilder();
+        Formatter f = new Formatter();
         if(this.lastName != null && !this.lastName.isEmpty())
             sb.append(this.lastName).append(" ");
         if(this.firstName != null && !this.firstName.isEmpty())
             sb.append(this.firstName).append(", ");
         if(this.jobTitle != null && this.jobTitle != JobTitlesEnum.NONE)
             sb.append(this.jobTitle).append(", ");
-        if(this.salary != null && this.salary != 0)
+        if(this.salary != 0)
             sb.append(this.salary).append("р.");
-        return sb.toString();
+        return sb;
+    }
+    @Override
+    public String toString()
+    {
+        /* Формат
+         * <secondName> <firstName>, <jobTitle>, <salary>р.
+         * */
+        return getString().toString();
     }
 
+    //TODO сделать во всех остальных equals() так же
     @Override
     public boolean equals(Object obj)
     {
         if(obj instanceof Employee)//Если на вход пришел экземпляр класса Employee
         {
             Employee employee = (Employee)obj;
-            if(!employee.firstName.equals(this.firstName)) return false;
-            if(!employee.lastName.equals(this.lastName)) return false;
-            if(!employee.jobTitle.equals(this.jobTitle)) return false;
-            if(!employee.salary.equals(this.salary)) return false;
+            return employee.firstName.equals(this.firstName) &&
+                   employee.lastName.equals(this.lastName) &&
+                   employee.jobTitle.equals(this.jobTitle) &&
+                   employee.salary == this.salary;
         }
         else
             return false;
-        return true;
     }
 
     @Override
     public int hashCode()
     {
+
         int hash = this.firstName.hashCode();
         hash ^= this.lastName.hashCode();
         hash ^= this.jobTitle.hashCode();
-        hash ^= this.salary.hashCode();
+        hash ^= this.salary;
         return hash;
     }
 }

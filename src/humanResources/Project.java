@@ -47,7 +47,7 @@ public class Project implements EmployeeGroup
     @Override
     public boolean remove(String firstName, String lastName) {
         for(int i = 0; i < employees.length(); i++)
-            if (employees.pop_at(i).compareByName(firstName, lastName))
+            if (employees.pop_at(i).compareByName(firstName, lastName)) //todo iterator
                 return employees.remove(i);
         return false;
     }
@@ -63,7 +63,7 @@ public class Project implements EmployeeGroup
         Employee employee;
         for(int i = 0; i < employees.length(); i++)
         {
-            employee = employees.pop_at(i);
+            employee = employees.pop_at(i); //todo iterator
             if (employee.compareByName(firstName, lastName)) return employee;
         }
         return null;
@@ -83,7 +83,7 @@ public class Project implements EmployeeGroup
     public Employee mostValuableEmployee() {
         Employee current;
         Employee best = employees.pop_begin();
-        for(int i = 1; i < employees.length(); i++)
+        for(int i = 1; i < employees.length(); i++) //todo iterator
         {
             current = employees.pop_at(i);
             if(current.getSalary() > best.getSalary()) best = current;
@@ -95,7 +95,7 @@ public class Project implements EmployeeGroup
     public int getEmployeesQuantityByJob(JobTitlesEnum jobtitle)
     {
         int counter = 0;
-        for(Employee e : employees.toArray(Employee[].class))
+        for(Employee e : employees.toArray(Employee[].class)) //todo iterator
             if(e.getJobTitle().equals(jobtitle)) counter++;
         return counter;
     }
@@ -109,20 +109,20 @@ public class Project implements EmployeeGroup
         sb.append(" : ");
         if(employees.length() != 0) sb.append(employees.length());
         sb.append("\n");
-        for(int i = 0; i < employees.length(); i++)
-            sb.append(employees.pop_at(i)).append("\n");
+        sb.append(employees.toString());
         return sb.toString();
     }
 
     @Override
     public boolean equals(Object obj)
     {
+        //todo через && и с вызовом equals() на списке
         if(!(obj instanceof Project)) return false;
         Project comparing = (Project)obj;
         if(!this.name.equals(comparing.name)) return false;
         if(this.employees.length() != comparing.employees.length()) return false;
         for(int i = 0; i < employees.length(); i++)
-            if(!employees.find(comparing.employees.pop_at(i))) return false;
+            if(!employees.contains(comparing.employees.pop_at(i))) return false;
         return true;
     }
 

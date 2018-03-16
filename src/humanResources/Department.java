@@ -297,7 +297,7 @@ public class Department implements EmployeeGroup
     {
         LinkedList<JobTitlesEnum> jobTitles = new LinkedList<JobTitlesEnum>();
         for(Employee current : employees.toArray(Employee[].class))
-            if(!jobTitles.find(current.jobTitle))
+            if(!jobTitles.contains(current.jobTitle))
                 jobTitles.push(current.jobTitle);
         return jobTitles.toArray(JobTitlesEnum[].class);
     }
@@ -345,7 +345,7 @@ public class Department implements EmployeeGroup
         if(!this.name.equals(incomingDepartment.name)) return false;
         if(this.employees.length() != incomingDepartment.employees.length()) return false;
         for(Employee current : this.employees.toArray(Employee[].class))
-            if(!incomingDepartment.employees.find(current)) return false;
+            if(!incomingDepartment.employees.contains(current)) return false;
         return true;
     }
 

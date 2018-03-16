@@ -74,7 +74,7 @@ public class ArrayList<T> implements List<T>
     }
 
     @Override
-    public boolean find(T obj) {
+    public boolean contains(T obj) {
         if(indexOf(obj) != -1) return true;
         return false;
     }

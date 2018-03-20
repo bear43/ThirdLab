@@ -9,9 +9,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2new/util/Util.class" afterPath="$PROJECT_DIR$/out/production/2new/util/Util.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/humanResources/DepartmentsManager.java" afterPath="$PROJECT_DIR$/src/humanResources/DepartmentsManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/LinkedList.java" afterPath="$PROJECT_DIR$/src/util/LinkedList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/Util.java" afterPath="$PROJECT_DIR$/src/util/Util.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,7 +22,18 @@
     <SUITE FILE_PATH="coverage/ThirdLab$Main.coverage" NAME="Main Coverage Results" MODIFIED="1521568300935" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="266">
+              <caret line="46" column="51" lean-forward="false" selection-start-line="46" selection-start-column="51" selection-end-line="46" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -98,8 +106,8 @@
         <option value="$PROJECT_DIR$/src/util/DoubleLinkedList.java" />
         <option value="$PROJECT_DIR$/src/humanResources/DepartmentsManager.java" />
         <option value="$PROJECT_DIR$/src/util/Util.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/util/LinkedList.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
       </list>
     </option>
   </component>
@@ -150,32 +158,6 @@
               <item name="ThirdLab" type="b2602c69:ProjectViewProjectNode" />
               <item name="ThirdLab" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ThirdLab" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ThirdLab" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="humanResources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ThirdLab" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ThirdLab" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ThirdLab" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ThirdLab" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-              <item name="DoubleLinkedList.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
-            </path>
-            <path>
-              <item name="ThirdLab" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ThirdLab" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-              <item name="LinkedList.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </path>
           </expand>
           <select />
@@ -367,7 +349,7 @@
       <workItem from="1521300332111" duration="15608000" />
       <workItem from="1521317408508" duration="391000" />
       <workItem from="1521555275626" duration="4189000" />
-      <workItem from="1521564320524" duration="7807000" />
+      <workItem from="1521564320524" duration="7910000" />
     </task>
     <task id="LOCAL-00001" summary="EAT BANANAS AND WRITE CODE, YOU MONKEY!!!!!!!">
       <created>1521181076268</created>
@@ -397,11 +379,18 @@
       <option name="project" value="LOCAL" />
       <updated>1521570074169</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Ready + Ready">
+      <created>1521572274215</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1521572274215</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="232056000" />
+    <option name="totallyTimeSpent" value="232159000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -414,6 +403,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24717833" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -429,7 +419,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16058002" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16058002" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32505643" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -515,7 +505,8 @@
     <MESSAGE value="EAT BANANAS AND WRITE CODE, YOU MONKEY!!!!!!!" />
     <MESSAGE value="So-so" />
     <MESSAGE value="Ready" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ready" />
+    <MESSAGE value="Ready + Ready" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ready + Ready" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -525,12 +516,6 @@
           <line>47</line>
           <properties />
           <option name="timeStamp" value="185" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>54</line>
-          <properties />
-          <option name="timeStamp" value="214" />
         </line-breakpoint>
       </breakpoints>
       <option name="time" value="215" />
@@ -549,9 +534,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="16" column="8" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
-          <folding>
-            <element signature="e#2412#2420#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -587,9 +570,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="8" column="51" lean-forward="false" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
-          <folding>
-            <element signature="e#2412#2420#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -865,11 +846,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="52" column="25" lean-forward="true" selection-start-line="52" selection-start-column="25" selection-end-line="52" selection-end-column="25" />
-          <folding>
-            <element signature="e#2412#2420#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="266">
+          <caret line="46" column="51" lean-forward="false" selection-start-line="46" selection-start-column="51" selection-end-line="46" selection-end-column="51" />
+          <folding />
         </state>
       </provider>
     </entry>

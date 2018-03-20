@@ -45,13 +45,5 @@ public class Main
         System.out.println(depManager.remove("iPhone"));
         System.out.println(depManager.groupsQuantity());
         System.out.println(depManager.equals(man));
-        LinkedList<String> hui = new LinkedList<String>();
-        hui.add("Pizda");
-        hui.add("Da");
-        hui.add("Manda");
-        hui.add("Mne pohui");
-        hui.add("Jaica");
-        hui.add("Pesos");
-        hui.remove("Manda");
     }
 }

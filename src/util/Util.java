@@ -47,7 +47,7 @@ public class Util
             }
             counter++;//Этот элемент не null, увеличиваем счетчик
         }
-        return counter+1;//Возвращаем реальное количество элементов
+        return counter;//Возвращаем реальное количество элементов
     }
     public static <T> T[] expand(T[] obj, Class<? extends T[]> type)
     {
@@ -69,9 +69,11 @@ public class Util
         if(toUnique == null || out == null) throw new NullPointerException();
         for(T element : toUnique)
             if(out.size() != 0)
-                if(!out.contains(element))
+            {
+                if (!out.contains(element))
                     out.add(element);
-                else
-                    out.add(element);
+            }
+            else
+                out.add(element);
     }
 }

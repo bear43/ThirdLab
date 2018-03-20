@@ -68,6 +68,13 @@ public class LinkedList<T> implements List<T>
     private Node<T> tail;
     /* Количество элементов в списке */
     private int size;
+
+    public LinkedList(T[] array, int size)
+    {
+        if(array != null)
+            for(int i = 0; i < size; i++)
+                add(array[i]);
+    }
     /* Инициализирует список из входного массива */
     public LinkedList(T[] array)
     {
@@ -276,7 +283,7 @@ public class LinkedList<T> implements List<T>
         private boolean hasPrev;
         private int nextIndex;
 
-        public Iter(int index)
+        Iter(int index)
         {
             if(index >= size || index < 0) throw new NoSuchElementException();
             for(int i = 0; i < index; i++)

@@ -11,6 +11,7 @@ public class Main
     public static void main(String[] args)
     {
         DepartmentsManager depManager = new DepartmentsManager("Apple Inc.");
+        DepartmentsManager man = new DepartmentsManager("Apple Inc.");
         ProjectsManager projManager = new ProjectsManager();
         depManager.add(new Department("Security", new Employee[]{
                 new StaffEmployee("John", "Watson", JobTitlesEnum.ANALYST, 1500, new BusinessTravel[]{
@@ -29,10 +30,28 @@ public class Main
         });
         depManager.add(proj);
         projManager.add(proj);
+        man.add(proj);
+        man.add(new Department("Security", new Employee[]{
+                new StaffEmployee("John", "Watson", JobTitlesEnum.ANALYST, 1500, new BusinessTravel[]{
+                        new BusinessTravel("London", 30, 5000, "Relax"),
+                        new BusinessTravel("Moscow", 777, 100500, "Kill Putin"),
+                        new BusinessTravel("Samara", 90, 0, "Pass Java")
+                }, 100),
+                new PartTimeEmployee("Vasya", "Pupkin", JobTitlesEnum.ASSISTANT, 150),
+                new PartTimeEmployee("Bill", "Gates", JobTitlesEnum.NONE, 666)
+        }));
         System.out.println(depManager.employeesQuantity());
         System.out.println(depManager.mostValuableEmployee());
         System.out.println(depManager.remove("iPhone"));
         System.out.println(depManager.groupsQuantity());
-        System.out.println();
+        System.out.println(depManager.equals(man));
+        LinkedList<String> hui = new LinkedList<String>();
+        hui.add("Pizda");
+        hui.add("Da");
+        hui.add("Manda");
+        hui.add("Mne pohui");
+        hui.add("Jaica");
+        hui.add("Pesos");
+        hui.remove("Manda");
     }
 }

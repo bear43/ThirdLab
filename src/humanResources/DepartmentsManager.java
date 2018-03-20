@@ -1,5 +1,7 @@
 package humanResources;
 
+import sun.awt.image.ImageWatched;
+import util.LinkedList;
 import util.Sizeable;
 import static util.Util.*;
 
@@ -123,14 +125,12 @@ public class DepartmentsManager extends Sizeable implements GroupsManager
 
     private boolean isEqual(EmployeeGroup[] groups)
     {
-        EmployeeGroup[] copiedGroups = new EmployeeGroup[groups.length];
-        System.arraycopy(groups, 0, copiedGroups, 0, groups.length);
-        int realSize = shiftNulls(copiedGroups);
-        if(size != realSize) return false;
-        else
-            for (int i = 0; i < realSize; i++)
-                if (!departments[i].equals(copiedGroups[i])) return false;
-        return true;
+
+        int comparingSize = shiftNulls(groups);
+        int thisSize = shiftNulls(departments);
+        LinkedList<EmployeeGroup> list = new LinkedList<EmployeeGroup>(groups, comparingSize);
+        LinkedList<EmployeeGroup> thisList = new LinkedList<EmployeeGroup>(departments, thisSize);
+        return thisList.equals(list);
     }
 
     @Override

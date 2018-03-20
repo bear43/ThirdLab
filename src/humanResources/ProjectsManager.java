@@ -7,14 +7,14 @@ public class ProjectsManager implements GroupsManager
 
     private DoubleLinkedList<EmployeeGroup> groups;
 
-    public ProjectsManager(EmployeeGroup[] groups)
+    private ProjectsManager(EmployeeGroup[] groups)
     {
-        this.groups = new DoubleLinkedList<EmployeeGroup>(groups, EmployeeGroup[].class);
+        this.groups = new DoubleLinkedList<EmployeeGroup>(groups);
     }
 
     public ProjectsManager()
     {
-        this(null);
+        this(new EmployeeGroup[0]);
     }
 
     @Override

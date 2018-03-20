@@ -2,6 +2,8 @@ package humanResources;
 
 import util.LinkedList;
 
+import java.util.Iterator;
+
 import static util.Util.*;
 
 public class Project implements EmployeeGroup
@@ -45,10 +47,17 @@ public class Project implements EmployeeGroup
     }
 
     @Override
-    public boolean remove(String firstName, String lastName) {
-        for(int i = 0; i < employees.size(); i++)
-            if (employees.at(i).compareByName(firstName, lastName)) //todo iterator
-                return employees.remove(i);
+    public boolean remove(String firstName, String lastName)//todo Iterator done
+    {
+        Iterator<Employee> iterator = employees.iterator();
+        while(iterator.hasNext())
+        {
+            if(iterator.next().compareByName(firstName, lastName))
+            {
+                iterator.remove();
+                return true;
+            }
+        }
         return false;
     }
 
@@ -60,11 +69,10 @@ public class Project implements EmployeeGroup
     @Override
     public Employee getEmployee(String firstName, String lastName)
     {
-        Employee employee;
-        for(int i = 0; i < employees.size(); i++)
+        for(Employee e : employees)
         {
-            employee = employees.at(i); //todo iterator
-            if (employee.compareByName(firstName, lastName)) return employee;
+            if(e.compareByName(firstName, lastName))
+                return e;
         }
         return null;
     }
@@ -80,23 +88,24 @@ public class Project implements EmployeeGroup
     }
 
     @Override
-    public Employee mostValuableEmployee() {
-        Employee current;
-        Employee best = employees.pop_begin();
-        for(int i = 1; i < employees.size(); i++) //todo iterator
+    public Employee mostValuableEmployee() //todo iterator done
+    {
+        Employee best = employees.at(0);
+        for(Employee e : employees)
         {
-            current = employees.at(i);
-            if(current.getSalary() > best.getSalary()) best = current;
+            if(best.getSalary() < e.getSalary())
+                best = e;
         }
         return best;
     }
 
     @Override
-    public int getEmployeesQuantityByJob(JobTitlesEnum jobtitle)
+    public int getEmployeesQuantityByJob(JobTitlesEnum jobtitle)//todo Iterator done
     {
         int counter = 0;
-        for(Employee e : employees.toArray(Employee[].class)) //todo iterator
-            if(e.getJobTitle().equals(jobtitle)) counter++;
+        for(Employee employee : employees)
+            if(employee.getJobTitle().equals(jobtitle))
+                counter++;
         return counter;
     }
 

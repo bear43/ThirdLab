@@ -10,7 +10,7 @@ public class StaffEmployee extends Employee implements BusinessTraveller
     public StaffEmployee(String firstName, String lastName, JobTitlesEnum jobTitle, int salary, BusinessTravel[] travels, int bonus)
     {
         super(firstName, lastName, jobTitle, salary);
-        this.travels = new DoubleLinkedList<BusinessTravel>(travels, BusinessTravel[].class);
+        this.travels = new DoubleLinkedList<BusinessTravel>(travels);
         this.bonus = bonus;
     }
 

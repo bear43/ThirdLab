@@ -63,4 +63,15 @@ public class Util
         united[united.length-1] = element;
         return united;
     }
+
+    static <T> void getUnique(List<T> toUnique, List<T> out)
+    {
+        if(toUnique == null || out == null) throw new NullPointerException();
+        for(T element : toUnique)
+            if(out.size() != 0)
+                if(!out.contains(element))
+                    out.add(element);
+                else
+                    out.add(element);
+    }
 }

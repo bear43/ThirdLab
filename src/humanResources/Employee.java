@@ -5,11 +5,11 @@ import java.util.Formatter;
 
 public abstract class Employee
 {
-    protected String firstName;
-    protected String lastName;
-    protected JobTitlesEnum jobTitle;
-    protected int salary;
-    protected static final int DEFAULT_SALARY = 0;
+    String firstName;
+    String lastName;
+    JobTitlesEnum jobTitle;
+    int salary;
+    static final int DEFAULT_SALARY = 0;
 
     protected Employee(String firstName, String lastName, JobTitlesEnum jobTitle, Integer salary)
     {
@@ -24,7 +24,7 @@ public abstract class Employee
         this(firstName, lastName, JobTitlesEnum.NONE,  DEFAULT_SALARY);
     }
 
-    public String getLastName() {
+    String getLastName() {
         return lastName;
     }
 
@@ -32,7 +32,7 @@ public abstract class Employee
         this.lastName = lastName;
     }
 
-    public String getFirstName() {
+    String getFirstName() {
         return firstName;
     }
 
@@ -40,7 +40,7 @@ public abstract class Employee
         this.firstName = firstName;
     }
 
-    public JobTitlesEnum getJobTitle() {
+    JobTitlesEnum getJobTitle() {
         return jobTitle;
     }
 
@@ -48,7 +48,7 @@ public abstract class Employee
         this.jobTitle = jobTitle;
     }
 
-    public int getSalary() {
+    int getSalary() {
         return salary;
     }
 
@@ -57,18 +57,16 @@ public abstract class Employee
     }
 
 
-    public boolean compareByName(Employee e)
+    boolean compareByName(Employee e)
     {
-        if(this.firstName.equals(e.firstName) && this.lastName.equals(e.lastName))
-            return true;
-        return false;
+        return this.firstName.equals(e.firstName) &&
+                this.lastName.equals(e.lastName);
     }
 
-    public boolean compareByName(String firstName, String secondName)
+    boolean compareByName(String firstName, String secondName)
     {
-        if(this.firstName.equals(firstName) && this.lastName.equals(secondName))
-            return true;
-        return false;
+        return this.firstName.equals(firstName) &&
+                this.lastName.equals(secondName);
     }
 
     public abstract int getBonus();
@@ -86,6 +84,7 @@ public abstract class Employee
             sb.append(this.jobTitle).append(", ");
         if(this.salary != 0)
             sb.append(this.salary).append("р.");
+        sb.append("\n");
         return sb;
     }
 

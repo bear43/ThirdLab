@@ -1,5 +1,8 @@
 import humanResources.*;
+import util.DoubleLinkedList;
 import util.LinkedList;
+
+import java.util.Iterator;
 
 import static util.Sizeable.*;
 
@@ -7,7 +10,7 @@ public class Main
 {
     public static void main(String[] args)
     {
-        /*DepartmentsManager depManager = new DepartmentsManager("Apple Inc.");
+        DepartmentsManager depManager = new DepartmentsManager("Apple Inc.");
         ProjectsManager projManager = new ProjectsManager();
         depManager.add(new Department("Security", new Employee[]{
                 new StaffEmployee("John", "Watson", JobTitlesEnum.ANALYST, 1500, new BusinessTravel[]{
@@ -30,16 +33,6 @@ public class Main
         System.out.println(depManager.mostValuableEmployee());
         System.out.println(depManager.remove("iPhone"));
         System.out.println(depManager.groupsQuantity());
-        System.out.println();*/
-
-        LinkedList<String> str = new LinkedList<String>();
-        str.add("kek");
-        str.add("mek");
-        str.add("fer");
-        str.push_at(1000000, "Frau");
-        for(String so : str)
-        {
-            System.out.println(so);
-        }
+        System.out.println();
     }
 }

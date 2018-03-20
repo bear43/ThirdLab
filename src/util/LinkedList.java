@@ -6,12 +6,14 @@ import java.util.ListIterator;
 import java.util.NoSuchElementException;
 import java.util.function.Consumer;
 
+import static util.Util.getUnique;
+
 class Node <T>
 {
     private T data;
     private Node<T> next;
 
-    public Node(T data, Node<T> next)
+    Node(T data, Node<T> next)
     {
         this.data = data;
         this.next = next;
@@ -22,27 +24,43 @@ class Node <T>
         this(null, null);
     }
 
-    public void setData(T data) {
+    void setData(T data) {
         this.data = data;
     }
 
-    public T getData() {
+    T getData() {
         return data;
     }
 
-    public void setNext(Node<T> next)
+    void setNext(Node<T> next)
     {
         this.next = next;
     }
 
-    public Node<T> getNext()
+    Node<T> getNext()
     {
         return next;
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return (data != null ? data.hashCode() : 0);
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        return (obj instanceof Node) &&
+                ((Node) obj).data.equals(data) &&
+                ((Node) obj).next.equals(next);
     }
 }
 
 public class LinkedList<T> implements List<T>
 {
+    /* Какой класс является используемым для дженерика.
+    * Используется для операции сравнивания */
     /* Ссылка на голову */
     private Node<T> head;
     //todo чтоб не писать херню с добавлением, добавь работу со следущим полем ADDED
@@ -51,7 +69,8 @@ public class LinkedList<T> implements List<T>
     /* Количество элементов в списке */
     private int size;
     /* Инициализирует список из входного массива */
-    public LinkedList(T[] array) {
+    public LinkedList(T[] array)
+    {
         if (array != null)
         {
             for (T element : array)
@@ -59,7 +78,9 @@ public class LinkedList<T> implements List<T>
         }
     }
 
-    public LinkedList() {
+    public LinkedList()
+    {
+
     }
 
     public int size() {
@@ -116,10 +137,6 @@ public class LinkedList<T> implements List<T>
         return head.getData();
     }
 
-    private Node<T> getHead() {
-        return head;
-    }
-
     /* Удаление элемента по индексу */
     public boolean remove(int index) {
         if (head == null) return false;
@@ -127,11 +144,13 @@ public class LinkedList<T> implements List<T>
         if(index == 0)//Удаляем голову
         {
             head = head.getNext();
+            if(size == 1) tail = null;
             size--;
             return true;
         }
         Node<T> prev = popNode_at(index - 1 );
         prev.setNext(prev.getNext().getNext());
+        if(index == size-1) tail = prev;
         size--;
         return true;
     }
@@ -141,9 +160,10 @@ public class LinkedList<T> implements List<T>
     public boolean remove(T obj)
     {
         Node<T> current = head;
-        if(obj.equals(head))
+        if(obj.equals(head.getData()))
         {
             head = head.getNext();
+            if(size == 1) tail = null;
             size--;
             return true;
         }
@@ -153,6 +173,7 @@ public class LinkedList<T> implements List<T>
             {
                 if (current.getNext().getData().equals(obj))
                 {
+                    if(current.getNext() == tail) tail = current;
                     current.setNext(current.getNext().getNext());
                     size--;
                     return true;
@@ -180,13 +201,18 @@ public class LinkedList<T> implements List<T>
         if(index < 0) throw new ArrayIndexOutOfBoundsException();
         if(index >= size)
         {
-            for(int i = size; i < index; i++)
+            if(index == 0)
+                add(obj);
+            else
             {
-                tail.setNext(new Node<T>(null, null));
+                for (int i = size; i < index; i++) {
+                    tail.setNext(new Node<T>(null, null));
+                    tail = tail.getNext();
+                }
+                tail.setNext(new Node<T>(obj, null));
                 tail = tail.getNext();
+                size += index - size + 1;
             }
-            tail.setNext(new Node<T>(obj, null));
-            size += index-size+1;
         }
         else
         {
@@ -194,7 +220,6 @@ public class LinkedList<T> implements List<T>
             for(int i = 0; i <= index-1; i++)
                 head = head.getNext();
             current.setData(obj);
-            size++;
         }
     }
 
@@ -228,25 +253,27 @@ public class LinkedList<T> implements List<T>
     /* Возвращает "индекс" элемента */
     public int indexOf(T obj)
     {
-        if(head == null) return -1;
-        int counter = -1;
-        for(T o : this)
+        if(head == null || obj == null) return -1;
+        Node<T> current = head;
+        for(int i = 0; i < size; i++)
         {
-            counter++;
-            if(o.equals(obj))
-                return counter;
+            if(current.equals(obj))
+                return i;
+            else
+                current = current.getNext();
         }
         return -1;
     }
 
-    //class Iterator implements Iterable
-    //todo equals() toString() hashcode()
+    //todo equals() toString() hashcode() DONE?
 
     private class Iter<E> implements ListIterator<T>
     {
-        private Node<T> last = head;
-        private Node<T> next;
+        private Node<T> prev = null;
+        private Node<T> last = null;
+        private Node<T> next = head;
         private boolean hasNext;
+        private boolean hasPrev;
         private int nextIndex;
 
         public Iter(int index)
@@ -254,9 +281,8 @@ public class LinkedList<T> implements List<T>
             if(index >= size || index < 0) throw new NoSuchElementException();
             for(int i = 0; i < index; i++)
                 last = last.getNext();
-            next = last;
             hasNext = next != null;
-            nextIndex = index++;
+            nextIndex = index;
         }
 
         @Override
@@ -268,27 +294,36 @@ public class LinkedList<T> implements List<T>
         @Override
         public T next()
         {
-            if(hasNext)
+            if(next != null)
             {
+                this.prev = last;
                 this.last = this.next;
-                this.next = this.next.getNext();
+                this.next = this.next != null ? this.next.getNext() : null;
                 nextIndex++;
                 hasNext = this.next != null;
+                hasPrev = this.prev != null;
                 return last.getData();
             }
-            else throw new NoSuchElementException();
+            else
+            {
+                hasNext = false;
+                return last.getData();
+            }
         }
 
         @Override
         public boolean hasPrevious()
         {
-            return false;
+            return hasPrev;
         }
 
         @Override
         public T previous()
         {
-            throw new NoSuchElementException();
+            if(hasPrev)
+                return prev.getData();
+            else
+                throw new NoSuchElementException();
         }
 
         @Override
@@ -298,21 +333,57 @@ public class LinkedList<T> implements List<T>
 
         @Override
         public int previousIndex() {
-            return nextIndex-1;
+            return nextIndex-2;
         }
 
         @Override
-        public void remove() {
-
+        public void remove()
+        {
+            if(hasPrev && hasNext)
+            {
+                prev.setNext(next);
+                last = next;
+                next = next.getNext();
+                hasNext = last != null;
+            }
+            else if(hasPrev)
+            {
+                tail = last = prev;
+                prev.setNext(null);
+                next = null;
+                hasNext = false;
+                hasPrev = prev != null;
+            }
+            else if(hasNext)
+            {
+                if(size == 1)
+                {
+                    head = null;
+                    tail = null;
+                    hasNext = false;
+                    hasPrev = false;
+                    last = null;
+                    nextIndex++;
+                }
+                else
+                {
+                    head = next;
+                    prev = null;
+                    last = null;
+                    next = next.getNext();
+                    hasPrev = prev != null;
+                    hasNext = next != null;
+                }
+            }
+            nextIndex--;
+            size--;
         }
 
         @Override
         public void forEachRemaining(Consumer<? super T> action)
         {
             while (nextIndex != size)
-            {
                 action.accept(next());
-            }
         }
 
         @Override
@@ -321,7 +392,8 @@ public class LinkedList<T> implements List<T>
         }
 
         @Override
-        public void add(T e) {
+        public void add(T e)
+        {
 
         }
     }
@@ -329,5 +401,60 @@ public class LinkedList<T> implements List<T>
     public Iterator<T> iterator()
     {
         return new Iter<T>(0);
+    }
+
+    /**
+     *
+     * @param obj Comparing object
+     * @return true if elements are equal and its order isn't important
+     */
+    @Override
+    public boolean equals(Object obj)
+    {
+        if(obj instanceof LinkedList)
+        {
+            LinkedList<T> list = new LinkedList<T>();
+            getUnique((LinkedList<T>)obj, list);
+            LinkedList<T> uniqueList = new LinkedList<T>();
+            getUnique(this, uniqueList);
+            if(list.size != uniqueList.size) return false;
+            for(T element : uniqueList)
+                if(!list.contains(element))
+                    return false;
+            return true;
+        }
+        else
+            return false;
+    }
+
+    /**
+     *
+     * @exception NullPointerException if head references to null
+     */
+    @Override
+    public int hashCode()
+    {
+        if(head == null) throw new NullPointerException();
+        Node<T> currentElement = head;
+        int elementHash = 0;
+        for(int i = 0; i < size; i++)
+        {
+            elementHash ^= currentElement.hashCode();
+            currentElement = currentElement.getNext();
+        }
+        return size ^ elementHash;
+    }
+
+    @Override
+    public String toString()
+    {
+        StringBuilder sb = new StringBuilder();
+        Node<T> currentElement = head;
+        for(int i = 0; i < size; i++)
+        {
+            sb.append(currentElement.getData().toString()).append("\n");
+            currentElement = currentElement.getNext();
+        }
+        return sb.toString();
     }
 }

@@ -63,7 +63,9 @@ public class StaffEmployee extends Employee implements BusinessTraveller
     public boolean equals(Object obj)
     {
         //todo refactor this DONE
-        return (obj instanceof StaffEmployee) && (this.bonus == ((StaffEmployee)obj).bonus) && (this.travels.equals(((StaffEmployee)obj).travels));
+        return (obj instanceof StaffEmployee) &&
+                (this.bonus == ((StaffEmployee)obj).bonus) &&
+                (this.travels.equals(((StaffEmployee)obj).travels));
     }
 
     @Override

@@ -2,6 +2,10 @@ package humanResources;
 
 import util.DoubleLinkedList;
 
+import java.util.Iterator;
+
+import static com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolver.iterator;
+
 public class ProjectsManager implements GroupsManager
 {
 
@@ -21,7 +25,7 @@ public class ProjectsManager implements GroupsManager
     public int employeesQuantity()
     {
         int employeeCounter = 0;
-        for(EmployeeGroup group : groups.toArray(EmployeeGroup[].class)) //todo iterator
+        for(EmployeeGroup group : groups) //todo iterator
             employeeCounter += group.employeeQuantity();
         return employeeCounter;
     }
@@ -41,10 +45,11 @@ public class ProjectsManager implements GroupsManager
     @Override
     public EmployeeGroup getEmployeeGroup(String name)
     {
-        EmployeeGroup[] groupArray = groups.toArray(EmployeeGroup[].class);
-        for(int i = 0; i < groups.size(); i++) //todo iterator
-            if(groupArray[i].getName().equals(name))
-                return groupArray[i];
+        for(EmployeeGroup group : groups)//tododed
+        {
+            if(group.getName().equals(name))
+                return group;
+        }
         return null;
     }
 
@@ -58,7 +63,7 @@ public class ProjectsManager implements GroupsManager
     public int employeesQuantity(JobTitlesEnum jobTitle)
     {
         int employeeCounter = 0;
-        for(EmployeeGroup currentGroup : groups.toArray(EmployeeGroup[].class)) //todo iterator
+        for(EmployeeGroup currentGroup : groups) //todo iterator TODODED
             employeeCounter += currentGroup.getEmployeesQuantityByJob(jobTitle);
         return employeeCounter;
     }
@@ -66,7 +71,7 @@ public class ProjectsManager implements GroupsManager
     @Override
     public EmployeeGroup getEmployeesGroup(String firstName, String lastName)
     {
-        for(EmployeeGroup currentGroup : groups.toArray(EmployeeGroup[].class)) //todo iterator
+        for(EmployeeGroup currentGroup : groups) //todo iterator TODODED
             if(currentGroup.getEmployee(firstName, lastName) != null)
                 return currentGroup;
         return null;
@@ -78,7 +83,7 @@ public class ProjectsManager implements GroupsManager
         if(groups == null || groups.size() == 0) return null;
         Employee best = groups.at(0).mostValuableEmployee();
         Employee current;
-        for(EmployeeGroup currentGroup : groups.toArray(EmployeeGroup[].class)) //todo iterator
+        for(EmployeeGroup currentGroup : groups) //todo iterator TODO
         {
             current = currentGroup.mostValuableEmployee();
             if(current.getSalary() > best.getSalary())
@@ -90,11 +95,14 @@ public class ProjectsManager implements GroupsManager
     @Override
     public boolean remove(String groupName)
     {
-        EmployeeGroup[] groupsArray = groups.toArray(EmployeeGroup[].class);
-        for(int i = 0; i < groups.size(); i++) //todo iterator
+        Iterator<EmployeeGroup> Iter = groups.iterator();
+        while(Iter.hasNext())
         {
-            if(groupsArray[i].getName().equals(groupName))
-                return groups.remove(i);
+            if(Iter.next().getName().equals(groupName))
+            {
+                Iter.remove();
+                return true;
+            }
         }
         return false;
     }
@@ -102,7 +110,7 @@ public class ProjectsManager implements GroupsManager
     @Override
     public int remove(EmployeeGroup group)
     {
-        //return groups.removeAll(group); //todo
+        //return groups.removeAll(group);
         return 0;
     }
 

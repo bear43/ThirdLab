@@ -1,5 +1,7 @@
 package util;
 
+import java.util.Iterator;
+
 public interface List<T> extends Iterable<T>
 {
     int DEFAULT_CAPACITY = 8;
@@ -12,4 +14,18 @@ public interface List<T> extends Iterable<T>
     boolean contains(T obj);
     int indexOf(T obj);
     T[] toArray(Class<T[]> type);
+    default int removeAll(T obj)
+    {
+        Iterator<T> iter = iterator();
+        int counter = 0;
+        while(iter.hasNext())
+        {
+            if(iter.next().equals(obj))
+            {
+                iter.remove();
+                counter++;
+            }
+        }
+        return counter;
+    }
 }

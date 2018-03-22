@@ -10,7 +10,7 @@ public class Main
 {
     public static void main(String[] args)
     {
-        DepartmentsManager depManager = new DepartmentsManager("Apple Inc.");
+        /*DepartmentsManager depManager = new DepartmentsManager("Apple Inc.");
         DepartmentsManager man = new DepartmentsManager("Apple Inc.");
         ProjectsManager projManager = new ProjectsManager();
         depManager.add(new Department("Security", new Employee[]{
@@ -44,6 +44,15 @@ public class Main
         System.out.println(depManager.mostValuableEmployee());
         System.out.println(depManager.remove("iPhone"));
         System.out.println(depManager.groupsQuantity());
-        System.out.println(depManager.equals(man));
+        System.out.println(depManager.equals(man));*/
+        DoubleLinkedList<String> lines = new DoubleLinkedList<String>();
+        lines.add("Fine");
+        lines.add("Test");
+        lines.add("Fine");
+        lines.add("Common");
+        lines.add("Fire");
+        lines.add("Test");
+        System.out.println(lines.removeAll("Fine"));
+        System.out.println(lines.removeAll("Test"));
     }
 }

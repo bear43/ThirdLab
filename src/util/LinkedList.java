@@ -2,9 +2,7 @@ package util;
 
 import java.lang.reflect.Array;
 import java.util.Iterator;
-import java.util.ListIterator;
 import java.util.NoSuchElementException;
-import java.util.function.Consumer;
 
 import static util.Util.getUnique;
 
@@ -197,7 +195,7 @@ public class LinkedList<T> implements List<T>
     }
 
     /* Добавляет элемент в определенную позицию */
-    //todo жесть капец сделай вставку ВРОДЕ СДЕЛАЛ, НУ,ТАК СЕБЕ, КОСЯЧНО
+    //todo жесть капец сделай вставку, вставка, не замена
     /**
      *
      * @param index Element index to modify/create
@@ -273,29 +271,32 @@ public class LinkedList<T> implements List<T>
     }
 
     //todo equals() toString() hashcode() DONE?
-
-    private class Iter<E> implements ListIterator<T>
+    //todo Iterator not listiterator
+    private class Iter<E> implements Iterator<T>
     {
-        private Node<T> prev = null;
-        private Node<T> last = null;
+        private Node<T> previous;
+        private Node<T> current;
         private Node<T> next = head;
-        private boolean hasNext;
-        private boolean hasPrev;
-        private int nextIndex;
 
-        Iter(int index)
+        public Iter(int index) {
+            if (index >= size || index < 0) throw new NoSuchElementException();
+            for (int i = 0; i < index; i++)
+            {
+                previous = current;
+                current = next;
+                next = next.getNext();
+            }
+        }
+
+        public Iter()
         {
-            if(index >= size || index < 0) throw new NoSuchElementException();
-            for(int i = 0; i < index; i++)
-                last = last.getNext();
-            hasNext = next != null;
-            nextIndex = index;
+            this(0);
         }
 
         @Override
         public boolean hasNext()
         {
-            return this.hasNext;
+            return next != null;
         }
 
         @Override
@@ -303,105 +304,34 @@ public class LinkedList<T> implements List<T>
         {
             if(next != null)
             {
-                this.prev = last;
-                this.last = this.next;
-                this.next = this.next != null ? this.next.getNext() : null;
-                nextIndex++;
-                hasNext = this.next != null;
-                hasPrev = this.prev != null;
-                return last.getData();
+                previous = current;
+                current = next;
+                next = next.getNext();
             }
-            else
-            {
-                hasNext = false;
-                return last.getData();
-            }
-        }
-
-        @Override
-        public boolean hasPrevious()
-        {
-            return hasPrev;
-        }
-
-        @Override
-        public T previous()
-        {
-            if(hasPrev)
-                return prev.getData();
-            else
-                throw new NoSuchElementException();
-        }
-
-        @Override
-        public int nextIndex() {
-            return nextIndex;
-        }
-
-        @Override
-        public int previousIndex() {
-            return nextIndex-2;
+            return current.getData();
         }
 
         @Override
         public void remove()
         {
-            if(hasPrev && hasNext)
+            if(current == head)
             {
-                prev.setNext(next);
-                last = next;
-                next = next.getNext();
-                hasNext = last != null;
+                if(head == tail) tail = null;
+                head = next;
+                current = null;
             }
-            else if(hasPrev)
+            else if(current == tail)
             {
-                tail = last = prev;
-                prev.setNext(null);
-                next = null;
-                hasNext = false;
-                hasPrev = prev != null;
+                current = previous;
+                current.setNext(null);
+                tail = current;
             }
-            else if(hasNext)
+            else
             {
-                if(size == 1)
-                {
-                    head = null;
-                    tail = null;
-                    hasNext = false;
-                    hasPrev = false;
-                    last = null;
-                    nextIndex++;
-                }
-                else
-                {
-                    head = next;
-                    prev = null;
-                    last = null;
-                    next = next.getNext();
-                    hasPrev = prev != null;
-                    hasNext = next != null;
-                }
+                previous.setNext(next);
+                current = null;
             }
-            nextIndex--;
             size--;
-        }
-
-        @Override
-        public void forEachRemaining(Consumer<? super T> action)
-        {
-            while (nextIndex != size)
-                action.accept(next());
-        }
-
-        @Override
-        public void set(T e) {
-
-        }
-
-        @Override
-        public void add(T e)
-        {
-
         }
     }
 

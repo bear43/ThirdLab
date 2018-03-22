@@ -1,14 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/util/DoubleLinkedList.java" line="385" />
+    <bookmark url="file://$PROJECT_DIR$/src/util/DoubleLinkedList.java" line="337" />
     <bookmark url="file://$PROJECT_DIR$/src/Main.java" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bc61fd6b-0e97-4c16-a09e-e05f91e9b62a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2new/util/Util.class" afterPath="$PROJECT_DIR$/out/production/2new/util/Util.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2new/Main.class" afterPath="$PROJECT_DIR$/out/production/2new/Main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2new/humanResources/Department.class" afterPath="$PROJECT_DIR$/out/production/2new/humanResources/Department.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2new/humanResources/DepartmentsManager.class" afterPath="$PROJECT_DIR$/out/production/2new/humanResources/DepartmentsManager.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2new/humanResources/Employee.class" afterPath="$PROJECT_DIR$/out/production/2new/humanResources/Employee.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2new/humanResources/ProjectsManager.class" afterPath="$PROJECT_DIR$/out/production/2new/humanResources/ProjectsManager.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2new/humanResources/StaffEmployee.class" afterPath="$PROJECT_DIR$/out/production/2new/humanResources/StaffEmployee.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2new/util/ArrayList.class" afterPath="$PROJECT_DIR$/out/production/2new/util/ArrayList.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2new/util/DoubleLinkedList.class" afterPath="$PROJECT_DIR$/out/production/2new/util/DoubleLinkedList.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2new/util/LinkedList.class" afterPath="$PROJECT_DIR$/out/production/2new/util/LinkedList.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/humanResources/ProjectsManager.java" afterPath="$PROJECT_DIR$/src/humanResources/ProjectsManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/humanResources/StaffEmployee.java" afterPath="$PROJECT_DIR$/src/humanResources/StaffEmployee.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/DoubleLinkedList.java" afterPath="$PROJECT_DIR$/src/util/DoubleLinkedList.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/LinkedList.java" afterPath="$PROJECT_DIR$/src/util/LinkedList.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/List.java" afterPath="$PROJECT_DIR$/src/util/List.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,9 +39,136 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="46" column="51" lean-forward="false" selection-start-line="46" selection-start-column="51" selection-end-line="46" selection-end-column="51" />
+            <state relative-caret-position="342">
+              <caret line="35" column="72" lean-forward="true" selection-start-line="35" selection-start-column="72" selection-end-line="35" selection-end-column="72" />
+              <folding>
+                <element signature="e#2430#2438#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="List.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/util/List.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="325">
+              <caret line="17" column="4" lean-forward="false" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+              <folding>
+                <element signature="method#removeAll#0;class#List#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LinkedList.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/util/LinkedList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="242" column="5" lean-forward="false" selection-start-line="242" selection-start-column="5" selection-end-line="242" selection-end-column="5" />
+              <folding>
+                <element signature="class#Node#0" expanded="false" />
+                <element signature="method#Node#0;class#Node#0" expanded="false" />
+                <element signature="method#equals#0;class#Node#0" expanded="false" />
+                <element signature="method#LinkedList#2;class#LinkedList#0" expanded="false" />
+                <element signature="docComment;method#popNode_at#0;class#LinkedList#0" expanded="false" />
+                <element signature="method#popNode_at#0;class#LinkedList#0" expanded="false" />
+                <element signature="method#remove#0;class#LinkedList#0" expanded="false" />
+                <element signature="docComment;method#push_at#0;class#LinkedList#0" expanded="false" />
+                <element signature="method#toArray#0;class#LinkedList#0" expanded="false" />
+                <element signature="method#contains#0;class#LinkedList#0" expanded="false" />
+                <element signature="method#indexOf#0;class#LinkedList#0" expanded="false" />
+                <element signature="method#Iter#0;class#Iter#0;class#LinkedList#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BusinessTravel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/humanResources/BusinessTravel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="882">
+              <caret line="57" column="6" lean-forward="false" selection-start-line="57" selection-start-column="6" selection-end-line="57" selection-end-column="6" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Employee.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/humanResources/Employee.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1554">
+              <caret line="96" column="6" lean-forward="false" selection-start-line="96" selection-start-column="6" selection-end-line="96" selection-end-column="6" />
+              <folding>
+                <element signature="method#compareByName#1;class#Employee#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PartTimeEmployee.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/humanResources/PartTimeEmployee.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="567">
+              <caret line="29" column="10" lean-forward="false" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Project.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/humanResources/Project.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="735">
+              <caret line="49" column="62" lean-forward="false" selection-start-line="49" selection-start-column="62" selection-end-line="49" selection-end-column="62" />
+              <folding>
+                <element signature="method#getEmployee#0;class#Project#0" expanded="false" />
+                <element signature="method#equals#0;class#Project#0" expanded="false" />
+                <element signature="method#hashCode#0;class#Project#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProjectsManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/humanResources/ProjectsManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2037">
+              <caret line="116" column="6" lean-forward="false" selection-start-line="116" selection-start-column="6" selection-end-line="116" selection-end-column="6" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#remove#1;class#ProjectsManager#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StaffEmployee.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/humanResources/StaffEmployee.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="819">
+              <caret line="54" column="10" lean-forward="false" selection-start-line="54" selection-start-column="10" selection-end-line="54" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DoubleLinkedList.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/util/DoubleLinkedList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="290">
+              <caret line="283" column="0" lean-forward="false" selection-start-line="283" selection-start-column="0" selection-end-line="283" selection-end-column="0" />
+              <folding>
+                <element signature="method#DuoNode#0;class#DuoNode#0" expanded="false" />
+                <element signature="method#DuoNode#2;class#DuoNode#0" expanded="false" />
+                <element signature="method#DoubleLinkedList#1;class#DoubleLinkedList#0" expanded="false" />
+                <element signature="method#add#0;class#DoubleLinkedList#0" expanded="false" />
+                <element signature="docComment;method#remove#1;class#DoubleLinkedList#0" expanded="false" />
+                <element signature="method#indexOf#0;class#DoubleLinkedList#0" expanded="false" />
+                <element signature="method#toArray#0;class#DoubleLinkedList#0" expanded="false" />
+                <element signature="method#Iter#0;class#Iter#0;class#DoubleLinkedList#0" expanded="false" />
+                <element signature="e#6504#6505#0" expanded="true" />
+                <element signature="e#6549#6550#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -97,15 +237,15 @@
         <option value="$PROJECT_DIR$/src/humanResources/BusinessTravel.java" />
         <option value="$PROJECT_DIR$/src/util/Iterator.java" />
         <option value="$PROJECT_DIR$/src/util/Hashable.java" />
-        <option value="$PROJECT_DIR$/src/humanResources/StaffEmployee.java" />
         <option value="$PROJECT_DIR$/src/humanResources/Project.java" />
-        <option value="$PROJECT_DIR$/src/util/List.java" />
         <option value="$PROJECT_DIR$/src/humanResources/Employee.java" />
-        <option value="$PROJECT_DIR$/src/humanResources/ProjectsManager.java" />
         <option value="$PROJECT_DIR$/src/util/ArrayList.java" />
-        <option value="$PROJECT_DIR$/src/util/DoubleLinkedList.java" />
         <option value="$PROJECT_DIR$/src/humanResources/DepartmentsManager.java" />
         <option value="$PROJECT_DIR$/src/util/Util.java" />
+        <option value="$PROJECT_DIR$/src/humanResources/StaffEmployee.java" />
+        <option value="$PROJECT_DIR$/src/humanResources/ProjectsManager.java" />
+        <option value="$PROJECT_DIR$/src/util/DoubleLinkedList.java" />
+        <option value="$PROJECT_DIR$/src/util/List.java" />
         <option value="$PROJECT_DIR$/src/util/LinkedList.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
       </list>
@@ -123,7 +263,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
     <option name="y" value="22" />
     <option name="width" value="1440" />
     <option name="height" value="825" />
@@ -144,9 +284,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView" />
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -159,11 +299,37 @@
               <item name="ThirdLab" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="ThirdLab" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ThirdLab" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="humanResources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ThirdLab" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ThirdLab" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ThirdLab" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ThirdLab" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+              <item name="DoubleLinkedList.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </path>
+            <path>
+              <item name="ThirdLab" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ThirdLab" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+              <item name="LinkedList.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -349,7 +515,9 @@
       <workItem from="1521300332111" duration="15608000" />
       <workItem from="1521317408508" duration="391000" />
       <workItem from="1521555275626" duration="4189000" />
-      <workItem from="1521564320524" duration="7910000" />
+      <workItem from="1521564320524" duration="8029000" />
+      <workItem from="1521605377031" duration="5376000" />
+      <workItem from="1521735631093" duration="7121000" />
     </task>
     <task id="LOCAL-00001" summary="EAT BANANAS AND WRITE CODE, YOU MONKEY!!!!!!!">
       <created>1521181076268</created>
@@ -386,11 +554,18 @@
       <option name="project" value="LOCAL" />
       <updated>1521572274215</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Ready + Ready. Deleted obscene language">
+      <created>1521572371357</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1521572371357</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="232159000" />
+    <option name="totallyTimeSpent" value="244775000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -402,7 +577,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
+    <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -412,27 +587,27 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21331829" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21291624" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16058002" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16487648" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32505643" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32492432" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.44130924" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44096872" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973147" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Learn" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -506,19 +681,26 @@
     <MESSAGE value="So-so" />
     <MESSAGE value="Ready" />
     <MESSAGE value="Ready + Ready" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ready + Ready" />
+    <MESSAGE value="Ready + Ready. Deleted obscene language" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ready + Ready. Deleted obscene language" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/util/LinkedList.java</url>
-          <line>47</line>
+          <line>45</line>
           <properties />
           <option name="timeStamp" value="185" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Main.java</url>
+          <line>47</line>
+          <properties />
+          <option name="timeStamp" value="223" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="215" />
+      <option name="time" value="224" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -534,7 +716,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="16" column="8" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
-          <folding />
+          <folding>
+            <element signature="e#2430#2438#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -570,7 +754,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="8" column="51" lean-forward="false" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
-          <folding />
+          <folding>
+            <element signature="e#2430#2438#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -669,60 +855,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/humanResources/Project.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="573">
-          <caret line="126" column="4" lean-forward="false" selection-start-line="126" selection-start-column="4" selection-end-line="126" selection-end-column="4" />
-          <folding>
-            <element signature="method#remove#0;class#Project#0" expanded="false" />
-            <element signature="method#getEmployee#0;class#Project#0" expanded="false" />
-            <element signature="method#mostValuableEmployee#0;class#Project#0" expanded="false" />
-            <element signature="method#getEmployeesQuantityByJob#0;class#Project#0" expanded="false" />
-            <element signature="method#equals#0;class#Project#0" expanded="false" />
-            <element signature="method#hashCode#0;class#Project#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/util/LinkedList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-23073">
           <caret line="82" column="13" lean-forward="false" selection-start-line="82" selection-start-column="13" selection-end-line="82" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/humanResources/BusinessTravel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="57" column="6" lean-forward="false" selection-start-line="57" selection-start-column="6" selection-end-line="57" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/humanResources/PartTimeEmployee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="30" column="29" lean-forward="true" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/humanResources/ProjectsManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="11" column="52" lean-forward="false" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
-          <folding>
-            <element signature="e#222#223#0" expanded="true" />
-            <element signature="e#295#296#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/Util.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -734,85 +870,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/List.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="38" lean-forward="false" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/LinkedList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="147" column="0" lean-forward="false" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
-          <folding>
-            <element signature="class#Node#0" expanded="false" />
-            <element signature="method#Node#0;class#Node#0" expanded="false" />
-            <element signature="method#equals#0;class#Node#0" expanded="false" />
-            <element signature="method#LinkedList#2;class#LinkedList#0" expanded="false" />
-            <element signature="method#add#0;class#LinkedList#0" expanded="false" />
-            <element signature="docComment;method#popNode_at#0;class#LinkedList#0" expanded="false" />
-            <element signature="method#popNode_at#0;class#LinkedList#0" expanded="false" />
-            <element signature="method#remove#0;class#LinkedList#0" expanded="false" />
-            <element signature="method#remove#1;class#LinkedList#0" expanded="false" />
-            <element signature="docComment;method#push_at#0;class#LinkedList#0" expanded="false" />
-            <element signature="method#push_at#0;class#LinkedList#0" expanded="false" />
-            <element signature="method#toArray#0;class#LinkedList#0" expanded="false" />
-            <element signature="method#contains#0;class#LinkedList#0" expanded="false" />
-            <element signature="method#indexOf#0;class#LinkedList#0" expanded="false" />
-            <element signature="class#Iter#0;class#LinkedList#0" expanded="false" />
-            <element signature="method#previous#0;class#Iter#0;class#LinkedList#0" expanded="false" />
-            <element signature="method#remove#0;class#Iter#0;class#LinkedList#0" expanded="false" />
-            <element signature="method#forEachRemaining#0;class#Iter#0;class#LinkedList#0" expanded="false" />
-            <element signature="method#set#0;class#Iter#0;class#LinkedList#0" expanded="false" />
-            <element signature="method#add#0;class#Iter#0;class#LinkedList#0" expanded="false" />
-            <element signature="method#hashCode#0;class#LinkedList#0" expanded="false" />
-            <element signature="method#toString#0;class#LinkedList#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/util/ArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="166">
           <caret line="96" column="13" lean-forward="true" selection-start-line="96" selection-start-column="13" selection-end-line="96" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/DoubleLinkedList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1715">
-          <caret line="394" column="22" lean-forward="false" selection-start-line="394" selection-start-column="22" selection-end-line="394" selection-end-column="22" />
-          <folding>
-            <element signature="class#DuoNode#0" expanded="false" />
-            <element signature="method#DuoNode#0;class#DuoNode#0" expanded="false" />
-            <element signature="method#DuoNode#2;class#DuoNode#0" expanded="false" />
-            <element signature="method#DoubleLinkedList#1;class#DoubleLinkedList#0" expanded="false" />
-            <element signature="method#add#0;class#DoubleLinkedList#0" expanded="false" />
-            <element signature="docComment;method#remove#1;class#DoubleLinkedList#0" expanded="false" />
-            <element signature="method#pop_node_at#0;class#DoubleLinkedList#0" expanded="false" />
-            <element signature="method#indexOf#0;class#DoubleLinkedList#0" expanded="false" />
-            <element signature="method#toArray#0;class#DoubleLinkedList#0" expanded="false" />
-            <element signature="class#Iter#0;class#DoubleLinkedList#0" expanded="false" />
-            <element signature="method#Iter#0;class#Iter#0;class#DoubleLinkedList#0" expanded="false" />
-            <element signature="method#next#0;class#Iter#0;class#DoubleLinkedList#0" expanded="false" />
-            <element signature="method#previous#0;class#Iter#0;class#DoubleLinkedList#0" expanded="false" />
-            <element signature="method#remove#0;class#Iter#0;class#DoubleLinkedList#0" expanded="false" />
-            <element signature="method#forEachRemaining#0;class#Iter#0;class#DoubleLinkedList#0" expanded="false" />
-            <element signature="method#set#0;class#Iter#0;class#DoubleLinkedList#0" expanded="false" />
-            <element signature="method#add#0;class#Iter#0;class#DoubleLinkedList#0" expanded="false" />
-            <element signature="method#toString#0;class#DoubleLinkedList#0" expanded="false" />
-            <element signature="method#hashCode#0;class#DoubleLinkedList#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/humanResources/StaffEmployee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-14">
-          <caret line="41" column="13" lean-forward="false" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -822,33 +883,136 @@
         <state relative-caret-position="102">
           <caret line="138" column="0" lean-forward="false" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
           <folding>
-            <element signature="e#950#951#0" expanded="true" />
-            <element signature="e#983#984#0" expanded="true" />
-            <element signature="e#4449#4464#0" expanded="true" />
-            <element signature="e#4548#4563#0" expanded="true" />
+            <element signature="e#950#951#0" expanded="false" />
+            <element signature="e#983#984#0" expanded="false" />
+            <element signature="e#4449#4464#0" expanded="false" />
+            <element signature="e#4548#4563#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/Util.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="76" column="33" lean-forward="true" selection-start-line="76" selection-start-column="33" selection-end-line="76" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/humanResources/BusinessTravel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="882">
+          <caret line="57" column="6" lean-forward="false" selection-start-line="57" selection-start-column="6" selection-end-line="57" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/humanResources/Employee.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="65" column="4" lean-forward="false" selection-start-line="65" selection-start-column="4" selection-end-line="65" selection-end-column="4" />
+        <state relative-caret-position="1554">
+          <caret line="96" column="6" lean-forward="false" selection-start-line="96" selection-start-column="6" selection-end-line="96" selection-end-column="6" />
           <folding>
-            <element signature="e#630#631#0" expanded="true" />
-            <element signature="e#661#662#0" expanded="true" />
-            <element signature="e#1086#1087#0" expanded="true" />
-            <element signature="e#1115#1116#0" expanded="true" />
             <element signature="method#compareByName#1;class#Employee#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/humanResources/PartTimeEmployee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="29" column="10" lean-forward="false" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/humanResources/Project.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="49" column="62" lean-forward="false" selection-start-line="49" selection-start-column="62" selection-end-line="49" selection-end-column="62" />
+          <folding>
+            <element signature="method#getEmployee#0;class#Project#0" expanded="false" />
+            <element signature="method#equals#0;class#Project#0" expanded="false" />
+            <element signature="method#hashCode#0;class#Project#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/humanResources/StaffEmployee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="819">
+          <caret line="54" column="10" lean-forward="false" selection-start-line="54" selection-start-column="10" selection-end-line="54" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/humanResources/ProjectsManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2037">
+          <caret line="116" column="6" lean-forward="false" selection-start-line="116" selection-start-column="6" selection-end-line="116" selection-end-column="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#remove#1;class#ProjectsManager#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/LinkedList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="242" column="5" lean-forward="false" selection-start-line="242" selection-start-column="5" selection-end-line="242" selection-end-column="5" />
+          <folding>
+            <element signature="class#Node#0" expanded="false" />
+            <element signature="method#Node#0;class#Node#0" expanded="false" />
+            <element signature="method#equals#0;class#Node#0" expanded="false" />
+            <element signature="method#LinkedList#2;class#LinkedList#0" expanded="false" />
+            <element signature="docComment;method#popNode_at#0;class#LinkedList#0" expanded="false" />
+            <element signature="method#popNode_at#0;class#LinkedList#0" expanded="false" />
+            <element signature="method#remove#0;class#LinkedList#0" expanded="false" />
+            <element signature="docComment;method#push_at#0;class#LinkedList#0" expanded="false" />
+            <element signature="method#toArray#0;class#LinkedList#0" expanded="false" />
+            <element signature="method#contains#0;class#LinkedList#0" expanded="false" />
+            <element signature="method#indexOf#0;class#LinkedList#0" expanded="false" />
+            <element signature="method#Iter#0;class#Iter#0;class#LinkedList#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/DoubleLinkedList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="283" column="0" lean-forward="false" selection-start-line="283" selection-start-column="0" selection-end-line="283" selection-end-column="0" />
+          <folding>
+            <element signature="method#DuoNode#0;class#DuoNode#0" expanded="false" />
+            <element signature="method#DuoNode#2;class#DuoNode#0" expanded="false" />
+            <element signature="method#DoubleLinkedList#1;class#DoubleLinkedList#0" expanded="false" />
+            <element signature="method#add#0;class#DoubleLinkedList#0" expanded="false" />
+            <element signature="docComment;method#remove#1;class#DoubleLinkedList#0" expanded="false" />
+            <element signature="method#indexOf#0;class#DoubleLinkedList#0" expanded="false" />
+            <element signature="method#toArray#0;class#DoubleLinkedList#0" expanded="false" />
+            <element signature="method#Iter#0;class#Iter#0;class#DoubleLinkedList#0" expanded="false" />
+            <element signature="e#6504#6505#0" expanded="true" />
+            <element signature="e#6549#6550#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/List.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="17" column="4" lean-forward="false" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+          <folding>
+            <element signature="method#removeAll#0;class#List#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="46" column="51" lean-forward="false" selection-start-line="46" selection-start-column="51" selection-end-line="46" selection-end-column="51" />
-          <folding />
+        <state relative-caret-position="342">
+          <caret line="35" column="72" lean-forward="true" selection-start-line="35" selection-start-column="72" selection-end-line="35" selection-end-column="72" />
+          <folding>
+            <element signature="e#2430#2438#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -61,7 +61,6 @@ public class LinkedList<T> implements List<T>
     * Используется для операции сравнивания */
     /* Ссылка на голову */
     private Node<T> head;
-    //todo чтоб не писать херню с добавлением, добавь работу со следущим полем ADDED
     /* Ссылка на хвост в виде последнего элемента(конца)*/
     private Node<T> tail;
     /* Количество элементов в списке */
@@ -93,7 +92,6 @@ public class LinkedList<T> implements List<T>
     }
 
     /* Добавляет новый элемент в конец */
-    //todo tail TAILED
     public void add(T obj)
     {
         if(tail == null)
@@ -123,7 +121,7 @@ public class LinkedList<T> implements List<T>
      */
     private Node<T> popNode_at(int index)
     {
-        if (index >= size || index < 0) throw new ArrayIndexOutOfBoundsException(); //todo throw THROWED
+        if (index >= size || index < 0) throw new ArrayIndexOutOfBoundsException();
         Node<T> obj = head;
         for (int i = 0; i < index; i++)
             obj = obj.getNext();
@@ -136,7 +134,6 @@ public class LinkedList<T> implements List<T>
     }
 
     /* возвращает последний элемент */
-    //todo tail TAILED
     public T pop_back()
     {
         return tail.getData();
@@ -166,7 +163,6 @@ public class LinkedList<T> implements List<T>
     }
 
     /* Удаляет элемент по ссылке на него*/
-    //todo no indexes DONE?
     public boolean remove(T obj)
     {
         Node<T> current = head;
@@ -200,7 +196,6 @@ public class LinkedList<T> implements List<T>
     }
 
     /* Добавляет элемент в определенную позицию */
-    //todo жесть капец сделай вставку, вставка, не замена
     /**
      *
      * @param index Element index to modify/create
@@ -244,7 +239,6 @@ public class LinkedList<T> implements List<T>
             index++;
         }
         return array;
-        //todo TODODED
     }
 
     /* Ищет элемент в списке. */

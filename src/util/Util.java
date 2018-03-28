@@ -104,7 +104,7 @@ public class Util
         return days*86400000;
     }
 
-    public static int getStaffEmployeeCount(LinkedList<Employee> employees)
+    public static int getStaffEmployeeCount(Iterable<Employee> employees)
     {
         int counter = 0;
         for(Employee e : employees)
@@ -112,7 +112,7 @@ public class Util
         return counter;
     }
 
-    public static int getPartTimeEmployeeCount(LinkedList<Employee> employees)
+    public static int getPartTimeEmployeeCount(Iterable<Employee> employees)
     {
         int counter = 0;
         for(Employee e : employees)
@@ -136,7 +136,7 @@ public class Util
         return counter;
     }
 
-    public static int getTravellingEmployeeQuantity(LinkedList<Employee> employees)
+    public static int getTravellingEmployeeQuantity(List<Employee> employees)
     {
         int counter = 0;
         for(Employee e : employees)

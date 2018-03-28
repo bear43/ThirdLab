@@ -8,4 +8,5 @@ public interface BusinessTraveller
     BusinessTravel[] getTravels();
     boolean isTravelling();
     int travellsCountOnDate(Date beginDate, Date endDate);
+    boolean wasTravellingOnDate(Date beginDate, Date endDate);//todo boolean DONE
 }

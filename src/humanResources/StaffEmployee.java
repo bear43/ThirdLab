@@ -96,9 +96,8 @@ public class StaffEmployee extends Employee implements BusinessTraveller
         {
             beginIn = dateInRange(travel.getBeginDate(), begin, end);
             endIn = dateInRange(travel.getEndDate(), begin, end);
-            if((beginIn || endIn) ||
-                    (beginDate.getTime() > travel.getBeginDate().getTime().getTime()
-                            && endDate.getTime() < travel.getEndDate().getTime().getTime()))
+            if((beginIn || endIn)||
+                    beginDate.getTime() < travel.getBeginDate().getTime().getTime() && endDate.getTime() < travel.getEndDate().getTime().getTime())
                 return true;
         }
         return false;

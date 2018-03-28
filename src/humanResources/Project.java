@@ -51,7 +51,7 @@ public class Project implements EmployeeGroup
     }
 
     @Override
-    public boolean remove(String firstName, String lastName)//todo Iterator done
+    public boolean remove(String firstName, String lastName)
     {
         Iterator<Employee> iterator = employees.iterator();
         while(iterator.hasNext())
@@ -92,7 +92,7 @@ public class Project implements EmployeeGroup
     }
 
     @Override
-    public Employee mostValuableEmployee() //todo iterator done
+    public Employee mostValuableEmployee()
     {
         Employee best = employees.at(0);
         for(Employee e : employees)
@@ -104,7 +104,7 @@ public class Project implements EmployeeGroup
     }
 
     @Override
-    public int getEmployeesQuantityByJob(JobTitlesEnum jobtitle)//todo Iterator done
+    public int getEmployeesQuantityByJob(JobTitlesEnum jobtitle)
     {
         int counter = 0;
         for(Employee employee : employees)

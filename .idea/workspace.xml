@@ -1,40 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/util/DoubleLinkedList.java" line="336" />
+    <bookmark url="file://$PROJECT_DIR$/src/util/DoubleLinkedList.java" line="332" />
     <bookmark url="file://$PROJECT_DIR$/src/Main.java" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc61fd6b-0e97-4c16-a09e-e05f91e9b62a" name="Default" comment="Fourth">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/humanResources/AlreadyAddedException.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/humanResources/IllegalDatesException.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/humanResources/NegativeSizeException.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2new/Main.class" afterPath="$PROJECT_DIR$/out/production/2new/Main.class" />
+    <list default="true" id="bc61fd6b-0e97-4c16-a09e-e05f91e9b62a" name="Default" comment="Fifth">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2new/humanResources/BusinessTravel.class" afterPath="$PROJECT_DIR$/out/production/2new/humanResources/BusinessTravel.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2new/humanResources/BusinessTraveller.class" afterPath="$PROJECT_DIR$/out/production/2new/humanResources/BusinessTraveller.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2new/humanResources/Department.class" afterPath="$PROJECT_DIR$/out/production/2new/humanResources/Department.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2new/humanResources/DepartmentsManager.class" afterPath="$PROJECT_DIR$/out/production/2new/humanResources/DepartmentsManager.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2new/humanResources/Employee.class" afterPath="$PROJECT_DIR$/out/production/2new/humanResources/Employee.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2new/humanResources/EmployeeGroup.class" afterPath="$PROJECT_DIR$/out/production/2new/humanResources/EmployeeGroup.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2new/humanResources/GroupsManager.class" afterPath="$PROJECT_DIR$/out/production/2new/humanResources/GroupsManager.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2new/humanResources/PartTimeEmployee.class" afterPath="$PROJECT_DIR$/out/production/2new/humanResources/PartTimeEmployee.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2new/humanResources/Project.class" afterPath="$PROJECT_DIR$/out/production/2new/humanResources/Project.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2new/humanResources/ProjectsManager.class" afterPath="$PROJECT_DIR$/out/production/2new/humanResources/ProjectsManager.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2new/humanResources/StaffEmployee.class" afterPath="$PROJECT_DIR$/out/production/2new/humanResources/StaffEmployee.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2new/util/DoubleLinkedList.class" afterPath="$PROJECT_DIR$/out/production/2new/util/DoubleLinkedList.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2new/util/DuoNode.class" afterPath="$PROJECT_DIR$/out/production/2new/util/DuoNode.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2new/util/LinkedList.class" afterPath="$PROJECT_DIR$/out/production/2new/util/LinkedList.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2new/util/Util.class" afterPath="$PROJECT_DIR$/out/production/2new/util/Util.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/humanResources/AlreadyAddedException.java" afterPath="$PROJECT_DIR$/src/humanResources/AlreadyAddedException.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/humanResources/BusinessTravel.java" afterPath="$PROJECT_DIR$/src/humanResources/BusinessTravel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/humanResources/BusinessTraveller.java" afterPath="$PROJECT_DIR$/src/humanResources/BusinessTraveller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/humanResources/Department.java" afterPath="$PROJECT_DIR$/src/humanResources/Department.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/humanResources/DepartmentsManager.java" afterPath="$PROJECT_DIR$/src/humanResources/DepartmentsManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/humanResources/Employee.java" afterPath="$PROJECT_DIR$/src/humanResources/Employee.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/humanResources/EmployeeGroup.java" afterPath="$PROJECT_DIR$/src/humanResources/EmployeeGroup.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/humanResources/GroupsManager.java" afterPath="$PROJECT_DIR$/src/humanResources/GroupsManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/humanResources/IllegalDatesException.java" afterPath="$PROJECT_DIR$/src/humanResources/IllegalDatesException.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/humanResources/PartTimeEmployee.java" afterPath="$PROJECT_DIR$/src/humanResources/PartTimeEmployee.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/humanResources/Project.java" afterPath="$PROJECT_DIR$/src/humanResources/Project.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/humanResources/ProjectsManager.java" afterPath="$PROJECT_DIR$/src/humanResources/ProjectsManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/humanResources/StaffEmployee.java" afterPath="$PROJECT_DIR$/src/humanResources/StaffEmployee.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/DoubleLinkedList.java" afterPath="$PROJECT_DIR$/src/util/DoubleLinkedList.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/LinkedList.java" afterPath="$PROJECT_DIR$/src/util/LinkedList.java" />
@@ -52,163 +42,7 @@
     <SUITE FILE_PATH="coverage/ThirdLab$Main.coverage" NAME="Main Coverage Results" MODIFIED="1521568300935" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Department.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/humanResources/Department.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="209" column="51" lean-forward="false" selection-start-line="209" selection-start-column="51" selection-end-line="209" selection-end-column="51" />
-              <folding>
-                <element signature="method#remove#0;class#Department#0" expanded="false" />
-                <element signature="method#remove#1;class#Department#0" expanded="false" />
-                <element signature="method#removeAll#0;class#Department#0" expanded="false" />
-                <element signature="method#getEmployeesQuantityByJob#0;class#Department#0" expanded="false" />
-                <element signature="method#getEmployeesQuantityByJob#1;class#Department#0" expanded="false" />
-                <element signature="method#getTravellingEmployeeOnDate#0;class#Department#0" expanded="false" />
-                <element signature="method#getEmployees#1;class#Department#0" expanded="false" />
-                <element signature="method#getEmployees#2;class#Department#0" expanded="false" />
-                <element signature="method#getEmployee#0;class#Department#0" expanded="false" />
-                <element signature="method#merge#0;class#Department#0" expanded="false" />
-                <element signature="method#mergeSort#0;class#Department#0" expanded="false" />
-                <element signature="method#sortedEmployees#0;class#Department#0" expanded="false" />
-                <element signature="method#mostValuableEmployee#0;class#Department#0" expanded="false" />
-                <element signature="method#hasEmployee#0;class#Department#0" expanded="false" />
-                <element signature="method#jobTitles#0;class#Department#0" expanded="false" />
-                <element signature="method#businessTravellers#0;class#Department#0" expanded="false" />
-                <element signature="method#equals#0;class#Department#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StaffEmployee.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/humanResources/StaffEmployee.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="11" column="22" lean-forward="true" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#travellsCountOnDate#0;class#StaffEmployee#0" expanded="false" />
-                <element signature="method#wasTravellingOnDate#0;class#StaffEmployee#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AlreadyAddedException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/humanResources/AlreadyAddedException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-              <folding>
-                <element signature="e#105#106#0" expanded="true" />
-                <element signature="e#168#169#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IllegalDatesException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/humanResources/IllegalDatesException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-              <folding>
-                <element signature="e#112#113#0" expanded="true" />
-                <element signature="e#167#168#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DepartmentsManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/humanResources/DepartmentsManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="18" column="4" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
-              <folding>
-                <element signature="method#add#0;class#DepartmentsManager#0" expanded="false" />
-                <element signature="method#remove#0;class#DepartmentsManager#0" expanded="false" />
-                <element signature="method#remove#1;class#DepartmentsManager#0" expanded="false" />
-                <element signature="method#getPartTimeEmployeeQuantity#0;class#DepartmentsManager#0" expanded="false" />
-                <element signature="method#getStaffEmployeeQuantity#0;class#DepartmentsManager#0" expanded="false" />
-                <element signature="method#getTravellingEmployeeQuantity#0;class#DepartmentsManager#0" expanded="false" />
-                <element signature="method#getTravellingEmployeeOnDate#0;class#DepartmentsManager#0" expanded="false" />
-                <element signature="method#getEmployeeGroup#0;class#DepartmentsManager#0" expanded="false" />
-                <element signature="method#getEmployeeGroups#0;class#DepartmentsManager#0" expanded="false" />
-                <element signature="method#employeesQuantity#0;class#DepartmentsManager#0" expanded="false" />
-                <element signature="method#employeesQuantity#1;class#DepartmentsManager#0" expanded="false" />
-                <element signature="method#mostValuableEmployee#0;class#DepartmentsManager#0" expanded="false" />
-                <element signature="method#getEmployeesGroup#0;class#DepartmentsManager#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LinkedList.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/util/LinkedList.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="282" column="8" lean-forward="false" selection-start-line="282" selection-start-column="8" selection-end-line="282" selection-end-column="8" />
-              <folding>
-                <element signature="method#Node#0;class#Node#0" expanded="false" />
-                <element signature="method#equals#0;class#Node#0" expanded="false" />
-                <element signature="method#LinkedList#2;class#LinkedList#0" expanded="false" />
-                <element signature="method#add#1;class#LinkedList#0" expanded="false" />
-                <element signature="method#popNode_at#0;class#LinkedList#0" expanded="false" />
-                <element signature="method#remove#0;class#LinkedList#0" expanded="false" />
-                <element signature="docComment;method#push_at#0;class#LinkedList#0" expanded="false" />
-                <element signature="method#toArray#0;class#LinkedList#0" expanded="false" />
-                <element signature="method#contains#0;class#LinkedList#0" expanded="false" />
-                <element signature="method#indexOf#0;class#LinkedList#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BusinessTravel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/humanResources/BusinessTravel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="106" column="4" lean-forward="false" selection-start-line="106" selection-start-column="4" selection-end-line="106" selection-end-column="4" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#BusinessTravel#0;class#BusinessTravel#0" expanded="false" />
-                <element signature="method#BusinessTravel#1;class#BusinessTravel#0" expanded="false" />
-                <element signature="method#getDaysCount#0;class#BusinessTravel#0" expanded="false" />
-                <element signature="e#3631#3632#0" expanded="true" />
-                <element signature="e#3663#3664#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Employee.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/humanResources/Employee.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Project.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/humanResources/Project.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-172">
-              <caret line="18" column="40" lean-forward="false" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
-              <folding>
-                <element signature="method#add#0;class#Project#0" expanded="false" />
-                <element signature="method#getEmployee#0;class#Project#0" expanded="false" />
-                <element signature="method#getTravellingEmployeeOnDate#0;class#Project#0" expanded="false" />
-                <element signature="method#hashCode#0;class#Project#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -273,24 +107,24 @@
         <option value="$PROJECT_DIR$/src/util/Hashable.java" />
         <option value="$PROJECT_DIR$/src/util/ArrayList.java" />
         <option value="$PROJECT_DIR$/src/util/List.java" />
-        <option value="$PROJECT_DIR$/src/util/Util.java" />
-        <option value="$PROJECT_DIR$/src/humanResources/PartTimeEmployee.java" />
-        <option value="$PROJECT_DIR$/src/humanResources/BusinessTravel.java" />
         <option value="$PROJECT_DIR$/src/humanResources/NegativeSizeException.java" />
-        <option value="$PROJECT_DIR$/src/humanResources/BusinessTraveller.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/humanResources/EmployeeGroup.java" />
         <option value="$PROJECT_DIR$/src/humanResources/Department.java" />
-        <option value="$PROJECT_DIR$/src/humanResources/Project.java" />
         <option value="$PROJECT_DIR$/src/humanResources/GroupsManager.java" />
         <option value="$PROJECT_DIR$/src/humanResources/ProjectsManager.java" />
         <option value="$PROJECT_DIR$/src/humanResources/DepartmentsManager.java" />
+        <option value="$PROJECT_DIR$/src/humanResources/Project.java" />
+        <option value="$PROJECT_DIR$/src/util/DoubleLinkedList.java" />
+        <option value="$PROJECT_DIR$/src/util/LinkedList.java" />
+        <option value="$PROJECT_DIR$/src/util/Util.java" />
+        <option value="$PROJECT_DIR$/src/humanResources/BusinessTraveller.java" />
         <option value="$PROJECT_DIR$/src/humanResources/AlreadyAddedException.java" />
         <option value="$PROJECT_DIR$/src/humanResources/IllegalDatesException.java" />
         <option value="$PROJECT_DIR$/src/humanResources/Employee.java" />
-        <option value="$PROJECT_DIR$/src/util/DoubleLinkedList.java" />
+        <option value="$PROJECT_DIR$/src/humanResources/PartTimeEmployee.java" />
         <option value="$PROJECT_DIR$/src/humanResources/StaffEmployee.java" />
-        <option value="$PROJECT_DIR$/src/util/LinkedList.java" />
+        <option value="$PROJECT_DIR$/src/humanResources/BusinessTravel.java" />
       </list>
     </option>
   </component>
@@ -327,7 +161,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -370,9 +204,9 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -569,7 +403,9 @@
       <workItem from="1521919568092" duration="6510000" />
       <workItem from="1522085192524" duration="1663000" />
       <workItem from="1522171770552" duration="5085000" />
-      <workItem from="1522213849539" duration="1188000" />
+      <workItem from="1522213849539" duration="4880000" />
+      <workItem from="1522251674703" duration="1017000" />
+      <workItem from="1522253464943" duration="294000" />
     </task>
     <task id="LOCAL-00001" summary="EAT BANANAS AND WRITE CODE, YOU MONKEY!!!!!!!">
       <created>1521181076268</created>
@@ -627,11 +463,18 @@
       <option name="project" value="LOCAL" />
       <updated>1521748497139</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Fourth">
+      <created>1522215131104</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1522215131104</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="282017000" />
+    <option name="totallyTimeSpent" value="287020000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -644,35 +487,34 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24717833" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32392776" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23702031" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23702031" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12083781" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.124060154" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.493228" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.493228" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973147" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32392776" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32492432" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Learn" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -751,7 +593,8 @@
     <MESSAGE value="Iterator has been done. removeAll added to List interface" />
     <MESSAGE value="Third" />
     <MESSAGE value="Fourth" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fourth" />
+    <MESSAGE value="Fifth" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fifth" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -862,27 +705,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/humanResources/NegativeSizeException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/humanResources/PartTimeEmployee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="29" column="37" lean-forward="true" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/humanResources/JobTitlesEnum.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
           <caret line="2" column="12" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -891,8 +717,8 @@
         <state relative-caret-position="252">
           <caret line="23" column="16" lean-forward="false" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
           <folding>
-            <element signature="e#412#413#0" expanded="true" />
-            <element signature="e#434#435#0" expanded="true" />
+            <element signature="e#412#413#0" expanded="false" />
+            <element signature="e#434#435#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -909,7 +735,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-365">
           <caret line="113" column="13" lean-forward="false" selection-start-line="113" selection-start-column="13" selection-end-line="113" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -917,39 +742,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="783">
           <caret line="124" column="0" lean-forward="true" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/Util.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="98" column="52" lean-forward="false" selection-start-line="98" selection-start-column="52" selection-end-line="98" selection-end-column="52" />
-          <folding>
-            <element signature="e#3588#3589#0" expanded="true" />
-            <element signature="e#3657#3658#0" expanded="true" />
-            <element signature="method#getStaffEmployeeCount#0;class#Util#0" expanded="false" />
-            <element signature="method#getPartTimeEmployeeCount#0;class#Util#0" expanded="false" />
-            <element signature="method#getStaffEmployeeCount#1;class#Util#0" expanded="false" />
-            <element signature="method#getPartTimeEmployeeCount#1;class#Util#0" expanded="false" />
-            <element signature="method#getTravellingEmployeeQuantity#0;class#Util#0" expanded="false" />
-            <element signature="method#getTravellingEmployeeQuantity#1;class#Util#0" expanded="false" />
-            <element signature="method#getTravellingEmployeeOnDate#0;class#Util#0" expanded="false" />
-            <element signature="method#getTravellingEmployeeOnDate#1;class#Util#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/humanResources/ProjectsManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="40" column="8" lean-forward="false" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="73" />
-          <folding>
-            <element signature="method#remove#1;class#ProjectsManager#0" expanded="false" />
-            <element signature="method#equals#0;class#ProjectsManager#0" expanded="false" />
-            <element signature="e#3653#3654#0" expanded="true" />
-            <element signature="e#3693#3694#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -961,147 +753,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/humanResources/GroupsManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="66" lean-forward="false" selection-start-line="8" selection-start-column="66" selection-end-line="8" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/humanResources/EmployeeGroup.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="60" lean-forward="false" selection-start-line="8" selection-start-column="60" selection-end-line="8" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/humanResources/BusinessTraveller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="71" lean-forward="false" selection-start-line="6" selection-start-column="71" selection-end-line="6" selection-end-column="71" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/humanResources/AlreadyAddedException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-          <folding>
-            <element signature="e#105#106#0" expanded="true" />
-            <element signature="e#168#169#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/humanResources/IllegalDatesException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-          <folding>
-            <element signature="e#112#113#0" expanded="true" />
-            <element signature="e#167#168#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/humanResources/Employee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/humanResources/Project.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-172">
-          <caret line="18" column="40" lean-forward="false" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
-          <folding>
-            <element signature="method#add#0;class#Project#0" expanded="false" />
-            <element signature="method#getEmployee#0;class#Project#0" expanded="false" />
-            <element signature="method#getTravellingEmployeeOnDate#0;class#Project#0" expanded="false" />
-            <element signature="method#hashCode#0;class#Project#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/humanResources/StaffEmployee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="11" column="22" lean-forward="true" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#travellsCountOnDate#0;class#StaffEmployee#0" expanded="false" />
-            <element signature="method#wasTravellingOnDate#0;class#StaffEmployee#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/humanResources/DepartmentsManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="18" column="4" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
-          <folding>
-            <element signature="method#add#0;class#DepartmentsManager#0" expanded="false" />
-            <element signature="method#remove#0;class#DepartmentsManager#0" expanded="false" />
-            <element signature="method#remove#1;class#DepartmentsManager#0" expanded="false" />
-            <element signature="method#getPartTimeEmployeeQuantity#0;class#DepartmentsManager#0" expanded="false" />
-            <element signature="method#getStaffEmployeeQuantity#0;class#DepartmentsManager#0" expanded="false" />
-            <element signature="method#getTravellingEmployeeQuantity#0;class#DepartmentsManager#0" expanded="false" />
-            <element signature="method#getTravellingEmployeeOnDate#0;class#DepartmentsManager#0" expanded="false" />
-            <element signature="method#getEmployeeGroup#0;class#DepartmentsManager#0" expanded="false" />
-            <element signature="method#getEmployeeGroups#0;class#DepartmentsManager#0" expanded="false" />
-            <element signature="method#employeesQuantity#0;class#DepartmentsManager#0" expanded="false" />
-            <element signature="method#employeesQuantity#1;class#DepartmentsManager#0" expanded="false" />
-            <element signature="method#mostValuableEmployee#0;class#DepartmentsManager#0" expanded="false" />
-            <element signature="method#getEmployeesGroup#0;class#DepartmentsManager#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/LinkedList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="282" column="8" lean-forward="false" selection-start-line="282" selection-start-column="8" selection-end-line="282" selection-end-column="8" />
-          <folding>
-            <element signature="method#Node#0;class#Node#0" expanded="false" />
-            <element signature="method#equals#0;class#Node#0" expanded="false" />
-            <element signature="method#LinkedList#2;class#LinkedList#0" expanded="false" />
-            <element signature="method#add#1;class#LinkedList#0" expanded="false" />
-            <element signature="method#popNode_at#0;class#LinkedList#0" expanded="false" />
-            <element signature="method#remove#0;class#LinkedList#0" expanded="false" />
-            <element signature="docComment;method#push_at#0;class#LinkedList#0" expanded="false" />
-            <element signature="method#toArray#0;class#LinkedList#0" expanded="false" />
-            <element signature="method#contains#0;class#LinkedList#0" expanded="false" />
-            <element signature="method#indexOf#0;class#LinkedList#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/humanResources/BusinessTravel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="106" column="4" lean-forward="false" selection-start-line="106" selection-start-column="4" selection-end-line="106" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#BusinessTravel#0;class#BusinessTravel#0" expanded="false" />
-            <element signature="method#BusinessTravel#1;class#BusinessTravel#0" expanded="false" />
-            <element signature="method#getDaysCount#0;class#BusinessTravel#0" expanded="false" />
-            <element signature="e#3631#3632#0" expanded="true" />
-            <element signature="e#3663#3664#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/util/DoubleLinkedList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="345" column="17" lean-forward="true" selection-start-line="345" selection-start-column="17" selection-end-line="345" selection-end-column="17" />
+        <state relative-caret-position="181">
+          <caret line="317" column="0" lean-forward="false" selection-start-line="317" selection-start-column="0" selection-end-line="317" selection-end-column="0" />
           <folding>
             <element signature="method#DuoNode#0;class#DuoNode#0" expanded="false" />
             <element signature="method#DuoNode#2;class#DuoNode#0" expanded="false" />
@@ -1112,10 +767,79 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/Util.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="139" column="4" lean-forward="false" selection-start-line="139" selection-start-column="4" selection-end-line="139" selection-end-column="4" />
+          <folding>
+            <element signature="e#3588#3589#0" expanded="false" />
+            <element signature="e#3657#3658#0" expanded="false" />
+            <element signature="method#getStaffEmployeeCount#1;class#Util#0" expanded="false" />
+            <element signature="method#getPartTimeEmployeeCount#1;class#Util#0" expanded="false" />
+            <element signature="method#getTravellingEmployeeQuantity#0;class#Util#0" expanded="false" />
+            <element signature="method#getTravellingEmployeeQuantity#1;class#Util#0" expanded="false" />
+            <element signature="method#getTravellingEmployeeOnDate#1;class#Util#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/LinkedList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="244" column="34" lean-forward="true" selection-start-line="244" selection-start-column="34" selection-end-line="244" selection-end-column="34" />
+          <folding>
+            <element signature="method#Node#0;class#Node#0" expanded="false" />
+            <element signature="method#equals#0;class#Node#0" expanded="false" />
+            <element signature="method#LinkedList#2;class#LinkedList#0" expanded="false" />
+            <element signature="method#add#1;class#LinkedList#0" expanded="false" />
+            <element signature="method#remove#0;class#LinkedList#0" expanded="false" />
+            <element signature="docComment;method#push_at#0;class#LinkedList#0" expanded="false" />
+            <element signature="method#contains#0;class#LinkedList#0" expanded="false" />
+            <element signature="method#indexOf#0;class#LinkedList#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/humanResources/NegativeSizeException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/humanResources/DepartmentsManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="36" column="59" lean-forward="false" selection-start-line="36" selection-start-column="59" selection-end-line="36" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/humanResources/ProjectsManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="40" column="8" lean-forward="false" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/humanResources/AlreadyAddedException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/humanResources/GroupsManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="66" lean-forward="false" selection-start-line="8" selection-start-column="66" selection-end-line="8" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/humanResources/Department.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="209" column="51" lean-forward="false" selection-start-line="209" selection-start-column="51" selection-end-line="209" selection-end-column="51" />
+        <state relative-caret-position="-1746">
+          <caret line="26" column="64" lean-forward="true" selection-start-line="26" selection-start-column="64" selection-end-line="26" selection-end-column="64" />
           <folding>
             <element signature="method#remove#0;class#Department#0" expanded="false" />
             <element signature="method#remove#1;class#Department#0" expanded="false" />
@@ -1134,6 +858,79 @@
             <element signature="method#jobTitles#0;class#Department#0" expanded="false" />
             <element signature="method#businessTravellers#0;class#Department#0" expanded="false" />
             <element signature="method#equals#0;class#Department#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/humanResources/EmployeeGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="44" lean-forward="false" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/humanResources/BusinessTraveller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="64" lean-forward="false" selection-start-line="10" selection-start-column="64" selection-end-line="10" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/humanResources/Employee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="89" column="5" lean-forward="true" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/humanResources/StaffEmployee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="40" column="26" lean-forward="true" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/humanResources/PartTimeEmployee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/humanResources/IllegalDatesException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="6" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/humanResources/Project.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="18" column="40" lean-forward="false" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
+          <folding>
+            <element signature="method#add#0;class#Project#0" expanded="false" />
+            <element signature="method#getEmployee#0;class#Project#0" expanded="false" />
+            <element signature="method#getTravellingEmployeeOnDate#0;class#Project#0" expanded="false" />
+            <element signature="method#hashCode#0;class#Project#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/humanResources/BusinessTravel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="26" lean-forward="false" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
+          <folding>
+            <element signature="method#BusinessTravel#0;class#BusinessTravel#0" expanded="false" />
+            <element signature="method#BusinessTravel#1;class#BusinessTravel#0" expanded="false" />
+            <element signature="method#getDaysCount#0;class#BusinessTravel#0" expanded="false" />
+            <element signature="method#equals#0;class#BusinessTravel#0" expanded="false" />
+            <element signature="method#hashCode#0;class#BusinessTravel#0" expanded="false" />
           </folding>
         </state>
       </provider>

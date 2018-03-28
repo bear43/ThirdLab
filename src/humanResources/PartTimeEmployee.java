@@ -25,9 +25,8 @@ public class PartTimeEmployee extends Employee
     @Override
     public String toString()
     {
-        StringBuilder sb = getString();
-        sb.insert(sb.lastIndexOf(", "), "(Внешний совместитель)");
-        return String.format("%s", sb);
+        //todo String.format independetly StringBuilder DONE
+        return String.format("%s %s, %s(Внешний совместитель), %dр.", lastName, firstName, jobTitle, salary);
     }
 
     @Override

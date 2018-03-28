@@ -1,7 +1,6 @@
 package humanResources;
 
 import java.util.Calendar;
-import java.util.Date;
 
 public final class BusinessTravel
 {
@@ -14,7 +13,8 @@ public final class BusinessTravel
 
     public BusinessTravel(String destination, int compensation, String description, Calendar beginDate, Calendar endDate)
     {
-        if(compensation < 0 || endDate.getTime().getTime() < beginDate.getTime().getTime()) throw new IllegalArgumentException();
+        if(compensation < 0) throw new IllegalArgumentException("Compensation cannot be negative");
+        if(endDate.before(beginDate)) throw new IllegalArgumentException("Begin date cannot be before end date");
         this.description = description;
         this.destination = destination;
         this.compensation = compensation;
@@ -41,7 +41,7 @@ public final class BusinessTravel
         this.beginDate = begin;
         end.add(Calendar.DAY_OF_YEAR, 1);
         this.endDate = end;
-        getDaysCount();
+        this.daysCount = 1;
     }
 
     public String getDestination()
@@ -68,18 +68,7 @@ public final class BusinessTravel
     @Override
     public String toString()
     {
-        getDaysCount();
-        //StringBuilder sb = new StringBuilder();
-        String line = "";
-        if(this.destination != null && !this.destination.isEmpty())
-            line = String.format("%s", this.destination);//sb.append(this.destination).append(" ");
-        if(this.daysCount != 0)
-            line = String.format("%s %d", line, daysCount);//sb.append(this.daysCount).append(" ");
-        if(this.compensation != 0)
-            line = String.format("%s (%d)", line, compensation);//sb.append("(").append(this.compensation).append("). ");
-        if(this.description != null && !this.description.isEmpty())
-            line = String.format("%s %s", line, description);//sb.append(this.description);
-        return line;//String.format("%s", sb.toString());
+        return String.format("%s, %d (%d), %s", this.destination, this.daysCount, this.compensation, this.description);
     }
 
     @Override

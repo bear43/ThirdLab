@@ -108,7 +108,6 @@ public class DoubleLinkedList<T> implements List<T>
         }
     }
 
-    //ToDO подправь логику работы с previous PREV VOOBSHE NET
 
     /**
      *
@@ -120,7 +119,6 @@ public class DoubleLinkedList<T> implements List<T>
     {
         if(index >= size || index < 0) throw new ArrayIndexOutOfBoundsException();
         int half = size /2;
-        //todo следующие 2 условия подходят под 3-е условие, и потому в топку их. EDITED
         DuoNode<T> current = end;
         if(index < half)
             for (int i = 0; i < index; i++)
@@ -183,10 +181,9 @@ public class DoubleLinkedList<T> implements List<T>
     {
         return pop_node_at(index).getValue();
     }
-    //todo broken method REPAIRED
     private DuoNode<T> pop_node_at(int index)
     {
-        if(index >= size || index < 0) throw new ArrayIndexOutOfBoundsException();//todo THROWED
+        if(index >= size || index < 0) throw new ArrayIndexOutOfBoundsException();
         DuoNode<T> current = head;
         if(index < size /2)
         {
@@ -319,7 +316,6 @@ public class DoubleLinkedList<T> implements List<T>
         }
     }
 
-    //todo equals() hashCode() toString() DONE
 
 
     @Override

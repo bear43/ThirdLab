@@ -14,7 +14,7 @@ public abstract class Employee
         this.lastName = lastName;
         this.jobTitle = jobTitle;
         if(salary >= 0) this.salary = salary;
-        else throw new IllegalArgumentException();
+        else throw new IllegalArgumentException("Salary cannot be negative");
     }
 
     protected Employee(String firstName, String lastName)
@@ -73,27 +73,26 @@ public abstract class Employee
 
     protected StringBuilder getString()
     {
-        //StringBuilder sb = new StringBuilder();
-        String line = "";
+        StringBuilder sb = new StringBuilder();
         if(this.lastName != null && !this.lastName.isEmpty())
-            line = String.format("%s", lastName);//sb.append(this.lastName).append(" ");
+            sb.append(this.lastName).append(" ");
         if(this.firstName != null && !this.firstName.isEmpty())
-            line = String.format("%s %s,", line, firstName);//sb.append(this.firstName).append(", ");
+            sb.append(this.firstName).append(", ");
         if(this.jobTitle != null && this.jobTitle != JobTitlesEnum.NONE)
-            line = String.format("%s %s,", line, jobTitle);//sb.append(this.jobTitle).append(", ");
+            sb.append(this.jobTitle).append(", ");
         if(this.salary != 0)
-            line = String.format("%s %dр.", line, salary);//sb.append(this.salary).append("р.");
-        //sb.append("\n");
-        return new StringBuilder(line);
+            sb.append(this.salary).append("р.");
+        return sb;
     }
 
     @Override
     public String toString()
     {
-        return getString().toString();
+        //todo toString(); String.format(); without StringBuilder DONE
+        return String.format("%s %s, %s, %dр.", lastName, firstName, jobTitle, salary);
     }
 
-    //TODO сделать во всех остальных equals() так же CHECK
+
     @Override
     public boolean equals(Object obj)
     {

@@ -27,8 +27,7 @@ public class PartTimeEmployee extends Employee
     {
         StringBuilder sb = getString();
         sb.insert(sb.lastIndexOf(", "), "(Внешний совместитель)");
-        //todo CHECK
-        return sb.toString();
+        return String.format("%s", sb);
     }
 
     @Override

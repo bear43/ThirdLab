@@ -1,6 +1,12 @@
 package util;
 
+import humanResources.Employee;
+import humanResources.PartTimeEmployee;
+import humanResources.StaffEmployee;
+
 import java.lang.reflect.Array;
+import java.util.Calendar;
+import java.util.Date;
 
 import static java.lang.reflect.Array.newInstance;
 
@@ -75,5 +81,91 @@ public class Util
             }
             else
                 out.add(element);
+    }
+    public static boolean dateInRange(Date toCheck, Date begin, Date end)
+    {
+        return toCheck.getTime() >= begin.getTime()
+                && toCheck.getTime() <= end.getTime();
+    }
+
+    public static boolean dateInRange(Calendar toCheck, Calendar begin, Calendar end)
+    {
+        return toCheck.after(begin)
+                && toCheck.before(end);
+    }
+
+    public static long timeToDays(long time)
+    {
+        return (long)Math.ceil((double)time/(double)86400000);
+    }
+
+    public static long daysToTime(long days)
+    {
+        return days*86400000;
+    }
+
+    public static int getStaffEmployeeCount(LinkedList<Employee> employees)
+    {
+        int counter = 0;
+        for(Employee e : employees)
+            if(e instanceof StaffEmployee) counter++;
+        return counter;
+    }
+
+    public static int getPartTimeEmployeeCount(LinkedList<Employee> employees)
+    {
+        int counter = 0;
+        for(Employee e : employees)
+            if(e instanceof PartTimeEmployee) counter++;
+        return counter;
+    }
+
+    public static int getStaffEmployeeCount(Employee[] employees, int size)
+    {
+        int counter = 0;
+        for(int i = 0; i < size; i++)
+            if(employees[i] instanceof StaffEmployee) counter++;
+        return counter;
+    }
+
+    public static int getPartTimeEmployeeCount(Employee[] employees, int size)
+    {
+        int counter = 0;
+        for(int i = 0; i < size; i++)
+            if(employees[i] instanceof PartTimeEmployee) counter++;
+        return counter;
+    }
+
+    public static int getTravellingEmployeeQuantity(LinkedList<Employee> employees)
+    {
+        int counter = 0;
+        for(Employee e : employees)
+            if(e instanceof StaffEmployee && ((StaffEmployee) e).isTravelling())
+                counter++;
+        return counter;
+    }
+
+    public static int getTravellingEmployeeQuantity(Employee[] employees, int size)
+    {
+        int counter = 0;
+        for(int i = 0; i < size; i++)
+            if(employees[i] instanceof StaffEmployee && ((StaffEmployee)(employees[i])).isTravelling())
+                counter++;
+        return counter;
+    }
+
+    public static Employee[] getTravellingEmployeeOnDate(LinkedList<Employee> employees, Date beginDate, Date endDate)
+    {
+        util.LinkedList<Employee> travellingEmployee = new util.LinkedList<Employee>();
+        for(Employee e : employees)
+            if(e instanceof StaffEmployee && ((StaffEmployee) e).wasTravellingOnDate(beginDate, endDate))
+                travellingEmployee.add(e);
+        return travellingEmployee.toArray(Employee[].class);
+    }
+
+    public static Employee[] getTravellingEmployeeOnDate(Employee[] employees, int size, Date beginDate, Date endDate)
+    {
+        LinkedList<Employee> list = new LinkedList<Employee>(employees, size);
+        return getTravellingEmployeeOnDate(list, beginDate, endDate);
     }
 }

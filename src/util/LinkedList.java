@@ -109,12 +109,17 @@ public class LinkedList<T> implements List<T>
         size++;
     }
 
+    public void add(T[] obj)
+    {
+        for(T o : obj)
+            add(o);
+    }
+
     /* Возвращает узел с данным индексом*/
 
     /**
      *
-     * @param index
-     * @exception ArrayIndexOutOfBoundsException
+     * @exception ArrayIndexOutOfBoundsException opnioj
      */
     private Node<T> popNode_at(int index)
     {
@@ -269,16 +274,13 @@ public class LinkedList<T> implements List<T>
         }
         return -1;
     }
-
-    //todo equals() toString() hashcode() DONE?
-    //todo Iterator not listiterator
     private class Iter<E> implements Iterator<T>
     {
         private Node<T> previous;
         private Node<T> current;
         private Node<T> next = head;
 
-        public Iter(int index) {
+        Iter(int index) {
             if (index >= size || index < 0) throw new NoSuchElementException();
             for (int i = 0; i < index; i++)
             {

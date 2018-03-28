@@ -2,9 +2,8 @@ package humanResources;
 
 import util.DoubleLinkedList;
 
+import java.util.Date;
 import java.util.Iterator;
-
-import static com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolver.iterator;
 
 public class ProjectsManager implements GroupsManager
 {
@@ -25,7 +24,7 @@ public class ProjectsManager implements GroupsManager
     public int employeesQuantity()
     {
         int employeeCounter = 0;
-        for(EmployeeGroup group : groups) //todo iterator
+        for(EmployeeGroup group : groups)
             employeeCounter += group.employeeQuantity();
         return employeeCounter;
     }
@@ -37,15 +36,16 @@ public class ProjectsManager implements GroupsManager
     }
 
     @Override
-    public void add(EmployeeGroup groupable)
+    public void add(EmployeeGroup groupable) throws AlreadyAddedException
     {
+        if(groups.contains(groupable)) throw new AlreadyAddedException();
         groups.add(groupable);
     }
 
     @Override
     public EmployeeGroup getEmployeeGroup(String name)
     {
-        for(EmployeeGroup group : groups)//tododed
+        for(EmployeeGroup group : groups)
         {
             if(group.getName().equals(name))
                 return group;
@@ -63,7 +63,7 @@ public class ProjectsManager implements GroupsManager
     public int employeesQuantity(JobTitlesEnum jobTitle)
     {
         int employeeCounter = 0;
-        for(EmployeeGroup currentGroup : groups) //todo iterator TODODED
+        for(EmployeeGroup currentGroup : groups)
             employeeCounter += currentGroup.getEmployeesQuantityByJob(jobTitle);
         return employeeCounter;
     }
@@ -71,7 +71,7 @@ public class ProjectsManager implements GroupsManager
     @Override
     public EmployeeGroup getEmployeesGroup(String firstName, String lastName)
     {
-        for(EmployeeGroup currentGroup : groups) //todo iterator TODODED
+        for(EmployeeGroup currentGroup : groups)
             if(currentGroup.getEmployee(firstName, lastName) != null)
                 return currentGroup;
         return null;
@@ -83,7 +83,7 @@ public class ProjectsManager implements GroupsManager
         if(groups == null || groups.size() == 0) return null;
         Employee best = groups.at(0).mostValuableEmployee();
         Employee current;
-        for(EmployeeGroup currentGroup : groups) //todo iterator TODO
+        for(EmployeeGroup currentGroup : groups)
         {
             current = currentGroup.mostValuableEmployee();
             if(current.getSalary() > best.getSalary())
@@ -114,7 +114,25 @@ public class ProjectsManager implements GroupsManager
         return 0;
     }
 
-    //todo toString() equals() hashCode()
+    @Override
+    public int getPartTimeEmployeeQuantity() {
+        return 0;
+    }
+
+    @Override
+    public int getStaffEmployeeQuantity() {
+        return 0;
+    }
+
+    @Override
+    public int getTravellingEmployeeQuantity() {
+        return 0;
+    }
+
+    @Override
+    public Employee[] getTravellingEmployeeOnDate(Date beginDage, Date endDate) {
+        return new Employee[0];
+    }
 
     @Override
     public String toString()
@@ -126,13 +144,16 @@ public class ProjectsManager implements GroupsManager
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public boolean equals(Object obj)
+    {
+        return (obj instanceof ProjectsManager)
+                && (this.groups.equals(((ProjectsManager) obj).groups));
     }
 
     @Override
-    public int hashCode() {
-        return super.hashCode();
+    public int hashCode()
+    {
+        return groups.hashCode();
     }
 
 }

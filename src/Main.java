@@ -2,48 +2,32 @@ import humanResources.*;
 import util.DoubleLinkedList;
 import util.LinkedList;
 
+import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Iterator;
 
 import static util.Sizeable.*;
+import static util.Util.daysToTime;
+import static util.Util.timeToDays;
 
 public class Main
 {
     public static void main(String[] args)
     {
-        DepartmentsManager depManager = new DepartmentsManager("Apple Inc.");
-        DepartmentsManager man = new DepartmentsManager("Apple Inc.");
-        ProjectsManager projManager = new ProjectsManager();
-        depManager.add(new Department("Security", new Employee[]{
-                new StaffEmployee("John", "Watson", JobTitlesEnum.ANALYST, 1500, new BusinessTravel[]{
-                        new BusinessTravel("London", 30, 5000, "Relax"),
-                        new BusinessTravel("Moscow", 777, 100500, "Kill Putin"),
-                        new BusinessTravel("Samara", 90, 0, "Pass Java")
-                }, 100),
-                new PartTimeEmployee("Vasya", "Pupkin", JobTitlesEnum.ASSISTANT, 150),
-                new PartTimeEmployee("Bill", "Gates", JobTitlesEnum.NONE, 666)
-        }));
-        Project proj = new Project("iPhone", new Employee[]{
-                new PartTimeEmployee("Danila", "Bagrov", JobTitlesEnum.DIRECTOR, 100000),
-                new StaffEmployee("James", "Bond", JobTitlesEnum.ENGINEER, 15000, new BusinessTravel[]{
-                        new BusinessTravel("Chicago", 15, 100000, "Target elimination")
-                }, 2000)
-        });
-        depManager.add(proj);
-        projManager.add(proj);
-        man.add(proj);
-        man.add(new Department("Security", new Employee[]{
-                new StaffEmployee("John", "Watson", JobTitlesEnum.ANALYST, 1500, new BusinessTravel[]{
-                        new BusinessTravel("London", 30, 5000, "Relax"),
-                        new BusinessTravel("Moscow", 777, 100500, "Kill Putin"),
-                        new BusinessTravel("Samara", 90, 0, "Pass Java")
-                }, 100),
-                new PartTimeEmployee("Vasya", "Pupkin", JobTitlesEnum.ASSISTANT, 150),
-                new PartTimeEmployee("Bill", "Gates", JobTitlesEnum.NONE, 666)
-        }));
-        System.out.println(depManager.employeesQuantity());
-        System.out.println(depManager.mostValuableEmployee());
-        System.out.println(depManager.remove("iPhone"));
-        System.out.println(depManager.groupsQuantity());
-        System.out.println(depManager.equals(man));
+        StaffEmployee employee = new StaffEmployee("Test", "Tester", JobTitlesEnum.ASSISTANT, 2000);
+        try
+        {
+            employee.addTravel(new BusinessTravel("London", 1020, "Test",
+                    Calendar.getInstance(), Calendar.getInstance()));
+            employee.addTravel(new BusinessTravel());
+            employee.addTravel(new BusinessTravel("Mew", 222, "dded",
+                    Calendar.getInstance(), Calendar.getInstance()));
+        }
+        catch(IllegalDatesException ex)
+        {
+            ex.printStackTrace(System.out);
+        }
+        System.out.println(employee.travellsCountOnDate(Calendar.getInstance().getTime(), new Date(Calendar.getInstance().getTime().getTime() + daysToTime(90))));
     }
 }

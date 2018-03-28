@@ -1,8 +1,5 @@
 package humanResources;
 
-
-import java.util.Formatter;
-
 public abstract class Employee
 {
     String firstName;
@@ -16,7 +13,8 @@ public abstract class Employee
         this.firstName = firstName;
         this.lastName = lastName;
         this.jobTitle = jobTitle;
-        this.salary = salary;
+        if(salary >= 0) this.salary = salary;
+        else throw new IllegalArgumentException();
     }
 
     protected Employee(String firstName, String lastName)
@@ -73,19 +71,20 @@ public abstract class Employee
 
     public abstract void setBonus(int bonus);
 
-    protected StringBuilder getString() {
-        StringBuilder sb = new StringBuilder();
-        Formatter f = new Formatter();
+    protected StringBuilder getString()
+    {
+        //StringBuilder sb = new StringBuilder();
+        String line = "";
         if(this.lastName != null && !this.lastName.isEmpty())
-            sb.append(this.lastName).append(" ");
+            line = String.format("%s", lastName);//sb.append(this.lastName).append(" ");
         if(this.firstName != null && !this.firstName.isEmpty())
-            sb.append(this.firstName).append(", ");
+            line = String.format("%s %s,", line, firstName);//sb.append(this.firstName).append(", ");
         if(this.jobTitle != null && this.jobTitle != JobTitlesEnum.NONE)
-            sb.append(this.jobTitle).append(", ");
+            line = String.format("%s %s,", line, jobTitle);//sb.append(this.jobTitle).append(", ");
         if(this.salary != 0)
-            sb.append(this.salary).append("р.");
-        sb.append("\n");
-        return sb;
+            line = String.format("%s %dр.", line, salary);//sb.append(this.salary).append("р.");
+        //sb.append("\n");
+        return new StringBuilder(line);
     }
 
     @Override

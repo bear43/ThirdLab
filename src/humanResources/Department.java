@@ -2,6 +2,9 @@ package humanResources;
 
 import util.*;
 
+import java.util.Date;
+import java.util.Iterator;
+
 import static util.Util.*;
 
 public class Department implements EmployeeGroup
@@ -25,29 +28,28 @@ public class Department implements EmployeeGroup
         employees = new LinkedList<Employee>(e);
     }
 
-
-    public void add(Employee employee)
+    public LinkedList<Employee> getEmployeeList()
     {
-        if(employee == null) return;
-        //if(size >= employees.size) employees = expand(employees, Employee[].class);
-        //employees[size] = e;
-        //incCount();
+        return employees;
+    }
+
+
+    public void add(Employee employee) throws AlreadyAddedException
+    {
+        if(employee == null) throw new NullPointerException();
+        if(employees.contains(employee)) throw new AlreadyAddedException();
         employees.add(employee);
     }
 
     public boolean remove(Employee employee)
     {
-        if(employee == null) return false;
-        for (int i = 0; i < employees.size(); i++)
+        Iterator<Employee> Iter = employees.iterator();
+        while(Iter.hasNext())
         {
-            if(employees.at(i).compareByName(employee))
+            if(Iter.next().compareByName(employee))
             {
-                //employees[i] = null;
-                //System.arraycopy(employees, i+1, employees, i, size-i-1);
-                //employees[size] = null;
-                //size--;
-                return employees.remove(employee);
-                //return true;
+                Iter.remove();
+                return true;
             }
         }
         return false;
@@ -56,17 +58,15 @@ public class Department implements EmployeeGroup
     public boolean remove(String firstName, String lastName)
     {
         Employee current;
-        for (int i = 0; i < employees.size(); i++)
+        Iterator<Employee> Iter = employees.iterator();
+        while(Iter.hasNext())
         {
-            current = employees.at(i);
-            if(current.getFirstName().equals(firstName) && current.getLastName().equals(lastName))
+            current = Iter.next();
+            if(current.firstName.equals(firstName)
+                    && current.lastName.equals(lastName))
             {
-                //employees[i] = null;
-                //System.arraycopy(employees, i+1, employees, i, size-i-1);
-                //employees[size] = null;
-                //size--;
-                return employees.remove(current);
-                //return true;
+                Iter.remove();
+                return true;
             }
         }
         return false;
@@ -74,35 +74,27 @@ public class Department implements EmployeeGroup
 
     public int removeAll(JobTitlesEnum jobTitle)
     {
+        Iterator<Employee> Iter = employees.iterator();
         int removedCounter = 0;
-        Employee current;
-        for(int i = 0; i < employees.size(); i++)
-        {
-            current = employees.at(i);
-            if(current.jobTitle.equals(jobTitle))
+        while(Iter.hasNext())
+            if(Iter.next().jobTitle == jobTitle)
             {
-                //System.arraycopy(employees, i+1, employees, i, size-1-i);
-                //employees[size] = null;
-                //size--;
-                employees.remove(current);
+                Iter.remove();
                 removedCounter++;
-                //return true;
             }
-        }
         return removedCounter;
     }
 
     public Employee[] getEmployees()
     {
         return employees.toArray(Employee[].class);
-        //return absorbeNulls(employees, size);
     }
 
     public int getEmployeesQuantityByJob(String jobTitle)
     {
         int counter = 0;
         for(Employee e : employees.toArray(Employee[].class))
-            if(e.getJobTitle().equals(jobTitle)) counter++;
+            if(e.getJobTitle().toString().equals(jobTitle)) counter++;
         return counter;
     }
 
@@ -114,15 +106,38 @@ public class Department implements EmployeeGroup
         return counter;
     }
 
+    @Override
+    public int getPartTimeEmployeeQuantity()
+    {
+        return getPartTimeEmployeeCount(employees);
+    }
+
+    @Override
+    public int getStaffEmployeeQuantity()
+    {
+        return getStaffEmployeeCount(employees);
+    }
+
+    @Override
+    public int getTravellingEmployeeQuantity()
+    {
+        return Util.getTravellingEmployeeQuantity(employees);
+    }
+
+    @Override
+    public Employee[] getTravellingEmployeeOnDate(Date beginDate, Date endDate)
+    {
+        return Util.getTravellingEmployeeOnDate(employees, beginDate, endDate);
+    }
+
     public Employee[] getEmployees(String jobTitle)
     {
-        //Employee[] sorted = new Employee[getEmployeesQuantityByJob(jobtitle)];
         LinkedList<Employee> sorted = new LinkedList<Employee>();
         Employee current;
         for (int i = 0; i < employees.size(); i++)
         {
             current = employees.at(i);
-            if (current.getJobTitle().equals(jobTitle))
+            if (current.getJobTitle().toString().equals(jobTitle))
                 sorted.add(current);
         }
         return sorted.toArray(Employee[].class);
@@ -130,7 +145,6 @@ public class Department implements EmployeeGroup
 
     public Employee[] getEmployees(JobTitlesEnum jobTitle)
     {
-        //Employee[] sorted = new Employee[getEmployeesQuantityByJob(jobTitle)];
         LinkedList<Employee> sorted = new LinkedList<Employee>();
         Employee current;
         for (int i = 0; i < employees.size(); i++)
@@ -154,7 +168,7 @@ public class Department implements EmployeeGroup
         return null;
     }
 
-    public static Employee[] merge(Employee[] a, Employee[] b)
+    private static Employee[] merge(Employee[] a, Employee[] b)
     {
         Employee[] ret = new Employee[a.length + b.length];//Сливаем размер массива, на выходе 2*size
         int a_pointer = 0;//Указатель на текущий элемент A
@@ -193,7 +207,7 @@ public class Department implements EmployeeGroup
         return ret;
     }
 
-    public static Employee[] mergeSort(Employee[] es, int low, int high)
+    static Employee[] mergeSort(Employee[] es, int low, int high)
     {
         if(es.length == 1) return es;
         int t = low + (high+low)/2;
@@ -227,16 +241,13 @@ public class Department implements EmployeeGroup
     public Employee mostValuableEmployee()//Возвращает сотрудника с наибольшей ЗП
     {
         int max = 0;
-        int index = -1;
-        Employee current = null;
         Employee employee = null;
-        for(int i = 0; i < employees.size(); i++)
+        for(Employee e : employees)
         {
-            current = employees.at(i);
-            if (current.getSalary() > max)
+            if(e.getSalary() > max)
             {
-                max = current.getSalary();//Нашли новую макс. ЗП
-                employee = current;
+                max = e.getSalary();
+                employee = e;
             }
         }
         return employee;//Возвращаем сотрудника с макс. ЗП
@@ -244,11 +255,9 @@ public class Department implements EmployeeGroup
 
     public boolean hasEmployee(String firstName, String lastName)
     {
-        Employee current;
-        for(int i = 0; i < employees.size(); i++)//Перебираем всех сотрудников
+        for(Employee e : employees)
         {
-            current = employees.at(i);
-            if(current.getFirstName().equals(firstName) && current.getLastName().equals(lastName))
+            if(e.getFirstName().equals(firstName) && e.getLastName().equals(lastName))
                 return true;//Нашли совпадение
         }
         return false;//Нет совпадений
@@ -267,7 +276,7 @@ public class Department implements EmployeeGroup
     public JobTitlesEnum[] jobTitles()
     {
         LinkedList<JobTitlesEnum> jobTitles = new LinkedList<JobTitlesEnum>();
-        for(Employee current : employees.toArray(Employee[].class))
+        for(Employee current : employees)
             if(!jobTitles.contains(current.jobTitle))
                 jobTitles.add(current.jobTitle);
         return jobTitles.toArray(JobTitlesEnum[].class);
@@ -277,11 +286,9 @@ public class Department implements EmployeeGroup
     public Employee[] businessTravellers()
     {
         LinkedList<Employee> employees = new LinkedList<Employee>();
-        Employee current;
         BusinessTravel[] travels;
-        for(int i = 0; i < this.employees.size(); i++)
+        for(Employee current : employees)
         {
-            current = this.employees.at(i);
             if (current instanceof StaffEmployee)
             {
                 travels = ((StaffEmployee) (current)).getTravels();

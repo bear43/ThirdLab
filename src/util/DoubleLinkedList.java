@@ -7,7 +7,6 @@ import java.util.function.Consumer;
 
 import static util.Util.getUnique;
 
-//TODO СДЕЛАТЬ БЛЯТЬ ВЕЗДЕ ДЖЕНЕРИКИ! Задженерекил
 class DuoNode<T>
 {
     private DuoNode<T> previous;
@@ -252,7 +251,7 @@ public class DoubleLinkedList<T> implements List<T>
 
         public Iter(int index)
         {
-            if(index >= size || index < 0) throw new NoSuchElementException();
+            if(index >= size || index < 0) return;
             for(int i = 0; i < index; i++)
             {
                 previous = current;

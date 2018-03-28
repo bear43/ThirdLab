@@ -1,7 +1,9 @@
 package humanResources;
 
 import util.LinkedList;
+import util.Util;
 
+import java.util.Date;
 import java.util.Iterator;
 
 import static util.Util.*;
@@ -23,8 +25,10 @@ public class Project implements EmployeeGroup
     }
 
     @Override
-    public void add(Employee employee)
+    public void add(Employee employee) throws AlreadyAddedException
     {
+        if(employee == null) throw new NullPointerException();
+        if(employees.contains(employee)) throw new AlreadyAddedException();
         employees.add(employee);
     }
 
@@ -110,6 +114,30 @@ public class Project implements EmployeeGroup
     }
 
     @Override
+    public int getPartTimeEmployeeQuantity()
+    {
+        return getPartTimeEmployeeCount(employees);
+    }
+
+    @Override
+    public int getStaffEmployeeQuantity()
+    {
+        return getStaffEmployeeCount(employees);
+    }
+
+    @Override
+    public int getTravellingEmployeeQuantity()
+    {
+        return Util.getTravellingEmployeeQuantity(employees);
+    }
+
+    @Override
+    public Employee[] getTravellingEmployeeOnDate(Date beginDate, Date endDate)
+    {
+        return Util.getTravellingEmployeeOnDate(employees, beginDate, endDate);
+    }
+
+    @Override
     public String toString()
     {
         StringBuilder sb = new StringBuilder();
@@ -125,7 +153,6 @@ public class Project implements EmployeeGroup
     @Override
     public boolean equals(Object obj)
     {
-        //todo через && и с вызовом equals() на списке CHECK
         return (obj instanceof Project) &&
                 this.name.equals(((Project) obj).name) &&
                 this.employees.equals(((Project) obj).employees);

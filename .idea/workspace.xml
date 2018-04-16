@@ -6,21 +6,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bc61fd6b-0e97-4c16-a09e-e05f91e9b62a" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/2new/humanResources/DepartmentsManager.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/2new/humanResources/PartTimeEmployee.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/2new/humanResources/ProjectsManager.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/2new/humanResources/StaffEmployee.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2new/Main.class" afterPath="$PROJECT_DIR$/out/production/2new/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2new/humanResources/BusinessTravel.class" afterPath="$PROJECT_DIR$/out/production/2new/humanResources/BusinessTravel.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/2new/humanResources/Employee.class" afterPath="$PROJECT_DIR$/out/production/2new/humanResources/Employee.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/humanResources/BusinessTraveller.java" afterPath="$PROJECT_DIR$/src/humanResources/BusinessTraveller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/humanResources/Department.java" afterPath="$PROJECT_DIR$/src/humanResources/Department.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/humanResources/Employee.java" afterPath="$PROJECT_DIR$/src/humanResources/Employee.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/humanResources/Project.java" afterPath="$PROJECT_DIR$/src/humanResources/Project.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/humanResources/StaffEmployee.java" afterPath="$PROJECT_DIR$/src/humanResources/StaffEmployee.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/DoubleLinkedList.java" afterPath="$PROJECT_DIR$/src/util/DoubleLinkedList.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -126,7 +115,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="Fourth" />
       </map>
     </option>
   </component>
@@ -455,7 +444,7 @@
       <workItem from="1522253464943" duration="1341000" />
       <workItem from="1522385081536" duration="566000" />
       <workItem from="1522780601747" duration="4191000" />
-      <workItem from="1523904462624" duration="3830000" />
+      <workItem from="1523904462624" duration="3903000" />
     </task>
     <task id="LOCAL-00001" summary="EAT BANANAS AND WRITE CODE, YOU MONKEY!!!!!!!">
       <created>1521181076268</created>
@@ -527,11 +516,18 @@
       <option name="project" value="LOCAL" />
       <updated>1522253829370</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Catch dat">
+      <created>1523909199845</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1523909199845</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="296654000" />
+    <option name="totallyTimeSpent" value="296727000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -652,7 +648,8 @@
     <MESSAGE value="Third" />
     <MESSAGE value="Fifth" />
     <MESSAGE value="Fourth" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fourth" />
+    <MESSAGE value="Catch dat" />
+    <option name="LAST_COMMIT_MESSAGE" value="Catch dat" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

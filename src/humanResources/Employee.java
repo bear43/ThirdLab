@@ -1,6 +1,6 @@
 package humanResources;
 
-public abstract class Employee
+public abstract class Employee implements Comparable<Employee>
 {
     String firstName;
     String lastName;
@@ -117,5 +117,11 @@ public abstract class Employee
         hash ^= this.jobTitle.hashCode();
         hash ^= this.salary;
         return hash;
+    }
+
+    @Override
+    public int compareTo(Employee o)
+    {
+        return salary - o.salary;
     }
 }

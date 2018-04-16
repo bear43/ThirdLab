@@ -15,13 +15,11 @@ public class Main
 {
     public static void main(String[] args)
     {
+        java.time.LocalDate ld = LocalDate.of(2018, 3, 28);
         StaffEmployee employee = new StaffEmployee("Test", "Tester", JobTitlesEnum.ASSISTANT, 2000);
         try
         {
             employee.addTravel(new BusinessTravel("London", 1020, "Test",
-                    Calendar.getInstance(), Calendar.getInstance()));
-            employee.addTravel(new BusinessTravel());
-            employee.addTravel(new BusinessTravel("Mew", 222, "dded",
                     Calendar.getInstance(), Calendar.getInstance()));
         }
         catch(IllegalDatesException ex)

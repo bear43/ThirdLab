@@ -3,7 +3,10 @@ package humanResources;
 import util.DoubleLinkedList;
 
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Date;
+import java.util.Iterator;
+
 import static util.Util.dateInRange;
 import static util.Util.timeToDays;
 
@@ -126,6 +129,119 @@ public class StaffEmployee extends Employee implements BusinessTraveller
     }
 
     @Override
+    public int size()
+    {
+        return travels.size();
+    }
+
+    @Override
+    public boolean isEmpty()
+    {
+        return travels.size() == 0;
+    }
+
+    @Override
+    public boolean contains(Object o)
+    {
+        return (o instanceof BusinessTravel) && travels.contains((BusinessTravel)o);
+    }
+
+    @Override
+    public Iterator<BusinessTravel> iterator() {
+        return travels.iterator();
+    }
+
+    @Override
+    public Object[] toArray()
+    {
+        return travels.toArray(BusinessTravel[].class);
+    }
+
+    @Override
+    public <T> T[] toArray(T[] a)
+    {
+        return (T[])travels.toArray(BusinessTravel[].class);
+    }
+
+    @Override
+    public boolean add(BusinessTravel businessTravel)
+    {
+        if(contains(businessTravel)) return false;
+        else
+        {
+            int travelCountBeforeAdd = travels.size();
+            travels.add(businessTravel);
+            return travels.size() > travelCountBeforeAdd;
+        }
+    }
+
+    @Override
+    public boolean remove(Object o)
+    {
+        return (o instanceof BusinessTravel) && travels.remove((BusinessTravel)o);
+    }
+
+    @Override
+    public boolean containsAll(Collection<?> c)
+    {
+        for(Object o : c)
+            if(!contains(o)) return false;
+        return true;
+    }
+
+    @Override
+    public boolean addAll(Collection<? extends BusinessTravel> c)
+    {
+        for(BusinessTravel travel : c)
+            if(!add(travel)) return false;
+        return true;
+    }
+
+    @Override
+    public boolean retainAll(Collection<?> c) {
+        if(containsAll(c))
+        {
+            travels = new DoubleLinkedList<BusinessTravel>();
+            for(Object travel : c)
+                add((BusinessTravel)travel);
+            return true;
+        }
+        else return false;
+    }
+
+    @Override
+    public boolean removeAll(Collection<?> c)
+    {
+        if(containsAll(c))
+        {
+            Iterator<BusinessTravel> iter = travels.iterator();
+            for (Object o : c) {
+                if (!iter.hasNext()) return false;
+                while (iter.hasNext()) {
+                    if (iter.next().equals(o)) {
+                        iter.remove();
+                        break;
+                    }
+                }
+                iter = travels.iterator();
+            }
+            return true;
+        }
+        else return false;
+    }
+
+    @Override
+    public void clear()
+    {
+        Iterator<BusinessTravel> iter = travels.iterator();
+        while(iter.hasNext())
+        {
+            iter.next();
+            iter.remove();
+        }
+    }
+
+    @Override
     public boolean equals(Object obj)
     {
         return (obj instanceof StaffEmployee) &&
@@ -139,5 +255,11 @@ public class StaffEmployee extends Employee implements BusinessTraveller
         int hash = bonus;
         hash ^= travels.hashCode();
         return hash;
+    }
+
+    @Override
+    public int compareTo(Employee o)
+    {
+        return (o instanceof StaffEmployee) ? super.compareTo(o) + bonus - ((StaffEmployee) o).bonus : super.compareTo(o);
     }
 }

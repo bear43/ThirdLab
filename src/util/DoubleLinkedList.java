@@ -365,4 +365,5 @@ public class DoubleLinkedList<T> implements List<T>
         }
         return hashXOR;
     }
+
 }

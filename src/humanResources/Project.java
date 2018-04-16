@@ -3,6 +3,7 @@ package humanResources;
 import util.LinkedList;
 import util.Util;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Iterator;
 
@@ -35,9 +36,11 @@ public class Project implements EmployeeGroup
     @Override
     public Employee[] sortedEmployees()
     {
-        Employee[] sorted = Department.mergeSort(employees.toArray(Employee[].class), 0, employees.size());
-        fullReverse(sorted, employees.size());
-        return sorted;
+        //Employee[] sorted = Department.mergeSort(employees.toArray(Employee[].class), 0, employees.size());
+        //fullReverse(sorted, employees.size());
+        Employee[] ret = employees.toArray(Employee[].class);
+        Arrays.sort(ret);
+        return ret;
     }
 
     @Override

@@ -2,6 +2,7 @@ package humanResources;
 
 import util.*;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Iterator;
 
@@ -233,8 +234,10 @@ public class Department implements EmployeeGroup
 
     public Employee[] sortedEmployees()
     {
-        Employee[] ret = mergeSort(employees.toArray(Employee[].class), 0, employees.size());
-        fullReverse(ret, ret.length);
+        //Employee[] ret = mergeSort(employees.toArray(Employee[].class), 0, employees.size());
+        //fullReverse(ret, ret.length);
+        Employee[] ret = employees.toArray(Employee[].class);
+        Arrays.sort(ret);
         return ret;
     }
 

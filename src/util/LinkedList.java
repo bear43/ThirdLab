@@ -314,11 +314,13 @@ public class LinkedList<T> implements List<T>
             {
                 if(head == tail) tail = null;
                 head = next;
+                current.setData(null);
                 current = null;
             }
             else if(current == tail)
             {
                 current = previous;
+                current.setData(null);
                 current.setNext(null);
                 tail = current;
             }

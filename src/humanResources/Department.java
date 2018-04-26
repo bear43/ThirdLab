@@ -17,15 +17,12 @@ public class Department implements EmployeeGroup
 
     public Department(String name)
     {
-        //this(Name, DEFAULT_CAPACITY);
         this(name, null);
     }
 
     public Department(String name, Employee[] e)
     {
         this.name = name;
-        //Employee[] employees = new Employee[e.size];
-        //System.arraycopy(e, 0, employees, 0, getElemCount(e));
         employees = new LinkedList<Employee>(e);
     }
 
@@ -35,25 +32,57 @@ public class Department implements EmployeeGroup
     }
 
 
-    public void add(Employee employee) throws AlreadyAddedException
+    @Override
+    public int size() {
+        return employees.size();
+    }
+
+    public void add(Employee employee)
     {
-        if(employee == null) throw new NullPointerException();
-        if(employees.contains(employee)) throw new AlreadyAddedException();
-        employees.add(employee);
+        try {
+            if (employee == null) throw new NullPointerException();
+            if (employees.contains(employee)) throw new AlreadyAddedException();
+            employees.add(employee);
+        }
+        catch(AlreadyAddedException ex)
+        {
+            ex.printStackTrace(System.out);
+        }
+    }
+
+    @Override
+    public boolean remove(int index) {
+        return employees.remove(index);
     }
 
     public boolean remove(Employee employee)
     {
-        Iterator<Employee> Iter = employees.iterator();
-        while(Iter.hasNext())
-        {
-            if(Iter.next().compareByName(employee))
-            {
-                Iter.remove();
-                return true;
-            }
-        }
-        return false;
+        return employees.remove(employee);
+    }
+
+    @Override
+    public Employee at(int index) {
+        return employees.at(index);
+    }
+
+    @Override
+    public Employee pop_back() {
+        return employees.pop_back();
+    }
+
+    @Override
+    public boolean contains(Employee obj) {
+        return employees.contains(obj);
+    }
+
+    @Override
+    public int indexOf(Employee obj) {
+        return employees.indexOf(obj);
+    }
+
+    @Override
+    public Employee[] toArray(Class<Employee[]> type) {
+        return employees.toArray(Employee[].class);
     }
 
     public boolean remove(String firstName, String lastName)
@@ -337,5 +366,10 @@ public class Department implements EmployeeGroup
     public int employeeQuantity()
     {
         return employees.size();
+    }
+
+    @Override
+    public Iterator<Employee> iterator() {
+        return employees.iterator();
     }
 }

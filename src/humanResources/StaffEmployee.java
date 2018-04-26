@@ -2,10 +2,7 @@ package humanResources;
 
 import util.DoubleLinkedList;
 
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.Date;
-import java.util.Iterator;
+import java.util.*;
 
 import static util.Util.dateInRange;
 import static util.Util.timeToDays;
@@ -198,36 +195,40 @@ public class StaffEmployee extends Employee implements BusinessTraveller
     }
 
     @Override
-    public boolean retainAll(Collection<?> c) {
-        if(containsAll(c))
-        {
-            travels = new DoubleLinkedList<BusinessTravel>();
-            for(Object travel : c)
-                add((BusinessTravel)travel);
-            return true;
-        }
-        else return false;
+    public boolean retainAll(Collection<?> c)
+    {
+        int savedCounter = 0;
+        DoubleLinkedList<BusinessTravel> newTravels = new DoubleLinkedList<BusinessTravel>();
+        for(Object travel : c)
+            for(Object obj : travels)
+                if(travel.equals(obj))
+                {
+                    newTravels.add((BusinessTravel)travel);
+                    savedCounter++;
+                }
+        clear();
+        for(BusinessTravel travel : newTravels)
+            add(travel);
+        return savedCounter > 0;
     }
 
     @Override
     public boolean removeAll(Collection<?> c)
     {
-        if(containsAll(c))
+        int removedCounter = 0;
+        Iterator<BusinessTravel> iter = travels.iterator();
+        for (Object o : c)
         {
-            Iterator<BusinessTravel> iter = travels.iterator();
-            for (Object o : c) {
-                if (!iter.hasNext()) return false;
-                while (iter.hasNext()) {
-                    if (iter.next().equals(o)) {
-                        iter.remove();
-                        break;
-                    }
+            while (iter.hasNext()) {
+                if (iter.next().equals(o)) {
+                    iter.remove();
+                    removedCounter++;
+                    break;
                 }
-                iter = travels.iterator();
             }
-            return true;
+            iter = travels.iterator();
         }
-        else return false;
+            return removedCounter > 0;
     }
 
     @Override
@@ -255,11 +256,5 @@ public class StaffEmployee extends Employee implements BusinessTraveller
         int hash = bonus;
         hash ^= travels.hashCode();
         return hash;
-    }
-
-    @Override
-    public int compareTo(Employee o)
-    {
-        return (o instanceof StaffEmployee) ? super.compareTo(o) + bonus - ((StaffEmployee) o).bonus : super.compareTo(o);
     }
 }

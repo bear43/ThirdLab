@@ -146,7 +146,7 @@ public class DoubleLinkedList<T> implements List<T>
      * @exception NullPointerException If @param obj equals null
      */
     @Override
-    public boolean remove(T obj)
+    public boolean remove(Object obj)
     {
         if(obj == null) throw new NullPointerException();
         DuoNode<T> current = head;
@@ -210,7 +210,7 @@ public class DoubleLinkedList<T> implements List<T>
     }
 
     @Override
-    public int indexOf(T obj) {
+    public int indexOf(Object obj) {
         if(obj == null) return -1;
         DuoNode<T> current = head;
         for(int i = 0; i < size; i++)

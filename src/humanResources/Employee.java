@@ -88,7 +88,6 @@ public abstract class Employee implements Comparable<Employee>
     @Override
     public String toString()
     {
-        //todo toString(); String.format(); without StringBuilder DONE
         return String.format("%s %s, %s, %dр.", lastName, firstName, jobTitle, salary);
     }
 
@@ -122,6 +121,6 @@ public abstract class Employee implements Comparable<Employee>
     @Override
     public int compareTo(Employee o)
     {
-        return salary - o.salary;
+        return o instanceof StaffEmployee ? salary - o.salary + getBonus() - o.getBonus() : salary - o.salary ;
     }
 }

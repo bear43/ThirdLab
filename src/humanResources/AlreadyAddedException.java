@@ -2,7 +2,6 @@ package humanResources;
 
 class AlreadyAddedException extends Exception
 {
-    //todo DONE
     AlreadyAddedException(String message, Throwable cause)
     {
         super(message, cause);

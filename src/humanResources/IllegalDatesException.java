@@ -2,7 +2,6 @@ package humanResources;
 
 public class IllegalDatesException extends Exception
 {
-    //todo three empty constructor, message, throwable DONE
     IllegalDatesException(String message, Throwable cause)
     {
         super(message, cause);

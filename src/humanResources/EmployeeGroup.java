@@ -1,12 +1,13 @@
 package humanResources;
 
 import util.LinkedList;
+import util.List;
 
 import java.util.Date;
 
-public interface EmployeeGroup
+public interface EmployeeGroup extends List<Employee>
 {
-    void add(Employee employee) throws AlreadyAddedException;
+    void add(Employee employee);
     Employee[] sortedEmployees();
     Employee[] getEmployees();
     int employeeQuantity();

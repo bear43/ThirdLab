@@ -26,11 +26,27 @@ public class Project implements EmployeeGroup
     }
 
     @Override
-    public void add(Employee employee) throws AlreadyAddedException
+    public int size() {
+        return employees.size();
+    }
+
+    @Override
+    public void add(Employee employee)
     {
-        if(employee == null) throw new NullPointerException();
-        if(employees.contains(employee)) throw new AlreadyAddedException();
-        employees.add(employee);
+        try {
+            if (employee == null) throw new NullPointerException();
+            if (employees.contains(employee)) throw new AlreadyAddedException();
+            employees.add(employee);
+        }
+        catch(AlreadyAddedException ex)
+        {
+            ex.printStackTrace(System.out);
+        }
+    }
+
+    @Override
+    public boolean remove(int index) {
+        return employees.remove(index);
     }
 
     @Override
@@ -71,6 +87,36 @@ public class Project implements EmployeeGroup
     @Override
     public boolean remove(Employee employee) {
         return employees.remove(employee);
+    }
+
+    @Override
+    public Employee at(int index)
+    {
+        return employees.at(index);
+    }
+
+    @Override
+    public Employee pop_back()
+    {
+        return employees.pop_back();
+    }
+
+    @Override
+    public boolean contains(Employee obj)
+    {
+        return employees.contains(obj);
+    }
+
+    @Override
+    public int indexOf(Employee obj)
+    {
+        return employees.indexOf(obj);
+    }
+
+    @Override
+    public Employee[] toArray(Class<Employee[]> type)
+    {
+        return employees.toArray(Employee[].class);
     }
 
     @Override
@@ -167,5 +213,10 @@ public class Project implements EmployeeGroup
         int hash = name.hashCode();
         hash ^= employees.hashCode();
         return hash;
+    }
+
+    @Override
+    public Iterator<Employee> iterator() {
+        return employees.iterator();
     }
 }

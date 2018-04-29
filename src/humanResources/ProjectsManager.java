@@ -8,11 +8,13 @@ import java.util.Iterator;
 public class ProjectsManager implements GroupsManager
 {
 
+    private String name;
+
     private DoubleLinkedList<EmployeeGroup> groups;
 
     private ProjectsManager(EmployeeGroup[] groups)
     {
-        this.groups = new DoubleLinkedList<EmployeeGroup>(groups);
+        this.groups = new DoubleLinkedList<>(groups);
     }
 
     public ProjectsManager()
@@ -155,5 +157,19 @@ public class ProjectsManager implements GroupsManager
     {
         return groups.hashCode();
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getFileName()
+    {
+        return String.format("%s", this.name);
+    }
+
 
 }

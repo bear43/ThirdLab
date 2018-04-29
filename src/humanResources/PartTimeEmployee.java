@@ -1,5 +1,15 @@
 package humanResources;
 
+import io.FileSource;
+import io.Source;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.text.ParseException;
+import java.util.StringTokenizer;
+
+import static util.Util.readUTFFile;
+
 public class PartTimeEmployee extends Employee
 {
     @Override
@@ -20,6 +30,17 @@ public class PartTimeEmployee extends Employee
     public PartTimeEmployee(String firstName, String lastName)
     {
         super(firstName, lastName, JobTitlesEnum.NONE,  DEFAULT_SALARY);
+    }
+
+    public PartTimeEmployee(String rawData)
+    {
+        this("", "");
+        StringTokenizer st = new StringTokenizer(rawData, defaultFieldsDelimiter);
+        st.nextToken();
+        this.firstName = st.nextToken();
+        this.lastName = st.nextToken();
+        this.jobTitle = JobTitlesEnum.values()[Integer.parseInt(st.nextToken())];
+        this.salary = Integer.parseInt(st.nextToken());
     }
 
     @Override
@@ -44,5 +65,31 @@ public class PartTimeEmployee extends Employee
     public int hashCode()
     {
         return super.hashCode();
+    }
+
+
+    @Override
+    public String toText()
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.getClass().getName()).append(defaultFieldsDelimiter).
+                append(super.toText());
+        return sb.toString();
+    }
+
+    @Override
+    public String toText(Source source) {
+        return toText();
+    }
+
+    @Override
+    public PartTimeEmployee fromText(String text)
+    {
+        return new PartTimeEmployee(text);
+    }
+
+    @Override
+    public Employee fromText(String text, FileSource source) {
+        return null;
     }
 }

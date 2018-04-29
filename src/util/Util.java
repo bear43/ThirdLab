@@ -4,6 +4,7 @@ import humanResources.Employee;
 import humanResources.PartTimeEmployee;
 import humanResources.StaffEmployee;
 
+import java.io.*;
 import java.lang.reflect.Array;
 import java.util.Calendar;
 import java.util.Date;
@@ -167,5 +168,38 @@ public class Util
     {
         LinkedList<Employee> list = new LinkedList<Employee>(employees, size);
         return getTravellingEmployeeOnDate(list, beginDate, endDate);
+    }
+
+    public static String readUTFLine(BufferedReader br) throws IOException
+    {
+        return br.readLine();
+    }
+
+    public static String readUTFLine(String filename) throws IOException
+    {
+        return readUTFLine(new BufferedReader(new FileReader(filename)));
+    }
+
+    public static String readUTFFile(String filename) throws IOException
+    {
+        BufferedReader br = new BufferedReader(new FileReader(filename));
+        StringBuilder sb = new StringBuilder();
+        String buffer = br.readLine();
+        while(buffer != null)
+        {
+            sb.append(buffer).append("\n");
+            buffer = br.readLine();
+        }
+        return sb.toString();
+    }
+
+    public static void writeUTFFile(String filename, String data) throws IOException
+    {
+        File f = new File(filename);
+        f.createNewFile();
+        PrintWriter pw = new PrintWriter(new FileWriter(filename));
+        pw.print(data);
+        pw.flush();
+        pw.close();
     }
 }

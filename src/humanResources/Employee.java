@@ -1,7 +1,18 @@
 package humanResources;
 
-public abstract class Employee implements Comparable<Employee>
+import io.FileSource;
+import io.Source;
+import io.Textable;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.text.ParseException;
+
+import static util.Util.readUTFFile;
+
+public abstract class Employee implements Comparable<Employee>, Textable<Employee>
 {
+    private static final String defaultExtension = "emp";
     String firstName;
     String lastName;
     JobTitlesEnum jobTitle;
@@ -122,5 +133,36 @@ public abstract class Employee implements Comparable<Employee>
     public int compareTo(Employee o)
     {
         return o instanceof StaffEmployee ? salary - o.salary + getBonus() - o.getBonus() : salary - o.salary ;
+    }
+
+    public String getFileName()
+    {
+        return String.format("%s_%s.%s", this.firstName, this.lastName, defaultExtension);
+    }
+
+    public static Employee resurectObject(String filename, FileSource source) throws IOException, ParseException
+    {
+        filename = source.getPath() + "\\" + filename;
+        String className = Textable.getClassFromFile(filename);
+        if(className.equals(PartTimeEmployee.class.getName()))
+        {
+            return new PartTimeEmployee(readUTFFile(filename));
+        }
+        else if(className.equals(StaffEmployee.class.getName()))
+        {
+            return new StaffEmployee(readUTFFile(filename));
+        }
+        return null;
+    }
+
+    @Override
+    public String toText()
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.firstName).append(defaultFieldsDelimiter);
+        sb.append(this.lastName).append(defaultFieldsDelimiter);
+        sb.append(this.jobTitle.ordinal()).append(defaultFieldsDelimiter);
+        sb.append(this.salary);
+        return sb.toString();
     }
 }

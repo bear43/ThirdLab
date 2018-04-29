@@ -244,7 +244,7 @@ public class LinkedList<T> implements List<T>
     /* Ищет элемент в списке. */
     public boolean contains(T obj)
     {
-        if(head == null) throw new NullPointerException();
+        if(size != 0 && head == null) throw new NullPointerException();
         Node<T> current = head;
         while(current != null)
         {

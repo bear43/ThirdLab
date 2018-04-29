@@ -1,6 +1,6 @@
 package humanResources;
 
-class AlreadyAddedException extends Exception
+public class AlreadyAddedException extends Exception
 {
     AlreadyAddedException(String message, Throwable cause)
     {

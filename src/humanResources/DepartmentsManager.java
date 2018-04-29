@@ -22,7 +22,7 @@ public class DepartmentsManager implements GroupsManager
         else
         {
             System.arraycopy(deps, 0, deps, 0, shiftNulls(deps));
-            departments = new LinkedList<EmployeeGroup>(deps);//Создаем новый массив
+            departments = new LinkedList<>(deps);//Создаем новый массив
         }
         name = title;
     }
@@ -94,7 +94,7 @@ public class DepartmentsManager implements GroupsManager
     @Override
     public Employee[] getTravellingEmployeeOnDate(Date beginDage, Date endDate)
      {
-        LinkedList<Employee> travellingEmployees = new LinkedList<Employee>();
+        LinkedList<Employee> travellingEmployees = new LinkedList<>();
         for(EmployeeGroup group : departments)
             travellingEmployees.add(Util.getTravellingEmployeeOnDate(group.getEmployees(), group.employeeQuantity(), beginDage, endDate));
         return travellingEmployees.toArray(Employee[].class);
@@ -167,5 +167,18 @@ public class DepartmentsManager implements GroupsManager
     public int groupsQuantity()
     {
         return departments.size();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getFileName()
+    {
+        return String.format("%s", this.name);
     }
 }

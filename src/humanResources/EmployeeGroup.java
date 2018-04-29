@@ -1,11 +1,11 @@
 package humanResources;
 
-import util.LinkedList;
+import io.Textable;
 import util.List;
 
 import java.util.Date;
 
-public interface EmployeeGroup extends List<Employee>
+public interface EmployeeGroup extends List<Employee>, Textable<EmployeeGroup>
 {
     void add(Employee employee);
     Employee[] sortedEmployees();

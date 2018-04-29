@@ -1,4 +1,6 @@
 import humanResources.*;
+import io.ControlledDepartment;
+import io.ControlledDepartmentManager;
 import util.DoubleLinkedList;
 import util.LinkedList;
 
@@ -15,17 +17,24 @@ public class Main
 {
     public static void main(String[] args)
     {
-        java.time.LocalDate ld = LocalDate.of(2018, 3, 28);
-        StaffEmployee employee = new StaffEmployee("Test", "Tester", JobTitlesEnum.ASSISTANT, 2000);
-        try
-        {
-            employee.addTravel(new BusinessTravel("London", 1020, "Test",
-                    Calendar.getInstance(), Calendar.getInstance()));
+        ControlledDepartment dep = new ControlledDepartment("TestDep");
+        dep.add(new StaffEmployee("Mor", "For", JobTitlesEnum.AGENT, 1200, new BusinessTravel[]{
+                new BusinessTravel()
+        }, 100));
+        dep.add(new PartTimeEmployee("John", "Small", JobTitlesEnum.ADMINISTRATOR, 10000));
+        ControlledDepartment fep = new ControlledDepartment("FineDep");
+        fep.add(new PartTimeEmployee("Lel", "Pel", JobTitlesEnum.ENGINEER, 100));
+        ControlledDepartmentManager cdm = new ControlledDepartmentManager("Org", new EmployeeGroup[]{
+                dep, fep
+        });
+        ControlledDepartmentManager fdm = new ControlledDepartmentManager("Org");
+        try {
+            cdm.store();
+            fdm.restore();
         }
-        catch(IllegalDatesException ex)
+        catch (Exception ex)
         {
-            ex.printStackTrace(System.out);
+            ex.printStackTrace();
         }
-        System.out.println(employee.travellsCountOnDate(Calendar.getInstance().getTime(), new Date(Calendar.getInstance().getTime().getTime() + daysToTime(90))));
     }
 }

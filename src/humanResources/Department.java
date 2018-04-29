@@ -1,15 +1,23 @@
 package humanResources;
 
+import io.ControlledDepartment;
+import io.FileSource;
+import io.Source;
 import util.*;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.text.ParseException;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.StringTokenizer;
 
 import static util.Util.*;
 
 public class Department implements EmployeeGroup
 {
+    private static final String defaultExtension = "dep";
     private String name;
 
 
@@ -23,7 +31,7 @@ public class Department implements EmployeeGroup
     public Department(String name, Employee[] e)
     {
         this.name = name;
-        employees = new LinkedList<Employee>(e);
+        employees = new LinkedList<>(e);
     }
 
     public LinkedList<Employee> getEmployeeList()
@@ -41,7 +49,7 @@ public class Department implements EmployeeGroup
     {
         try {
             if (employee == null) throw new NullPointerException();
-            if (employees.contains(employee)) throw new AlreadyAddedException();
+            if (employees.size() != 0 && employees.contains(employee)) throw new AlreadyAddedException();
             employees.add(employee);
         }
         catch(AlreadyAddedException ex)
@@ -115,6 +123,22 @@ public class Department implements EmployeeGroup
         return removedCounter;
     }
 
+    @Override
+    public int removeAll(Employee obj)
+    {
+        int counter = 0;
+        Iterator<Employee> iter = employees.iterator();
+        while(iter.hasNext())
+        {
+            if(iter.next().equals(obj))
+            {
+                iter.remove();
+                counter++;
+            }
+        }
+        return counter;
+    }
+
     public Employee[] getEmployees()
     {
         return employees.toArray(Employee[].class);
@@ -162,7 +186,7 @@ public class Department implements EmployeeGroup
 
     public Employee[] getEmployees(String jobTitle)
     {
-        LinkedList<Employee> sorted = new LinkedList<Employee>();
+        LinkedList<Employee> sorted = new LinkedList<>();
         Employee current;
         for (int i = 0; i < employees.size(); i++)
         {
@@ -175,7 +199,7 @@ public class Department implements EmployeeGroup
 
     public Employee[] getEmployees(JobTitlesEnum jobTitle)
     {
-        LinkedList<Employee> sorted = new LinkedList<Employee>();
+        LinkedList<Employee> sorted = new LinkedList<>();
         Employee current;
         for (int i = 0; i < employees.size(); i++)
         {
@@ -204,10 +228,8 @@ public class Department implements EmployeeGroup
         int a_pointer = 0;//Указатель на текущий элемент A
         int b_pointer = 0;//Указатель на текущий элемент B
         int ret_pointer = 0;//Указатель на текущий элемент Ret
-        while(true)
+        while(a_pointer <= a.length && b_pointer <= b.length)
         {
-            if(a_pointer >= a.length && b_pointer >= b.length)
-                break;
             if(a_pointer >= a.length)
             {
                 ret[ret_pointer] = b[b_pointer];
@@ -307,7 +329,7 @@ public class Department implements EmployeeGroup
     /* Метод возвращает массив должностей сотрудников, при этом без повторов */
     public JobTitlesEnum[] jobTitles()
     {
-        LinkedList<JobTitlesEnum> jobTitles = new LinkedList<JobTitlesEnum>();
+        LinkedList<JobTitlesEnum> jobTitles = new LinkedList<>();
         for(Employee current : employees)
             if(!jobTitles.contains(current.jobTitle))
                 jobTitles.add(current.jobTitle);
@@ -371,5 +393,50 @@ public class Department implements EmployeeGroup
     @Override
     public Iterator<Employee> iterator() {
         return employees.iterator();
+    }
+
+    @Override
+    public String toText() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.getClass().getName()).append(defaultFieldsDelimiter).//Имя класса
+                append(this.getName());//Имя объекта
+        for(Employee e : this.getEmployeeList())
+            sb.append(defaultFieldsDelimiter).append(e.getFileName()).append(defaultFieldsDelimiter);
+        return sb.toString();
+    }
+
+    public String toText(Source source) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.getClass().getName()).append(defaultFieldsDelimiter).//Имя класса
+                append(this.getName());//Имя объекта
+        for(Employee e : this.getEmployeeList())
+        {
+            sb.append(defaultFieldsDelimiter).
+            append(e.getFileName());
+        }
+        return sb.toString();
+    }
+
+    @Override
+    public EmployeeGroup fromText(String text) throws IOException, ParseException {
+        StringTokenizer st = new StringTokenizer(text, defaultFieldsDelimiter);
+        if(st.nextToken().equals(this.getClass().getName()))
+        {
+            this.setName(st.nextToken());
+            while(st.hasMoreTokens())
+                this.add(Employee.resurectObject(st.nextToken(), null));
+        }
+        return this;
+    }
+
+    @Override
+    public EmployeeGroup fromText(String text, FileSource source) throws IOException, ParseException {
+        return null;
+    }
+
+    @Override
+    public String getFileName()
+    {
+        return this.name;
     }
 }

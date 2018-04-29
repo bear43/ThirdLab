@@ -1,5 +1,7 @@
 package humanResources;
 
+import util.List;
+
 import java.util.Date;
 
 public interface GroupsManager

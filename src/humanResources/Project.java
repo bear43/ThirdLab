@@ -1,23 +1,30 @@
 package humanResources;
 
+import io.FileSource;
+import io.Source;
 import util.LinkedList;
 import util.Util;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.text.ParseException;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.StringTokenizer;
 
 import static util.Util.*;
 
 public class Project implements EmployeeGroup
 {
+    private final static String defaultExtension = "prj";
     private String name;
     private LinkedList<Employee> employees;
 
     public Project(String name, Employee[] employees)
     {
         this.name = name;
-        this.employees = new LinkedList<Employee>(employees);
+        this.employees = new LinkedList<>(employees);
     }
 
     public Project(String name)
@@ -218,5 +225,60 @@ public class Project implements EmployeeGroup
     @Override
     public Iterator<Employee> iterator() {
         return employees.iterator();
+    }
+
+    @Override
+    public int removeAll(Employee obj)
+    {
+        int counter = 0;
+        Iterator<Employee> iter = employees.iterator();
+        while(iter.hasNext())
+        {
+            if(iter.next().equals(obj))
+            {
+                iter.remove();
+                counter++;
+            }
+        }
+        return counter;
+    }
+
+    @Override
+    public String toText() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.getClass().getName()).append(defaultFieldsDelimiter).//Имя класса
+                append(this.getName()).append(defaultFieldsDelimiter);//Имя объекта
+        for(Employee e : this)
+            sb.append(e.getFileName()).append(defaultFieldsDelimiter);
+        return sb.toString();
+    }
+
+    @Override
+    public String toText(Source source)
+    {
+        return null;
+    }
+
+    @Override
+    public EmployeeGroup fromText(String text) throws IOException, ParseException {
+        StringTokenizer st = new StringTokenizer(text, defaultFieldsDelimiter);
+        if(st.nextToken().equals(this.getClass().getName()))
+        {
+            this.setName(st.nextToken());
+            while(st.hasMoreTokens())
+                this.add(Employee.resurectObject(st.nextToken(), null));
+        }
+        return this;
+    }
+
+    @Override
+    public EmployeeGroup fromText(String text, FileSource source){
+        return null;
+    }
+
+    @Override
+    public String getFileName()
+    {
+        return this.name;
     }
 }

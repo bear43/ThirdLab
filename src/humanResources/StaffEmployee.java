@@ -1,10 +1,18 @@
 package humanResources;
 
+import io.FileSource;
+import io.GroupsManagerFileSource;
+import io.GroupsManagerTextFileSource;
+import io.Source;
 import util.DoubleLinkedList;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.text.ParseException;
 import java.util.*;
 
 import static util.Util.dateInRange;
+import static util.Util.readUTFFile;
 import static util.Util.timeToDays;
 
 public class StaffEmployee extends Employee implements BusinessTraveller
@@ -15,8 +23,8 @@ public class StaffEmployee extends Employee implements BusinessTraveller
     public StaffEmployee(String firstName, String lastName, JobTitlesEnum jobTitle, int salary, BusinessTravel[] travels, int bonus)
     {
         super(firstName, lastName, jobTitle, salary);
-        if(travels == null) this.travels = new DoubleLinkedList<BusinessTravel>();
-        else this.travels = new DoubleLinkedList<BusinessTravel>(travels);
+        if(travels == null) this.travels = new DoubleLinkedList<>();
+        else this.travels = new DoubleLinkedList<>(travels);
         this.bonus = bonus;
     }
 
@@ -28,6 +36,19 @@ public class StaffEmployee extends Employee implements BusinessTraveller
     public StaffEmployee(String firstName, String lastName)
     {
         this(firstName, lastName, JobTitlesEnum.NONE, 0);
+    }
+
+    public StaffEmployee(String rawData) throws FileNotFoundException, IOException, ParseException
+    {
+        this("", "");
+        StringTokenizer st = new StringTokenizer(rawData, defaultFieldsDelimiter);
+        st.nextToken();
+        this.firstName = st.nextToken();
+        this.lastName = st.nextToken();
+        this.jobTitle = JobTitlesEnum.values()[Integer.parseInt(st.nextToken())];
+        this.salary = Integer.parseInt(st.nextToken());
+        while(st.hasMoreTokens())
+            this.add(new BusinessTravel(readUTFFile(GroupsManagerTextFileSource.currentPath + "\\" + st.nextToken())));
     }
 
     @Override
@@ -256,5 +277,46 @@ public class StaffEmployee extends Employee implements BusinessTraveller
         int hash = bonus;
         hash ^= travels.hashCode();
         return hash;
+    }
+
+    @Override
+    public String toText()
+    {
+        StringBuilder sb = new StringBuilder(super.toText());
+        sb.append("\n");
+        for(BusinessTravel travel : travels)
+        {
+            sb.append(travel.getFileName()).append("\n");
+        }
+        return sb.toString();
+    }
+
+    @Override
+    public StaffEmployee fromText(String text) throws IOException, ParseException
+    {
+        return new StaffEmployee(text);
+    }
+
+    @Override
+    public Employee fromText(String text, FileSource source) {
+        return null;
+    }
+
+    @Override
+    public String toText(Source source) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.getClass().getName()).append(defaultFieldsDelimiter).
+        append(super.toText());
+        for(BusinessTravel travel : travels) {
+            try {
+                source.store(travel);
+            } catch (IOException ex)
+            {
+                ex.printStackTrace();
+            }
+            sb.append(defaultFieldsDelimiter);
+            sb.append(travel.getFileName());
+        }
+        return sb.toString();
     }
 }

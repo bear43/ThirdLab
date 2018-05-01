@@ -1,10 +1,14 @@
 package io;
 
+import humanResources.EmployeeGroup;
 import humanResources.Project;
 import humanResources.Employee;
-import humanResources.JobTitlesEnum;
 
-public class ControlledProject extends Project
+import java.io.IOException;
+import java.text.ParseException;
+import java.util.StringTokenizer;
+
+public class ControlledProject extends Project implements Textable<EmployeeGroup>
 {
 
     protected boolean isChanged = false;
@@ -59,6 +63,59 @@ public class ControlledProject extends Project
         int c = super.removeAll(obj);
         isChanged = c > 0;
         return c;
+    }
+
+    @Override
+    public String toText(Source source) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.getClass().getName()).append(defaultFieldsDelimiter).//Имя класса
+                append(this.getName()).append(defaultFieldsDelimiter).//Имя объекта
+                append(this.isChanged);//Состояние переменной
+        try {
+
+            for (Employee e : this.getEmployeeList()) {
+                source.create(e);
+                sb.append(defaultFieldsDelimiter).append(e.getFileName());
+            }
+        }
+        catch(Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return sb.toString();
+    }
+
+    @Override
+    public ControlledProject fromText(String text) throws IOException, ParseException
+    {
+        StringTokenizer st = new StringTokenizer(text, defaultFieldsDelimiter);
+        if(st.nextToken().equals(this.getClass().getName()))
+        {
+            this.setName(st.nextToken());
+            this.isChanged = st.nextToken().equals("True");
+            while(st.hasMoreTokens())
+                this.add(Employee.resurectObject(st.nextToken(), null));
+        }
+        return this;
+    }
+
+    public ControlledProject fromText(String text, FileSource source) throws IOException, ParseException
+    {
+        StringTokenizer st = new StringTokenizer(text, defaultFieldsDelimiter);
+        if(st.nextToken().equals(this.getClass().getName()))
+        {
+            this.setName(st.nextToken());
+            this.isChanged = st.nextToken().equals("True");
+            while(st.hasMoreTokens())
+                this.add(Employee.resurectObject(st.nextToken(), source));
+        }
+        return this;
+    }
+
+    @Override
+    public String getFileName()
+    {
+        return super.getFileName();
     }
 
 }

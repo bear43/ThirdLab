@@ -260,7 +260,8 @@ public class Project implements EmployeeGroup
     }
 
     @Override
-    public EmployeeGroup fromText(String text) throws IOException, ParseException {
+    public EmployeeGroup fromText(String text) throws IOException, ParseException
+    {
         StringTokenizer st = new StringTokenizer(text, defaultFieldsDelimiter);
         if(st.nextToken().equals(this.getClass().getName()))
         {
@@ -272,7 +273,8 @@ public class Project implements EmployeeGroup
     }
 
     @Override
-    public EmployeeGroup fromText(String text, FileSource source){
+    public EmployeeGroup fromText(String text, FileSource source) throws IOException, ParseException
+    {
         return null;
     }
 
@@ -280,5 +282,10 @@ public class Project implements EmployeeGroup
     public String getFileName()
     {
         return this.name;
+    }
+
+    public LinkedList<Employee> getEmployeeList()
+    {
+        return employees;
     }
 }

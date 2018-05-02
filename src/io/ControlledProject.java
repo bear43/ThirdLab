@@ -94,7 +94,7 @@ public class ControlledProject extends Project implements Textable<EmployeeGroup
             this.setName(st.nextToken());
             this.isChanged = st.nextToken().equals("true");
             while(st.hasMoreTokens())
-                this.add(Employee.resurectObject(st.nextToken(), null));
+                this.add(Employee.resurrectObject(st.nextToken(), null));
         }
         return this;
     }
@@ -107,7 +107,7 @@ public class ControlledProject extends Project implements Textable<EmployeeGroup
             this.setName(st.nextToken());
             this.isChanged = st.nextToken().equals("true");
             while(st.hasMoreTokens())
-                this.add(Employee.resurectObject(st.nextToken(), source));
+                this.add(Employee.resurrectObject(st.nextToken(), source));
         }
         return this;
     }

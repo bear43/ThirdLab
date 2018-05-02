@@ -181,4 +181,13 @@ public class DepartmentsManager implements GroupsManager
     {
         return String.format("%s", this.name);
     }
+
+    @Override
+    public String toString()
+    {
+        StringBuilder sb = new StringBuilder();
+        for(EmployeeGroup group : departments)
+            sb.append(group.toString()).append("\n");
+        return sb.toString();
+    }
 }

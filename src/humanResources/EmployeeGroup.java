@@ -1,11 +1,12 @@
 package humanResources;
 
+import io.BinaryView;
 import io.Textable;
 import util.List;
 
 import java.util.Date;
 
-public interface EmployeeGroup extends List<Employee>, Textable<EmployeeGroup>
+public interface EmployeeGroup extends List<Employee>, Textable<EmployeeGroup>, BinaryView
 {
     void add(Employee employee);
     Employee[] sortedEmployees();

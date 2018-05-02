@@ -5,11 +5,14 @@ import io.FileSource;
 import io.Source;
 import io.Textable;
 
-import java.io.FileNotFoundException;
+import java.io.ByteArrayInputStream;
+import java.io.DataInputStream;
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.Arrays;
 
 import static util.Util.readUTFFile;
+import static io.BinaryView.*;
 
 public abstract class Employee implements Comparable<Employee>, Textable<Employee>, BinaryView
 {
@@ -141,7 +144,7 @@ public abstract class Employee implements Comparable<Employee>, Textable<Employe
         return String.format("%s_%s.%s", this.firstName, this.lastName, defaultExtension);
     }
 
-    public static Employee resurectObject(String filename, FileSource source) throws IOException, ParseException
+    public static Employee resurrectObject(String filename, FileSource source) throws IOException, ParseException
     {
         filename = source.getPath() + "\\" + filename;
         String className = Textable.getClassFromFile(filename);
@@ -156,6 +159,25 @@ public abstract class Employee implements Comparable<Employee>, Textable<Employe
         return null;
     }
 
+    public static Employee resurrectObjectFromBinary(String filename, FileSource source) throws IOException, ParseException
+    {
+        byte[] byteRepresentation = readBinaryFile(filename);
+        String className = readStr(byteRepresentation, 1);
+        if (className == null) return null;
+        Employee employee = null;
+        if(className.equals(PartTimeEmployee.class.getName()))
+        {
+            employee = new PartTimeEmployee("", "");
+            employee.fromBinary(byteRepresentation, null);
+        }
+        else if(className.equals(StaffEmployee.class.getName()))
+        {
+            employee = new StaffEmployee("", "");
+            employee.fromBinary(byteRepresentation, source);
+        }
+        return employee;
+    }
+
     @Override
     public String toText()
     {
@@ -165,5 +187,35 @@ public abstract class Employee implements Comparable<Employee>, Textable<Employe
         sb.append(this.jobTitle.ordinal()).append(defaultFieldsDelimiter);
         sb.append(this.salary);
         return sb.toString();
+    }
+
+    @Override
+    public byte[] toBinary(Source source)
+    {
+        byte[] byteRepresentation = new byte[0];
+        byteRepresentation = appendToByteArray(byteRepresentation, this.getClass().getName().getBytes());
+        byteRepresentation = appendToByteArray(byteRepresentation, firstName.getBytes());
+        byteRepresentation = appendToByteArray(byteRepresentation, lastName.getBytes());
+        byteRepresentation = appendIntToByteArray(byteRepresentation, jobTitle.ordinal());
+        byteRepresentation = appendIntToByteArray(byteRepresentation, salary);
+        return byteRepresentation;
+    }
+
+    @Override
+    public void fromBinary(byte[] rawBytes, FileSource source) throws IOException, ParseException
+    {
+        int sizeBuffer;
+        byte[] buffer = new byte[MAX_BUFFER_SIZE];
+        DataInputStream dis = new DataInputStream(new ByteArrayInputStream(rawBytes));
+        dis.skipBytes(dis.readInt());
+        sizeBuffer = dis.readInt();
+        dis.read(buffer, 0, sizeBuffer);
+        this.firstName = new String(buffer, 0, sizeBuffer);
+        Arrays.fill(buffer, (byte)(0));
+        sizeBuffer = dis.readInt();
+        dis.read(buffer, 0, sizeBuffer);
+        this.lastName = new String(buffer, 0, sizeBuffer);
+        this.jobTitle = JobTitlesEnum.values()[dis.readInt()];
+        this.salary = dis.readInt();
     }
 }

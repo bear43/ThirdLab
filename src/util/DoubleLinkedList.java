@@ -326,7 +326,7 @@ public class DoubleLinkedList<T> implements List<T>
         DuoNode<T> current = head;
         for(int i = 0; i < size; i++)
         {
-            sb.append(current.getValue().toString()).append("\n");
+            sb.append(current.getValue().toString());
             current = current.getNext();
         }
         return sb.toString();

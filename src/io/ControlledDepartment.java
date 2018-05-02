@@ -5,13 +5,15 @@ import humanResources.Employee;
 import humanResources.EmployeeGroup;
 import humanResources.JobTitlesEnum;
 
+import java.io.ByteArrayInputStream;
+import java.io.DataInputStream;
+import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
-import static util.Util.appendBoolToByteArray;
-import static util.Util.appendIntToByteArray;
-import static util.Util.appendToByteArray;
+import static io.BinaryView.*;
 
 public class ControlledDepartment extends Department implements Textable<EmployeeGroup>, BinaryView
 {
@@ -107,7 +109,7 @@ public class ControlledDepartment extends Department implements Textable<Employe
             this.setName(st.nextToken());
             this.isChanged = st.nextToken().equals("true");
             while(st.hasMoreTokens())
-                this.add(Employee.resurectObject(st.nextToken(), null));
+                this.add(Employee.resurrectObject(st.nextToken(), null));
         }
         return this;
     }
@@ -120,7 +122,7 @@ public class ControlledDepartment extends Department implements Textable<Employe
             this.setName(st.nextToken());
             this.isChanged = st.nextToken().equals("true");
             while(st.hasMoreTokens())
-                this.add(Employee.resurectObject(st.nextToken(), source));
+                this.add(Employee.resurrectObject(st.nextToken(), source));
         }
         return this;
     }
@@ -135,7 +137,9 @@ public class ControlledDepartment extends Department implements Textable<Employe
     @Override
     public byte[] toBinary(Source source) throws IOException
     {
-        byte[] byteRepresentation = appendToByteArray(this.getClass().getName().getBytes(), this.getName().getBytes());
+        byte[] byteRepresentation = new byte[0];
+        byteRepresentation = appendToByteArray(byteRepresentation, this.getClass().getName().getBytes());
+        byteRepresentation = appendToByteArray(byteRepresentation, this.getName().getBytes());
         byteRepresentation = appendBoolToByteArray(byteRepresentation, this.isChanged);
         for(Employee e : this.getEmployeeList())
             source.create(e);
@@ -143,9 +147,29 @@ public class ControlledDepartment extends Department implements Textable<Employe
     }
 
     @Override
-    public void fromBinary(byte[] rawBytes, Source source)
+    public void fromBinary(byte[] rawBytes, FileSource source) throws IOException, ParseException
     {
-
+        DataInputStream dis = new DataInputStream(new ByteArrayInputStream(rawBytes));
+        byte[] buffer;
+        int sizeBuffer;
+        buffer = new byte[MAX_BUFFER_SIZE];
+        sizeBuffer = dis.readInt();
+        dis.read(buffer, 0, sizeBuffer);
+        if(compareBytesArray(this.getClass().getName().getBytes(), buffer))
+        {
+            Arrays.fill(buffer, (byte)(0));
+            sizeBuffer = dis.readInt();
+            dis.read(buffer, 0, sizeBuffer);
+            this.setName(new String(buffer, 0, sizeBuffer));
+            Arrays.fill(buffer, (byte)(0));
+            dis.read(buffer, 0, dis.readInt());
+            this.isChanged = buffer[3] == 1;
+        }
+        dis.close();
+        File f = new File(source.getPath());
+        File[] files = f.listFiles(File::isFile);
+        for (File file : files)
+            this.add(Employee.resurrectObjectFromBinary(file.getAbsolutePath(), source));
     }
 
     @Override

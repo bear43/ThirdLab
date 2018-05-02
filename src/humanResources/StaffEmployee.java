@@ -1,11 +1,9 @@
 package humanResources;
 
-import io.FileSource;
-import io.GroupsManagerFileSource;
-import io.GroupsManagerTextFileSource;
-import io.Source;
+import io.*;
 import util.DoubleLinkedList;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
@@ -47,6 +45,7 @@ public class StaffEmployee extends Employee implements BusinessTraveller
         this.lastName = st.nextToken();
         this.jobTitle = JobTitlesEnum.values()[Integer.parseInt(st.nextToken())];
         this.salary = Integer.parseInt(st.nextToken());
+        this.bonus = Integer.parseInt(st.nextToken());
         while(st.hasMoreTokens())
             this.add(new BusinessTravel(readUTFFile(GroupsManagerTextFileSource.currentPath + "\\" + st.nextToken())));
     }
@@ -219,7 +218,7 @@ public class StaffEmployee extends Employee implements BusinessTraveller
     public boolean retainAll(Collection<?> c)
     {
         int savedCounter = 0;
-        DoubleLinkedList<BusinessTravel> newTravels = new DoubleLinkedList<BusinessTravel>();
+        DoubleLinkedList<BusinessTravel> newTravels = new DoubleLinkedList<>();
         for(Object travel : c)
             for(Object obj : travels)
                 if(travel.equals(obj))
@@ -306,7 +305,8 @@ public class StaffEmployee extends Employee implements BusinessTraveller
     public String toText(Source source) {
         StringBuilder sb = new StringBuilder();
         sb.append(this.getClass().getName()).append(defaultFieldsDelimiter).
-        append(super.toText());
+        append(super.toText()).append(defaultFieldsDelimiter).
+        append(this.bonus).append(defaultFieldsDelimiter);
         for(BusinessTravel travel : travels) {
             try {
                 source.store(travel);
@@ -318,5 +318,44 @@ public class StaffEmployee extends Employee implements BusinessTraveller
             sb.append(travel.getFileName());
         }
         return sb.toString();
+    }
+
+    @Override
+    public byte[] toBinary(Source source)
+    {
+        byte[] byteRepresentation = super.toBinary(source);
+        for(BusinessTravel travel : travels)
+        {
+            try {
+                source.store(travel);
+            }
+            catch(IOException ex)
+            {
+                ex.printStackTrace();
+            }
+        }
+        return byteRepresentation;
+    }
+
+    @Override
+    public void fromBinary(byte[] rawBytes, FileSource source) throws IOException, ParseException
+    {
+        super.fromBinary(rawBytes, null);
+        File f = new File(source.getPath());
+        File[] files = f.listFiles(File::isFile);
+        byte[] binaryRepresent;
+        String className;
+        for(File file : files)
+        {
+            binaryRepresent = BinaryView.readBinaryFile(file.getAbsolutePath());
+            className = BinaryView.readStr(binaryRepresent, 1);
+            if(className != null && className.equals(BusinessTravel.class.getName()))
+                this.add(new BusinessTravel(binaryRepresent));
+        }
+    }
+
+    @Override
+    public int getBytesAmount() {
+        return 0;
     }
 }

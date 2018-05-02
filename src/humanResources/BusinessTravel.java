@@ -1,20 +1,24 @@
 package humanResources;
 
+import io.BinaryView;
 import io.FileSource;
 import io.Source;
 import io.Textable;
 
-import java.io.File;
+import java.io.ByteArrayInputStream;
+import java.io.DataInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.StringTokenizer;
 
-import static util.Util.readUTFFile;
+import static io.BinaryView.*;
 
-public final class BusinessTravel implements Textable<BusinessTravel>
+public final class BusinessTravel implements Textable<BusinessTravel>, BinaryView
 {
     private static final String defaultPattern = "dd.MM.yyyy hh.mm";
     private static final String defaultExtension = "trl";
@@ -58,7 +62,7 @@ public final class BusinessTravel implements Textable<BusinessTravel>
         this.daysCount = 1;
     }
 
-    public BusinessTravel(String rawData) throws FileNotFoundException, IOException, ParseException
+    public BusinessTravel(String rawData) throws ParseException
     {
         StringTokenizer st = new StringTokenizer(rawData, defaultFieldsDelimiter);
         if(st.nextToken().equals(this.getClass().getName())) {
@@ -92,6 +96,35 @@ public final class BusinessTravel implements Textable<BusinessTravel>
             this.endDate = end;
             this.daysCount = 1;
         }
+    }
+
+    public BusinessTravel(byte[] byteRepresentation) throws IOException, ParseException
+    {
+        int bufferSize;
+        byte[] buffer = new byte[MAX_BUFFER_SIZE];
+        SimpleDateFormat sdf = new SimpleDateFormat(defaultPattern);
+        DataInputStream dis = new DataInputStream(new ByteArrayInputStream(byteRepresentation));
+        dis.skipBytes(dis.readInt());
+        bufferSize = dis.readInt();
+        dis.read(buffer, 0, bufferSize);
+        this.destination = readStrEx(buffer, bufferSize);
+        Arrays.fill(buffer,(byte)(0));
+        bufferSize = dis.readInt();
+        dis.read(buffer, 0, bufferSize);
+        this.description = readStrEx(buffer, bufferSize);
+        Arrays.fill(buffer,(byte)(0));
+        this.compensation = dis.readInt();
+        this.beginDate = Calendar.getInstance();
+        this.endDate = Calendar.getInstance();
+        bufferSize = dis.readInt();
+        dis.read(buffer, 0, bufferSize);
+        this.beginDate.setTime(sdf.parse(readStrEx(buffer, bufferSize)));
+        Arrays.fill(buffer,(byte)(0));
+        bufferSize = dis.readInt();
+        dis.read(buffer, 0, bufferSize);
+        this.endDate.setTime(sdf.parse(readStrEx(buffer, bufferSize)));
+        Arrays.fill(buffer,(byte)(0));
+        this.daysCount = dis.readInt();
     }
 
     public String getDestination()
@@ -169,18 +202,18 @@ public final class BusinessTravel implements Textable<BusinessTravel>
     }
 
     @Override
-    public String toText(Source source) throws IOException {
+    public String toText(Source source){
         return toText();
     }
 
     @Override
-    public BusinessTravel fromText(String text) throws FileNotFoundException, IOException, ParseException
+    public BusinessTravel fromText(String text) throws  IOException, ParseException
     {
         return new BusinessTravel(text);
     }
 
     @Override
-    public BusinessTravel fromText(String text, FileSource source) throws FileNotFoundException, IOException, ParseException {
+    public BusinessTravel fromText(String text, FileSource source){
         return null;
     }
 
@@ -188,5 +221,30 @@ public final class BusinessTravel implements Textable<BusinessTravel>
     public String getFileName() {
         SimpleDateFormat sdf = new SimpleDateFormat(defaultPattern);
         return String.format("TO_%s_%s_%s.%s", this.destination, sdf.format(this.beginDate.getTime()), sdf.format(this.endDate.getTime()), defaultExtension);
+    }
+
+    @Override
+    public byte[] toBinary(Source source)
+    {
+        byte[] byteRepresentation = new byte[0];
+        SimpleDateFormat sdf = new SimpleDateFormat(defaultPattern);
+        byteRepresentation = appendToByteArray(byteRepresentation, this.getClass().getName().getBytes());
+        byteRepresentation = appendToByteArray(byteRepresentation, this.destination.getBytes());
+        byteRepresentation = appendToByteArray(byteRepresentation, this.description.getBytes());
+        byteRepresentation = appendIntToByteArray(byteRepresentation, this.compensation);
+        byteRepresentation = appendToByteArray(byteRepresentation, sdf.format(this.beginDate.getTime()).getBytes());
+        byteRepresentation = appendToByteArray(byteRepresentation, sdf.format(this.endDate.getTime()).getBytes());
+        byteRepresentation = appendIntToByteArray(byteRepresentation, (int)(this.daysCount));
+        return byteRepresentation;
+    }
+
+    @Override
+    public void fromBinary(byte[] rawBytes, FileSource source) {
+
+    }
+
+    @Override
+    public int getBytesAmount() {
+        return 0;
     }
 }

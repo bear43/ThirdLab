@@ -1,6 +1,7 @@
 import humanResources.*;
 import io.ControlledDepartment;
 import io.ControlledDepartmentManager;
+import io.GroupsManagerBinaryFileSource;
 import util.DoubleLinkedList;
 import util.LinkedList;
 
@@ -28,13 +29,17 @@ public class Main
                 dep, fep
         });
         ControlledDepartmentManager fdm = new ControlledDepartmentManager("Org");
+        cdm.setSource(new GroupsManagerBinaryFileSource<>(cdm.getName()));
+        fdm.setSource(new GroupsManagerBinaryFileSource<>(fdm.getName()));
         try {
             cdm.store();
-            fdm.restore();
+            fdm.restoreBinary();
         }
         catch (Exception ex)
         {
             ex.printStackTrace();
         }
+        System.out.println(cdm);
+        System.out.println(fdm);
     }
 }

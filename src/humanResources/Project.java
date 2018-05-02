@@ -5,7 +5,6 @@ import io.Source;
 import util.LinkedList;
 import util.Util;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.Arrays;
@@ -267,7 +266,7 @@ public class Project implements EmployeeGroup
         {
             this.setName(st.nextToken());
             while(st.hasMoreTokens())
-                this.add(Employee.resurectObject(st.nextToken(), null));
+                this.add(Employee.resurrectObject(st.nextToken(), null));
         }
         return this;
     }
@@ -287,5 +286,21 @@ public class Project implements EmployeeGroup
     public LinkedList<Employee> getEmployeeList()
     {
         return employees;
+    }
+
+    @Override
+    public byte[] toBinary(Source source){
+        return new byte[0];
+    }
+
+    @Override
+    public void fromBinary(byte[] rawBytes, FileSource source)
+    {
+
+    }
+
+    @Override
+    public int getBytesAmount() {
+        return 0;
     }
 }

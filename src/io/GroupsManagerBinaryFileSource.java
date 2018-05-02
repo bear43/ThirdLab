@@ -4,8 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
 
-import static util.Util.readBinaryFile;
-import static util.Util.writeBinaryFile;
+import static io.BinaryView.*;
 
 public class GroupsManagerBinaryFileSource<T extends BinaryView> extends GroupsManagerFileSource<T>
 {
@@ -32,7 +31,7 @@ public class GroupsManagerBinaryFileSource<T extends BinaryView> extends GroupsM
     @Override
     public void create(T object) throws IOException
     {
-        writeBinaryFile(String.format("%s\\%s", this.path, object.getFileName()), object.toBinary(this));
+        writeBinaryFile(String.format("%s\\%s", this.path, object.getFileName()), object.toBinary(this), true);
     }
 
     @Override

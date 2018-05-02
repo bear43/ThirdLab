@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
 
+import static io.BinaryView.readBinaryFile;
 import static util.Util.readUTFFile;
 
 public class ControlledDepartmentManager extends DepartmentsManager implements Textable<ControlledDepartmentManager>
@@ -105,18 +106,37 @@ public class ControlledDepartmentManager extends DepartmentsManager implements T
         return super.getFileName();
     }
 
-    public void restore() throws IOException, ParseException, AlreadyAddedException
+    public void restoreText() throws IOException, ParseException, AlreadyAddedException
     {
         File root = new File(source.getPath());
         File[] files = root.listFiles(File::isDirectory);
         String name;
-        String textRepresentation = "";
+        String textRepresentation;
         for(File directory : files)
         {
             name = directory.getName();
             source.setPath(directory.getAbsolutePath());
             textRepresentation = readUTFFile(source.getPath()+"\\"+name);
             super.add(new ControlledDepartment(name).fromText(textRepresentation, source));
+            source.setPath(root.getAbsolutePath());
+        }
+    }
+
+    public void restoreBinary() throws IOException, ParseException, AlreadyAddedException
+    {
+        File root = new File(source.getPath());
+        File[] files = root.listFiles(File::isDirectory);
+        String name;
+        byte[] byteRepresentation;
+        ControlledDepartment cdm;
+        for(File directory : files)
+        {
+            name = directory.getName();
+            source.setPath(directory.getAbsolutePath());
+            byteRepresentation = readBinaryFile(source.getPath()+"\\"+name);
+            cdm = new ControlledDepartment(name);
+            cdm.fromBinary(byteRepresentation, source);
+            super.add(cdm);
             source.setPath(root.getAbsolutePath());
         }
     }

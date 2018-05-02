@@ -3,12 +3,15 @@ package humanResources;
 import io.FileSource;
 import io.Source;
 
-import java.io.FileNotFoundException;
+import java.io.ByteArrayInputStream;
+import java.io.DataInputStream;
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
-import static util.Util.readUTFFile;
+import static io.BinaryView.*;
+
 
 public class PartTimeEmployee extends Employee
 {
@@ -91,5 +94,17 @@ public class PartTimeEmployee extends Employee
     @Override
     public Employee fromText(String text, FileSource source) {
         return null;
+    }
+
+
+    @Override
+    public void fromBinary(byte[] rawBytes, FileSource source) throws IOException, ParseException
+    {
+        super.fromBinary(rawBytes, null);
+    }
+
+    @Override
+    public int getBytesAmount() {
+        return 0;
     }
 }

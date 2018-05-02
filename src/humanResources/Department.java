@@ -1,11 +1,9 @@
 package humanResources;
 
-import io.ControlledDepartment;
 import io.FileSource;
 import io.Source;
 import util.*;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.Arrays;
@@ -48,7 +46,7 @@ public class Department implements EmployeeGroup
     public void add(Employee employee)
     {
         try {
-            if (employee == null) throw new NullPointerException();
+            if (employee == null) return;
             if (employees.size() != 0 && employees.contains(employee)) throw new AlreadyAddedException();
             employees.add(employee);
         }
@@ -339,7 +337,7 @@ public class Department implements EmployeeGroup
     /* Метод возвращает массив сотрудников, которые хотя бы раз были в командировке */
     public Employee[] businessTravellers()
     {
-        LinkedList<Employee> employees = new LinkedList<Employee>();
+        LinkedList<Employee> employees = new LinkedList<>();
         BusinessTravel[] travels;
         for(Employee current : employees)
         {
@@ -365,7 +363,7 @@ public class Department implements EmployeeGroup
         StringBuilder sb = new StringBuilder();
         sb.append("Department ").append(this.name).append(": ").append(employees.size()).append("\n");
         for(int i = 0; i < employees.size(); i++)
-            sb.append(employees.at(i).toString()).append("\n");
+            sb.append(employees.at(i).toString()).append(defaultFieldsDelimiter);
         return sb.toString();
     }
 
@@ -424,7 +422,7 @@ public class Department implements EmployeeGroup
         {
             this.setName(st.nextToken());
             while(st.hasMoreTokens())
-                this.add(Employee.resurectObject(st.nextToken(), null));
+                this.add(Employee.resurrectObject(st.nextToken(), null));
         }
         return this;
     }
@@ -438,5 +436,21 @@ public class Department implements EmployeeGroup
     public String getFileName()
     {
         return this.name;
+    }
+
+    @Override
+    public byte[] toBinary(Source source) throws IOException {
+        return new byte[0];
+    }
+
+    @Override
+    public void fromBinary(byte[] rawBytes, FileSource source) throws IOException, ParseException
+    {
+
+    }
+
+    @Override
+    public int getBytesAmount() {
+        return 0;
     }
 }

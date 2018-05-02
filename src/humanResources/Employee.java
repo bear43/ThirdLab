@@ -1,5 +1,6 @@
 package humanResources;
 
+import io.BinaryView;
 import io.FileSource;
 import io.Source;
 import io.Textable;
@@ -10,7 +11,7 @@ import java.text.ParseException;
 
 import static util.Util.readUTFFile;
 
-public abstract class Employee implements Comparable<Employee>, Textable<Employee>
+public abstract class Employee implements Comparable<Employee>, Textable<Employee>, BinaryView
 {
     private static final String defaultExtension = "emp";
     String firstName;

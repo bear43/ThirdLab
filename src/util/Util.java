@@ -3,6 +3,7 @@ package util;
 import humanResources.Employee;
 import humanResources.PartTimeEmployee;
 import humanResources.StaffEmployee;
+import io.BinaryView;
 
 import java.io.*;
 import java.lang.reflect.Array;
@@ -201,5 +202,60 @@ public class Util
         pw.print(data);
         pw.flush();
         pw.close();
+    }
+
+    public static void writeBinaryFile(String filename, byte[] bytes) throws IOException
+    {
+        File f = new File(filename);
+        f.createNewFile();
+        DataOutputStream dos = new DataOutputStream(new FileOutputStream(filename));
+        dos.write(bytes);
+        dos.flush();
+        dos.close();
+    }
+    public static byte[] readBinaryFile(String filename) throws IOException
+    {
+        DataInputStream dis = new DataInputStream(new FileInputStream(filename));
+        byte[] readedBytes = new byte[dis.available()];
+        int index = 0;
+        while(dis.available() > 0)
+        {
+            readedBytes[index] = dis.readByte();
+            index++;
+        }
+        dis.close();
+        return readedBytes;
+    }
+
+    public static byte[] appendToByteArray(byte[] first, byte[] second)
+    {
+        byte[] unitedArray = new byte[first.length + second.length];
+        System.arraycopy(first, 0, unitedArray, 0, first.length);
+        System.arraycopy(second, 0, unitedArray, first.length, second.length);
+        return unitedArray;
+    }
+
+    public static byte[] appendByteToByteArray(byte[] array, byte b)
+    {
+        byte[] newArray = new byte[array.length+1];
+        System.arraycopy(array, 0, newArray, 0, array.length);
+        newArray[array.length] = b;
+        return newArray;
+    }
+
+    public static byte[] appendIntToByteArray(byte[] array, int i)
+    {
+        byte[] newArray = new byte[array.length+BinaryView.AMOUNT_OF_BYTES_TO_INT_TYPE];
+        System.arraycopy(array, 0, newArray, 0, array.length);
+        newArray[array.length] = (byte)(i & 0xFF000000);//hi part
+        newArray[array.length+1] = (byte)(i&0x00FF0000);//hi2 part
+        newArray[array.length+2] = (byte)(i&0x0000FF00);//low2 part
+        newArray[array.length+3] = (byte)(i&0x000000FF);//low part
+        return newArray;
+    }
+
+    public static byte[] appendBoolToByteArray(byte[] array, boolean b)
+    {
+        return appendIntToByteArray(array, b ? 1 : 0);
     }
 }

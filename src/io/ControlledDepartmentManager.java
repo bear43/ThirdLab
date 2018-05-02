@@ -62,6 +62,7 @@ public class ControlledDepartmentManager extends DepartmentsManager implements T
             if(group instanceof ControlledDepartment && ((ControlledDepartment) group).isChanged)
             {
                 source.setPath(String.format("%s\\%s", source.getPath(), group.getFileName()));
+                ((ControlledDepartment) group).isChanged = false;
                 source.store(group);
                 source.setPath(root);
             }

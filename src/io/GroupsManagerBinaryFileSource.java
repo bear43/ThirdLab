@@ -1,42 +1,38 @@
 package io;
 
-import humanResources.EmployeeGroup;
-
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
 
-import static util.Util.readUTFFile;
-import static util.Util.writeUTFFile;
+import static util.Util.readBinaryFile;
+import static util.Util.writeBinaryFile;
 
-public class GroupsManagerTextFileSource<T extends Textable> extends GroupsManagerFileSource<T>
+public class GroupsManagerBinaryFileSource<T extends BinaryView> extends GroupsManagerFileSource<T>
 {
-
     public static String currentPath;
 
-    public GroupsManagerTextFileSource(String path)
+    public GroupsManagerBinaryFileSource(String path)
     {
         File f = new File(path);
         f.mkdir();
         this.path = f.getAbsolutePath();
     }
 
-    public GroupsManagerTextFileSource(String additionPath, GroupsManagerTextFileSource oldSource)
+    public GroupsManagerBinaryFileSource(String additionPath, GroupsManagerTextFileSource oldSource)
     {
         File f = new File(oldSource.path + "\\" + additionPath);
         f.mkdir();
         this.path = f.getAbsolutePath();
     }
 
-    public GroupsManagerTextFileSource()
+    public GroupsManagerBinaryFileSource()
     {
     }
 
     @Override
     public void create(T object) throws IOException
     {
-        writeUTFFile(String.format("%s\\%s", this.path, object.getFileName()), object.toText(this));
+        writeBinaryFile(String.format("%s\\%s", this.path, object.getFileName()), object.toBinary(this));
     }
 
     @Override
@@ -55,7 +51,7 @@ public class GroupsManagerTextFileSource<T extends Textable> extends GroupsManag
     @Override
     public void load(T object) throws IOException, ParseException
     {
-        object.fromText(readUTFFile(String.format("%s\\%s", this.path, object.getFileName())), this);
+        object.fromBinary(readBinaryFile(String.format("%s\\%s", this.path, object.getFileName())), this);
     }
 
     @Override

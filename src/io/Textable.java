@@ -6,7 +6,7 @@ import java.text.ParseException;
 
 import static util.Util.*;
 
-public interface Textable<T>
+public interface Textable<T> extends Pathable
 {
     String defaultFieldsDelimiter = "\n";
     String toText();
@@ -17,5 +17,4 @@ public interface Textable<T>
     {
         return readUTFLine(filename);
     }
-    String getFileName();
 }

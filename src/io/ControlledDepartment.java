@@ -5,13 +5,15 @@ import humanResources.Employee;
 import humanResources.EmployeeGroup;
 import humanResources.JobTitlesEnum;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
-import java.util.Iterator;
 import java.util.StringTokenizer;
 
-public class ControlledDepartment extends Department implements Textable<EmployeeGroup>
+import static util.Util.appendBoolToByteArray;
+import static util.Util.appendIntToByteArray;
+import static util.Util.appendToByteArray;
+
+public class ControlledDepartment extends Department implements Textable<EmployeeGroup>, BinaryView
 {
 
     protected boolean isChanged = false;
@@ -103,7 +105,7 @@ public class ControlledDepartment extends Department implements Textable<Employe
         if(st.nextToken().equals(this.getClass().getName()))
         {
             this.setName(st.nextToken());
-            this.isChanged = st.nextToken().equals("True");
+            this.isChanged = st.nextToken().equals("true");
             while(st.hasMoreTokens())
                 this.add(Employee.resurectObject(st.nextToken(), null));
         }
@@ -116,7 +118,7 @@ public class ControlledDepartment extends Department implements Textable<Employe
         if(st.nextToken().equals(this.getClass().getName()))
         {
             this.setName(st.nextToken());
-            this.isChanged = st.nextToken().equals("True");
+            this.isChanged = st.nextToken().equals("true");
             while(st.hasMoreTokens())
                 this.add(Employee.resurectObject(st.nextToken(), source));
         }
@@ -127,5 +129,30 @@ public class ControlledDepartment extends Department implements Textable<Employe
     public String getFileName()
     {
         return super.getFileName();
+    }
+
+
+    @Override
+    public byte[] toBinary(Source source) throws IOException
+    {
+        byte[] byteRepresentation = appendToByteArray(this.getClass().getName().getBytes(), this.getName().getBytes());
+        byteRepresentation = appendBoolToByteArray(byteRepresentation, this.isChanged);
+        for(Employee e : this.getEmployeeList())
+            source.create(e);
+        return byteRepresentation;
+    }
+
+    @Override
+    public void fromBinary(byte[] rawBytes, Source source)
+    {
+
+    }
+
+    @Override
+    public int getBytesAmount()
+    {
+        return BinaryView.getBinarySizeOfString(this.getClass().getName()) +
+                BinaryView.getBinarySizeOfString(this.getName()) +
+                BinaryView.AMOUNT_OF_BYTES_TO_INT_TYPE;
     }
 }

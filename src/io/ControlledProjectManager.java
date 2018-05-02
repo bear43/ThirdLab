@@ -52,7 +52,9 @@ public class ControlledProjectManager extends DepartmentsManager implements Text
     public void store() throws IOException {
         String root = source.getPath();
         for (EmployeeGroup group : this.getEmployeeGroups())
-            if (group instanceof ControlledDepartment && ((ControlledDepartment) group).isChanged) {
+            if (group instanceof ControlledDepartment && ((ControlledDepartment) group).isChanged)
+            {
+                ((ControlledDepartment) group).isChanged = false;
                 source.setPath(String.format("%s\\%s", source.getPath(), group.getFileName()));
                 source.store(group);
                 source.setPath(root);

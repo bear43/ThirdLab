@@ -4,9 +4,10 @@ import io.BinaryView;
 import io.Textable;
 import util.List;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public interface EmployeeGroup extends List<Employee>, Textable<EmployeeGroup>, BinaryView
+public interface EmployeeGroup extends List<Employee>, Textable<EmployeeGroup>, BinaryView, Serializable
 {
     void add(Employee employee);
     Employee[] sortedEmployees();

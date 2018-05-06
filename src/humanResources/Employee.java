@@ -8,13 +8,14 @@ import io.Textable;
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 import java.io.IOException;
+import java.io.Serializable;
 import java.text.ParseException;
 import java.util.Arrays;
 
 import static util.Util.readUTFFile;
 import static io.BinaryView.*;
 
-public abstract class Employee implements Comparable<Employee>, Textable<Employee>, BinaryView
+public abstract class Employee implements Comparable<Employee>, Textable<Employee>, BinaryView, Serializable
 {
     private static final String defaultExtension = "emp";
     String firstName;

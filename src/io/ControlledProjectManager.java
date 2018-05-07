@@ -10,7 +10,8 @@ import java.text.ParseException;
 
 import static util.Util.readUTFFile;
 
-public class ControlledProjectManager extends DepartmentsManager implements Textable<ControlledProjectManager> {
+public class ControlledProjectManager extends DepartmentsManager implements Textable<ControlledProjectManager>, Controllable
+{
 
     protected FileSource<EmployeeGroup> source;
 
@@ -108,4 +109,5 @@ public class ControlledProjectManager extends DepartmentsManager implements Text
             source.setPath(root.getAbsolutePath());
         }
     }
+
 }

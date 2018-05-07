@@ -1,8 +1,9 @@
 package util;
 
+import java.io.Serializable;
 import java.util.Iterator;
 
-public interface List<T> extends Iterable<T>
+public interface List<T> extends Iterable<T>, Serializable
 {
     int DEFAULT_CAPACITY = 8;
     int size();

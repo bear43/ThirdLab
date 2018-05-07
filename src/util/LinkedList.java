@@ -1,12 +1,13 @@
 package util;
 
+import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 import static util.Util.getUnique;
 
-class Node <T>
+class Node <T> implements Serializable
 {
     private T data;
     private Node<T> next;

@@ -2,6 +2,7 @@ import humanResources.*;
 import io.ControlledDepartment;
 import io.ControlledDepartmentManager;
 import io.GroupsManagerBinaryFileSource;
+import io.GroupsManagerSerializedFileSource;
 import util.DoubleLinkedList;
 import util.LinkedList;
 
@@ -29,11 +30,11 @@ public class Main
                 dep, fep
         });
         ControlledDepartmentManager fdm = new ControlledDepartmentManager("Org");
-        cdm.setSource(new GroupsManagerBinaryFileSource<>(cdm.getName()));
-        fdm.setSource(new GroupsManagerBinaryFileSource<>(fdm.getName()));
+        cdm.setSource(new GroupsManagerSerializedFileSource<>(cdm.getName()));
+        fdm.setSource(new GroupsManagerSerializedFileSource<>(fdm.getName()));
         try {
             cdm.store();
-            fdm.restoreBinary();
+            fdm.findAndDeserialize();
         }
         catch (Exception ex)
         {

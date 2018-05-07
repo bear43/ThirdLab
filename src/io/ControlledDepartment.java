@@ -15,10 +15,10 @@ import java.util.StringTokenizer;
 
 import static io.BinaryView.*;
 
-public class ControlledDepartment extends Department implements Textable<EmployeeGroup>, BinaryView
+public class ControlledDepartment extends Department implements Textable<EmployeeGroup>, BinaryView, Controllable
 {
 
-    protected boolean isChanged = false;
+    boolean isChanged = false;
 
     public ControlledDepartment(String name) {
         super(name);
@@ -179,4 +179,5 @@ public class ControlledDepartment extends Department implements Textable<Employe
                 BinaryView.getBinarySizeOfString(this.getName()) +
                 BinaryView.AMOUNT_OF_BYTES_TO_INT_TYPE;
     }
+
 }

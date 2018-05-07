@@ -3,7 +3,9 @@ package io;
 
 public abstract class GroupsManagerFileSource<T> implements FileSource<T>
 {
-    protected String path;
+    String path;
+
+    static final String PATH_DELIMITER = "\\";
 
     @Override
     public void setPath(String path) {

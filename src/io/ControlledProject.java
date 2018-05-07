@@ -8,10 +8,10 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.StringTokenizer;
 
-public class ControlledProject extends Project implements Textable<EmployeeGroup>
+public class ControlledProject extends Project implements Textable<EmployeeGroup>, Controllable
 {
 
-    protected boolean isChanged = false;
+    private boolean isChanged = false;
 
     public ControlledProject(String name) {
         super(name);

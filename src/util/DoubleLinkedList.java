@@ -1,5 +1,6 @@
 package util;
 
+import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
@@ -7,7 +8,7 @@ import java.util.function.Consumer;
 
 import static util.Util.getUnique;
 
-class DuoNode<T>
+class DuoNode<T> implements Serializable
 {
     private DuoNode<T> previous;
     private T value;

@@ -204,4 +204,20 @@ public class Util
         pw.close();
     }
 
+    public static void serializeObject(Object obj, String filename) throws IOException
+    {
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filename));
+        oos.writeObject(obj);
+        oos.flush();
+        oos.close();
+    }
+
+    public static Object deserializeObject(String filename) throws IOException, ClassNotFoundException
+    {
+        Object readedObject;
+        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filename));
+        readedObject = ois.readObject();
+        ois.close();
+        return readedObject;
+    }
 }

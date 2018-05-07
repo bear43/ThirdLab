@@ -7,21 +7,22 @@ import java.io.IOException;
 import java.text.ParseException;
 
 import static io.BinaryView.readBinaryFile;
+import static util.Util.deserializeObject;
 import static util.Util.readUTFFile;
 
-public class ControlledDepartmentManager extends DepartmentsManager implements Textable<ControlledDepartmentManager>
+public class ControlledDepartmentManager extends DepartmentsManager implements Textable<ControlledDepartmentManager>, Controllable
 {
 
     protected FileSource<EmployeeGroup> source;
 
     public ControlledDepartmentManager(String title, EmployeeGroup[] deps) {
         super(title, deps);
-        source = new GroupsManagerTextFileSource<>(title);
+        source = new GroupsManagerSerializedFileSource<>();
     }
 
     public ControlledDepartmentManager(String title) {
         super(title);
-        source = new GroupsManagerTextFileSource<>(title);
+        source = new GroupsManagerSerializedFileSource<>();
     }
 
     public FileSource<EmployeeGroup> getSource() {
@@ -138,6 +139,37 @@ public class ControlledDepartmentManager extends DepartmentsManager implements T
             cdm.fromBinary(byteRepresentation, source);
             super.add(cdm);
             source.setPath(root.getAbsolutePath());
+        }
+    }
+
+    public void findAndDeserialize(FileSource source) throws IOException, ClassNotFoundException, AlreadyAddedException
+    {
+        File file = new File(source.getPath());
+        File[] files = file.listFiles(File::isFile);
+        Object obj;
+        for(File f : files)
+        {
+            obj = deserializeObject(f.getAbsolutePath());
+            if(obj instanceof ControlledDepartmentManager)
+                this.add((EmployeeGroup)obj);
+        }
+    }
+
+    public void findAndDeserialize() throws IOException, ClassNotFoundException, AlreadyAddedException
+    {
+        File source = new File(this.source.getPath());
+        File[] dirs = source.listFiles(File::isDirectory);
+        File[] files;
+        Object obj;
+        for(File dir : dirs)
+        {
+            files = dir.listFiles(File::isFile);
+            for(File f : files)
+            {
+                obj = deserializeObject(f.getAbsolutePath());
+                if(obj instanceof ControlledDepartment)
+                    this.add((EmployeeGroup)obj);
+            }
         }
     }
 }

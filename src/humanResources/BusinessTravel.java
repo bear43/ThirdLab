@@ -5,10 +5,7 @@ import io.FileSource;
 import io.Source;
 import io.Textable;
 
-import java.io.ByteArrayInputStream;
-import java.io.DataInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -18,7 +15,7 @@ import java.util.StringTokenizer;
 
 import static io.BinaryView.*;
 
-public final class BusinessTravel implements Textable<BusinessTravel>, BinaryView
+public final class BusinessTravel implements Textable<BusinessTravel>, BinaryView, Serializable
 {
     private static final String defaultPattern = "dd.MM.yyyy hh.mm";
     private static final String defaultExtension = "trl";
